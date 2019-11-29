@@ -61,12 +61,12 @@
                                     <div class="imagebox">
                                         <img id="image"/>
                                     </div>
-                                    <textarea class="textbox" placeholder="내용을 입력하세요 :)"></textarea>
+                                    <textarea class="textbox" name="comment" placeholder="내용을 입력하세요 :)"></textarea>
                                 </div>
                                 <div class="bottom">
                                     <div class="filebox">
                                         <label for="ex_file"><i class="fas fa-camera"></i></label>
-                                        <input type="file" id="ex_file" accept=".jpg,.jpeg,.png,.gif" onchange="LoadImg(this);">
+                                        <input type="file" id="ex_file" name="imgfile" accept=".jpg,.jpeg,.png,.gif" onchange="LoadImg(this);">
                                         <script>
                                             showImg();
                                         <\/script>

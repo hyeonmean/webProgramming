@@ -4,11 +4,15 @@
     
     display: flex;
     justify-content: center;
-    width:50%;
-    height:205px;
-    margin:0 auto;
-    border-bottom:1px solid rgb(199, 199, 199);
-    padding-top:70px;
+    max-width: 850px;
+    min-width: 600px;
+    min-height: 205px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgb(199, 199, 199);
+    padding-top: 70px;
+}
+.count{
+    font-weight:bold;
 }
 .profile_photo{
     margin-left:70px;
@@ -52,6 +56,7 @@
 .follow-count{
     display:inline-block;
     cursor: pointer;
+    
 }
 .follower-count{
     display:inline-block;
@@ -86,14 +91,14 @@
 }
 
 .m-follow{
-	color:black;
-	font-weight:bold;
-	"text-decoration:none";
-	
+    color:black;
+    font-weight:bold;
+    text-decoration:none;
+    
 }
 
 .m-follower{
-	color:black;
-	font-weight:bold;
-	"text-decoration:none";
+    color:black;
+    font-weight:bold;
+    text-decoration:none;
 }
