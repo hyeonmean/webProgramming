@@ -1,8 +1,8 @@
 @charset "utf-8";
 
 .writeBox{
-	margin:0 auto;
-	
+    margin:0 auto;
+    
 }
 
 .writeBox .MainLayout{
@@ -127,14 +127,16 @@
     border: 0;
 }
 .submitbox{
-	outline: none;
+    outline: none;
     background: none;
+    min-width:376px;
     padding: 0px;
     border: 0px solid black;
+    
 }
-.writeBox .submitbox label {
-    display: inline-block;
-    width:376px;
+.writeBox #btn {
+    display:inline-block;
+    min-width:376px;
     padding: .5rem .75rem;
     color: #fff;
     font-size: inherit;
@@ -147,18 +149,19 @@
     border-bottom-right-radius: 14px;
     -webkit-transition: background-color 0.2s;
     transition: background-color 0.2s;
+    
 }
-.writeBox .submitbox label:hover {
+.writeBox #btn:hover {
     background-color:rgb(91, 173, 255);
 }
 
-.writeBox .submitbox label:active {
+.writeBox #btn:active {
     background-color:rgb(0, 17, 255);
 }
-.writeBox .submitbox label{
+.writeBox #btn{
     text-align: center;
 }
-.writeBox .submitbox label i{
+.writeBox label i{
     font-size:2.3rem;
 }
 
@@ -181,8 +184,12 @@
     
 }
 
-
-
+.submitbox{
+    cursor:pointer;
+}
+.fa-paper-plane{
+    color:white;
+}
 /* 마스크 뛰우기 */
 #mask {  
     position: absolute;
