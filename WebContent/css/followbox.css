@@ -1,0 +1,116 @@
+.main_box{
+            
+    width:400px;
+    
+    border-radius: 15px;
+    border:1px solid lightgray;
+}
+
+.main_box i{
+    
+    -webkit-text-stroke: 2px white;
+    font-size:1.5rem;
+    flex-grow:1;
+    padding-right:20px;
+    
+}
+#HeadText{
+    flex-grow:1;
+    padding-left:20px;
+}
+.title{
+    display:flex;
+    margin-top:10px;
+    text-align:end;
+    padding-bottom:10px;
+    border-bottom:1px solid lightgray;
+}
+.ContentBox{
+    overflow:auto;
+    height:350px;
+}
+
+.follower{
+    
+    margin-left:15px;
+    margin-right:15px;
+    margin-top: 10px;
+    display:flex;
+    
+
+
+}
+.username{
+    margin-top:4px;
+    flex-grow:3;
+}
+.userPhoto img{
+    width:28px;
+    height:28px;
+    border-radius: 30px;
+    margin-right:10px;
+
+}
+.status{
+    margin-top:2px;
+    flex-grow:1;
+    text-align:center;
+    width:40px;
+    height:22px;
+    border-radius: 7px;
+    background:rgb(24, 135, 209);
+    font-weight: bold;
+    color:white;
+    
+}
+
+#noFollow{
+    background:white;
+    color:black;
+    border:solid 1px lightgray;
+}
+
+#f-mask {  
+    position: absolute;
+    z-index:9000;  
+    background-color:#000;  
+    display:none;  
+    left:0;
+    top:0;
+    width:100%;
+    height: 100%;
+} 
+/* 팝업으로 뜨는 윈도우 css  */ 
+.f-followevent{
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    /* margin-left: -300px; */
+    background-color: white;
+    z-index: 10000;
+    border-radius: 15px;
+ }
+ 
+ 
+#f2-mask {  
+    position: absolute;
+    z-index:9000;  
+    background-color:#000;  
+    display:none;  
+    left:0;
+    top:0;
+    width:100%;
+    height: 100%;
+} 
+/* 팝업으로 뜨는 윈도우 css  */ 
+.f2-followevent{
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    /* margin-left: -300px; */
+    background-color: white;
+    z-index: 10000;
+    border-radius: 15px;
+ }

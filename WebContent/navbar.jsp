@@ -106,42 +106,8 @@
             <div id = "container">  
                 <div id="mask"></div>
         <div class="window">
-                <div class="writeBox">
-                        <div class="MainLayout">
-                            <form action="url" method="post">
-                                <div class="NameBar">
-                                    <a href="mypage.jsp">
-                                        <div id="ProfilePhoto"><img src="new.jpg"/></div>
-                                        <button id="profile">username</button>
-                                    </a>
-                    
-                                </div>
-                                <div class="contentbox">
-                                        <div class="imagebox">
-                                            <img id="image"/>
-                                        </div>
-                                        <textarea class="textbox" placeholder="내용을 입력하세요 :)"></textarea>
-                    
-                                </div>
-                                <div class="bottom">
-                                    <div class="filebox">
-                                        <label for="ex_file"><i class="fas fa-camera"></i></label>
-                                        <input type="file" id="ex_file" accept=".jpg,.jpeg,.png,.gif" onchange="LoadImg(this);">
-                                        <script>
-                                            showImg();
-                                        </script>
-                                    </div>
-                                    <div class="submitbox">
-                                            <label><i class="fas fa-paper-plane"></i></label>
-                                    </div>
-                                    
-                                </div>
-                                
-                    
-                            </form>
-                        </div>
-                    </div>
-                </div>  
+			<%-- <jsp:include page="WriteBox.jsp"> --%>
+        </div>  
                 </div>
                 </div>
 </body>

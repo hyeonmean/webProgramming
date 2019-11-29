@@ -126,9 +126,15 @@
     clip: rect(0, 0, 0, 0);
     border: 0;
 }
+.submitbox{
+	outline: none;
+    background: none;
+    padding: 0px;
+    border: 0px solid black;
+}
 .writeBox .submitbox label {
     display: inline-block;
-    width:377px;
+    width:376px;
     padding: .5rem .75rem;
     color: #fff;
     font-size: inherit;
@@ -167,10 +173,11 @@
     border: 0;
 }
 .writeBox img{
-    max-width:200px;
+    max-width:201px;
     max-height: 400px;
     padding-bottom:0px;
     margin-bottom:-4px;
+    margin-left:-1px;
     
 }
 

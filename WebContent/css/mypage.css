@@ -49,7 +49,14 @@
     padding-top:20px;
     
 }
-
+.follow-count{
+    display:inline-block;
+    cursor: pointer;
+}
+.follower-count{
+    display:inline-block;
+    cursor: pointer;
+}
 #pro{
     width:180px; 
     height: 180px; 
@@ -76,4 +83,17 @@
     height:auto;
     border-radius: 20px;
     
+}
+
+.m-follow{
+	color:black;
+	font-weight:bold;
+	"text-decoration:none";
+	
+}
+
+.m-follower{
+	color:black;
+	font-weight:bold;
+	"text-decoration:none";
 }

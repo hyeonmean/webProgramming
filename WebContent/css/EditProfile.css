@@ -5,6 +5,7 @@
 	position:relative;
 	width:600px;
 	height:700px;   
+	background-color:none;
 	border:1px solid lightgray;
 }
 .BoxLayout{
@@ -19,6 +20,20 @@
 	height:95px;
 	border-radius: 50px;
 	margin-bottom:10px;
+}
+input[type="file"]{
+	width:1px;
+	overflow:hidden;
+	display:none;
+	padding:0;
+	clip:rect(0,0,0,0);
+	border:0;
+}
+#file-label{
+	cursor: pointer;
+	color:rgb(110, 189, 190);
+	display:block;
+	margin-bottom:5px;
 }
 
 a{
@@ -39,9 +54,8 @@ a{
 }
 .TextBox{
 	display:inline-block;
-    text-align: end;
-  
-	
+	text-align: end;
+	background:none;
 	
 }
 .InputBox form{
@@ -59,7 +73,7 @@ a{
 	
 }
 .TextEditBox{
-
+	background-color:none;
 	border:0px;
 	border-bottom:1px solid lightgray;
 	display:inline-block;
@@ -92,7 +106,7 @@ select{
 }
 
 textarea{
-	 
+
 	border:0px;
 	border-bottom:1px solid lightgray;
 	display:inline-block;

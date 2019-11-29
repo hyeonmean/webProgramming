@@ -112,8 +112,8 @@
                 			</script>
 						</div>
 						<div class="gender">
-							<label><input  type="radio" name="gender" value="male" />남성
-								<input  type="radio" name="gender" value="female" />여성
+							<label><input  type="radio" name="gender" value="man" />남성
+								<input  type="radio" name="gender" value="woman" />여성
 								 <input  type="radio" name="gender" value="nochoice"/>선택하지 않음</label><br>
 						</div>
 						<label><textarea type="text" name="letter" value="한국산업기술대학교 재학중" ></textarea></label><br>

@@ -19,7 +19,7 @@
                     <i class="fas fa-user"></i>     <label><input class="text_box" type= "text" name="id" placeholder="아이디"></label><br>
                     <i class="fas fa-key"></i>     <label for "pass"><input class="text_box" name="pswd" type= 'password' placeholder="비밀번호"></label><br>
                     
-                    <div><button type="button" onclick="loginValidityCheck(); <% %>;">로그인</button></div>
+                    <div><button type="button" onclick="loginValidityCheck();">로그인</button></div>
             </form>
             <div><button onclick="location.href='sign_up.jsp'">회원가입</button></div>
             <div id="forgetPasswordText" >비밀번호를 잊으셨나요?<div style="display:inline-block; color:dodgerblue" onclick="location.replace('./sign_up.html')">비밀번호 찾기</div></div>
