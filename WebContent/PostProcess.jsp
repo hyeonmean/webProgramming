@@ -32,18 +32,21 @@
 	String tag="";
 	
 	//PostPage post=new PostPage();
+	String savePath=request.getServletContext().getRealPath("folder");
+	int maxSize=1024*1024*10;
+	MultipartRequest multi =new MultipartRequest(request,savePath,maxSize,"utf-8",new DefaultFileRenamePolicy());
 	
-	String comment=request.getParameter("comment");
-	//String file=request.getParameter("imgfile");
-	//String[] comment_main=comment.split("#");
-	//int count=comment_main.length;
+	String comment=multi.getParameter("comment");
+	String file=request.getParameter("imgfile");
+	String[] comment_main=comment.split("#");
+	int count=comment_main.length;
 	ArrayList<String> tagList=new ArrayList<String>();
 	
-	/*for(int i=1; i<count; i++){
+	for(int i=1; i<count; i++){
 		tag=comment_main[i];
 		//fulltag=tag.concat(comment_main[i]);
 		tagList.add(tag);
-	}*/
+	}
 	
 	int pictureidx;
 	//ArrayList<String> hashTagList=new ArrayList<String>();
@@ -52,7 +55,7 @@
 	//String comment=request.getParameter("name");
 	
 	//post.findHashTag(comment);
-	//comment=comment_main[0];
+	//본문에 해시태그 comment=comment_main[0];
 	String uploadname= null;
 	
 	//String savePath="C:\\Users\\HM\\Documents\\test\\";
@@ -61,18 +64,17 @@
 	//pictureList.add(path);
 	
 	//String savePath="C:\\Users\\HM\\Documents\\test\\qqqqq.png";
-	String savePath=request.getServletContext().getRealPath("folder");
+	
 	
 	//String name="";
 	//String subject="";
 	String filename = "";
     //String filename2 = "";
 	
-	int maxSize=1024*1024*10;
 	
 
         // request,파일저장경로,용량,인코딩타입,중복파일명에 대한 기본 정책
-        MultipartRequest multi =new MultipartRequest(request,savePath,maxSize,"utf-8",new DefaultFileRenamePolicy());
+        
         filename=multi.getFilesystemName("imgfile");
          
         //name=multi.getParameter("name");
@@ -96,7 +98,7 @@
 	check=dbc.writePostPage(comment, pictureList, tagList);
 	dbc.closeDataBase();
 	
-	//response.sendRedirect("NewsFeed.jsp");
+	response.sendRedirect("NewsFeed.jsp");
 	%>
 </body>
 </html>
