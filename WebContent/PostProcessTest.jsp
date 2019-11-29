@@ -59,7 +59,7 @@
 	//picturename=postindx_num
 	//postindex=??
 	
-	check=dbc.writePostPage(comment, pictureList, post.getHashTagList());
+	check=dbc.writePostPage(comment, pictureList, tagList/*post.getHashTagList()*/);
 	dbc.closeDataBase();
 	
 	//response.sendRedirect("NewsFeed.jsp");

@@ -27,13 +27,26 @@
 	dbc.openDataBase();
 	boolean check=false;
 	
+	String tag="";
+	
 	PostPage post=new PostPage();
 	
-	int pictureidx;
-	ArrayList<String> hashTagList=null;
-	ArrayList<String> pictureList=null;
+	String comment=request.getParameter("comment");
+	String[] comment_main=comment.split("#");
+	int count=comment_main.length;
+	ArrayList<String> tagList=new ArrayList<String>();
 	
-	String comment=request.getParameter("name");
+	for(int i=1; i<count; i++){
+		tag=comment_main[i];
+		//fulltag=tag.concat(comment_main[i]);
+		tagList.add(tag);
+	}
+	
+	int pictureidx;
+	ArrayList<String> hashTagList=new ArrayList<String>();
+	ArrayList<String> pictureList=new ArrayList<String>();
+	
+	//String comment=request.getParameter("name");
 	String savePath=request.getRealPath("/uploadFile/post/");
 	
 	post.findHashTag(comment);
@@ -108,7 +121,7 @@
 	//picturename=postindx_num
 	//postindex=??
 	
-	check=dbc.writePostPage(comment, pictureList, post.getHashTagList());
+	check=dbc.writePostPage(comment, pictureList, tagList);
 	dbc.closeDataBase();
 	
 	response.sendRedirect("NewsFeed.jsp");
