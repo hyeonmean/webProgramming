@@ -51,9 +51,9 @@ function newsfeedPrint(){
 	*/
 }
 
-function myProfilePrint(){
+function myProfilePrint(sessionUserID){
 	//아래의 변수 초기화값은 나중에 삭제할 예정
-	var userID = 'Dongjun', locationOfProfile='profile.JPG', theNumberOfPost = 10, theNumberOfFollow = 15, theNumberOfFollower = 8;
+	var userID = sessionUserID, locationOfProfile='profile.JPG', theNumberOfPost = 10, theNumberOfFollow = 15, theNumberOfFollower = 8;
 	var userName ="임동준";
 	var selfIntroductionVariable = "한국산업기술대학교 재학";
 	var profileTemplate =`
@@ -79,7 +79,7 @@ function myProfilePrint(){
             </div>
         </div>
     </div>`;
-	
+
 	document.write(profileTemplate);
 }
 

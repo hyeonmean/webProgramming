@@ -37,6 +37,7 @@ fuction popup(){
 		session.setAttribute("phone",g_user.getPhoneNumber());*/
 		g_followList.setUserId(g_user.getId());
 		next_page="NewsFeed.jsp";
+		session.setAttribute("userID", user_id);
 	}
 	else{
 		next_page="sign_up.jsp";

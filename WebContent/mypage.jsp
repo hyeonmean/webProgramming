@@ -16,7 +16,8 @@
 
     <!-- 프로필 구성화면 -->
     <script type="text/javascript">
-    	myProfilePrint();
+        var userid = "<%=(String)session.getAttribute("userID")%>"
+    	myProfilePrint(userid);
     </script>
 	
 
