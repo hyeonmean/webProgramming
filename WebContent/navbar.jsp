@@ -45,7 +45,7 @@
                 <div id="mask"></div>
         <div class="window">
             <script type="text/javascript">
-                var userID ="what", locationOfProfileImg="./new.jpg"
+                var userID ="what", locationOfProfileImg="./new.jpg";
                 var writeBoxTemplate = `
                 <div class="writeBox">
                     <div class="MainLayout">
@@ -69,7 +69,7 @@
                                         <input type="file" id="ex_file" accept=".jpg,.jpeg,.png,.gif" onchange="LoadImg(this);">
                                         <script>
                                             showImg();
-                                        </script>
+                                        <\/script>
                                     </div>
                                     <button class="submitbox" type="button">
                                         <label><i class="fas fa-paper-plane"></i></label>
@@ -78,7 +78,7 @@
                         </form>
                     </div>
                 </div>
-                `
+                `;
 
                 document.write(writeBoxTemplate);
             </script>
