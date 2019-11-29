@@ -1,0 +1,42 @@
+
+  button{
+    background:cadetblue;
+    color:#fff;
+    border:none;
+    position:relative;
+    width:300px;
+    height:30px;
+    font-size:1.em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    margin-top:5px;
+    margin-bottom:5px;
+  }
+  button:hover{
+    background:#fff;
+    color:cadetblue;
+  }
+  button:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: cadetblue;
+    transition:400ms ease all;
+  }
+  button:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  button:hover:before,button:hover:after{
+    width:100%;
+    transition:800ms ease all; 
+  }
+  
+  

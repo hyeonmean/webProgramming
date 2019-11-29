@@ -1,0 +1,252 @@
+i{
+    vertical-align: middle;
+    transition:300ms ease all;
+    
+}
+.fa-heart:hover{
+    font-size:2rem;
+    vertical-align: middle;
+    transition:300ms ease all; 
+}
+.fa-heart.active-color{
+    color:rgb(255, 78, 78);
+    font-weight: 900;
+}
+.fa-comment-dots:hover{
+    font-size:2rem;
+    transition:300ms ease all; 
+}
+.fa-share-square:hover{
+    font-size:2rem;
+    transition:300ms ease all; 
+}
+.fa-bookmark:hover{
+    font-size:2rem;
+    transition:300ms ease all; 
+}
+.back__arrow{
+	
+	cursor:pointer;
+	width:45px;
+    height: 45px;
+    position: fixed;
+    text-align: center;
+    top:12%;
+    left:3%;
+    border-radius: 40px;
+    justify-items: center;
+}
+.back{
+    opacity: 0.6;
+    cursor: pointer;
+    width:45px;
+    position:absolute;
+    height: 45px;
+    outline:none;
+    border:none;
+    background:none;
+    font-size:1.6rem;
+	border-radius: 40px;
+    background:rgb(245,245,245);
+    padding:0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.back__arrow i{	
+    cursor:pointer;
+    opacity: 0.9;
+    font-size:1.6rem;
+
+}
+.l-out{
+	display:flex;
+	margin-top:23px;
+}
+.MainBox{
+    max-width:896px;
+    display:flex;
+    border:1px solid lightgray;
+    border-radius: 20px;
+    margin:0 auto;
+    flex-shrink:0;
+   
+}
+.FeedPhoto{
+    flex-grow:1;
+    max-width:500px;
+    margin-bottom: -4px;
+}
+.FeedPhoto img{
+    max-width: 500px;
+    max-height:700px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}   
+.contentLayout{
+    display:flex;
+    flex-direction: column;
+    
+}
+.NameBar{
+    width:396px;
+    height:65px;
+    border-bottom:1px solid lightgray;
+    position:relative;
+}
+
+#ProfilePhoto{
+    display:inline-block;
+    cursor:pointer;
+    border-radius: 50px;
+}
+.NameBar #ProfilePhoto{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+
+}
+#ProfilePhoto img{
+    
+    width:40px;
+    height:40px;
+    border-radius: 50px;
+    margin-left:20px;
+    margin-right:20px;
+}
+.profile{
+    cursor:pointer;
+    background:white;
+    display:inline-block;
+    border:0px;
+    font-size:1rem;
+    font-weight: 600;
+    padding:0;
+}
+.setting{
+    text-align: end;
+    
+    
+}
+
+.fa-ellipsis-h{
+    margin-top:17px;
+    margin-right:23px;
+    font-size:2rem;
+    color:rgb(53, 53, 53);
+    -webkit-text-stroke: 3px white;
+    cursor: pointer;
+
+    
+}
+
+.Text{
+    display:inline;
+}
+.NameBar .profile{
+    
+    position:absolute;
+    
+    
+    top:50%;
+    transform:translateY(-50%);
+    margin-left:70px;
+    margin-right:10px;
+    
+    
+}
+.follow{
+    position:absolute;
+    display:inline-block;
+    cursor:pointer;
+    background:white;
+    border:0px;
+    outline:0px;
+    background:0;
+    border-radius: 5px;
+    color:lightseagreen;
+    
+    top:50%;
+    transform:translateY(-50%);
+    margin-left:155px;
+    
+}
+.TextLayout{
+    flex-grow:1;
+    margin-top:10px;
+    border-bottom:1px solid lightgray;
+    overflow:auto;
+    flex-shrink:0;
+    
+}
+.Content{
+    position:relative;
+}
+.TextBox{
+    display:inline;
+    position:absolute;
+    margin-left:-9px;
+}
+.Date{  
+    margin-top:5px;
+    color:rgb(170, 170, 170);
+    font-size:0.8rem;
+}
+.BottomLayout{
+    margin-top:10px;
+    margin-left:17px;
+    height:80px;
+    
+}
+.BottomLayout i{
+    font-size:1.35rem;
+    padding-right:7px;
+    color:rgb(29, 30, 46);
+    -webkit-text-stroke: 0.5px white;
+    cursor:pointer; 
+}
+.icon{
+    height:30px;
+    cursor:pointer;
+    display:inline-block;
+    
+}
+.like{
+    margin-top:5px;
+    margin-left:3px;
+    margin-bottom:3px;
+}
+.ReplyLayout{
+    border-top:1px solid lightgray;
+    height:40px;
+}
+.ReplyBox{
+    display:flex;
+    height:40px;
+    align-items: center;
+    justify-content: center;
+    margin-left:17px;
+}
+.ReplyBox .reply{
+    height:38px;
+    flex-grow:1;
+    border:0px;
+    color:black;
+    outline:none;
+    
+}
+.ReplyBox button{
+    margin-right:10px;
+    width:50px;
+    color:dodgerblue;
+    border:0px;
+    background:white;
+    outline:none;
+    cursor:pointer;
+    font-size:0.9rem;
+    
+}
+.ReplyBox input::placeholder{
+    color:lightgray;
+}
+figure{
+    cursor:pointer;
+}

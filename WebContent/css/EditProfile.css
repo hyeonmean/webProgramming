@@ -1,0 +1,112 @@
+@charset "utf-8";
+
+.EditBox{
+	margin:0 auto;
+	position:relative;
+	width:600px;
+	height:700px;   
+	border:1px solid lightgray;
+}
+.BoxLayout{
+	text-align: center;
+	
+	
+}
+#ProfilePhoto{
+	display:inline-block;
+	margin-top:30px;
+	width:95px;
+	height:95px;
+	border-radius: 50px;
+	margin-bottom:10px;
+}
+
+a{
+	
+	color:dodgerblue;
+	border:0px;
+	text-decoration: none;
+	
+}
+#EditPhoto{
+	margin-top:-5px;
+	margin-bottom: 20px;
+}
+.TextLayout{
+	justify-content: center;
+	display:flex;
+	flex-direction: row;
+}
+.TextBox{
+	display:inline-block;
+    text-align: end;
+  
+	
+	
+}
+.InputBox form{
+    display:inline-block;
+    text-align:left;
+    padding-left:30px;
+}
+.Text{
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-weight: bold;
+	font-size:1.1rem;
+	margin-bottom:20px;
+	padding-top:4px;
+	height:30px;
+	
+}
+.TextEditBox{
+
+	border:0px;
+	border-bottom:1px solid lightgray;
+	display:inline-block;
+	width:250px;
+	height:30px;
+	margin-bottom:20px;
+	
+}
+#PhoneBox{
+    margin-top:5px;
+    
+    
+}
+#PhoneNum{
+    width:76px;
+    margin-bottom:23px;
+    border:0px;
+    border-bottom:1px solid lightgray;
+}
+.BirthDay{
+    margin-top:7px;
+    margin-bottom:35px;
+    margin-left:-2px;
+}
+
+select{
+    width: 62px;
+    border:0px;
+    border-bottom:1px solid lightgray;
+}
+
+textarea{
+	 
+	border:0px;
+	border-bottom:1px solid lightgray;
+	display:inline-block;
+	width:250px;
+    height:100px;
+    margin-top:29px;
+	margin-bottom:20px;
+	background-color:rgb(250, 250, 250);
+}
+.EditBox #sbmt{
+	background-color:rgb(248, 248, 248);
+	border:1px solid lightgray;
+	font-weight: bold;
+	border-radius: 3px;
+	margin-left:42px;   
+	
+}
