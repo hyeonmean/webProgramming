@@ -9,6 +9,10 @@ public class QueryList {
 	public static String HAVE_SAME_ID = "select exists "
 			+ "(select * from User where id = ?) as success";
 	
+	//게시글이 존재하는 지 확인
+	public static String IS_POSTPAGE_EXIST = "select exists "
+			+ "(select * from PostPage where postIdx = ?) as success";
+	
 	public static String SIGN_UP = "insert into User("
 			+ "id,"
 			+ "pswd,"
@@ -75,5 +79,49 @@ public class QueryList {
 	
 	//댓글 쓰기
 	public static String WRITE_COMMENT="call insert_comment(?, ?, ?, @result)";
+	
+	//댓글 삭제
+	public static String DELETE_COMMENT = "call delete_comment(?, @result)";
+	
+	public static class SearchPostPageByIndex {
+		//picture index로 게시물관련 데이터 찾기
+		
+		//게시글 기본 데이터 찾기
+		public static String SEARCH_POSTPAGE_BY_IDX = "select * from PostPage where postIdx = ?";
+		
+		//게시글 인덱스로 해쉬데이터 찾기
+		public static String SEARCH_HASHTAG_FROM_POST = "select tagName from HashTag where postIdx = ?";
+		
+		//게시글 인덱스로 댓글 찾기
+		public static String SEARCH_COMMENT_IDX_FROM_POST = "select idx from PostComment where postIdx = ?";
+		
+		//게시글 인덱스로 그림 찾기
+		public static String SEARCH_PICTURE_IDX_FROM_POST = "select pictureIdx from Picture where postIdx = ?";
+		
+		//게시글 인덱스로 좋아요 리스트 찾기
+		public static String SERACH_FAVORITE_USER_FROM_POST = 
+				"select userId from Picture where postIdx = ?";
+	}
+	
+	//그림 및 댓글 데이터 찾기
+	public static String SEARCH_PICTURE_DATA_BY_IDX = "select * from Picture where pictureIdx = ?";
+	public static String SEARCH_COMMENT_DATA_BY_IDX = "select * from PostComment where idx = ?";
+	
+	//해당 유저에 대한 모든 정보 찾기
+	public static String SEARCH_ABOUT_USER = "select * from User where id = ?";
+	
+	//해당 유저가 팔로잉한 다른 유저의 아이디 찾기
+	public static String SEARCH_FOLLOWER_USER = "select followerID from Follow where followingID = ?";
+	
+	//해당 유저가 팔로잉 된 다른 유저의 아이디 찾기
+	public static String SEARCH_FOLLOWING_USER = "select followingID from Follow where followerID = ?";
+	
+	//뉴스피드 -> 게시글 인덱스만
+	public static String GET_NEWSFEED = "select postIdx from PostPage where userId in "
+			+ "( select followingID from Follow where followerID = ?) "
+			+ "order by writeDate desc limit 10";
+	
+	//유저 삭제
+	public static String DELETE_USER = "call delete_user(?, @result)";
 
 }

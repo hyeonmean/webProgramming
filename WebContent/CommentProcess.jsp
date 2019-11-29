@@ -17,13 +17,23 @@
 	String next_page;
 	boolean check=false;
 	
-	int commentIdx=1;
 	int postIdx=1;
+	String postIndex=request.getParameter("postIndex");
+	postIdx=(Integer.parseInt(postIndex));
 	String userId=g_user.getId();
 	String comment=request.getParameter("comment");
-	Calendar writeDate;
 	
-	dbc.writeComment(postIdx, comment);
+	check=dbc.writeComment(postIdx, comment);
+	
+	dbc.closeDataBase();
+	
+	if(check==true){
+		next_page="";
+	}
+	else{
+		next_page="";
+	}
+	response.sendRedirect(next_page);
 	%>
 
 </body>

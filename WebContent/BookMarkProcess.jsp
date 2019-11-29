@@ -12,14 +12,17 @@
 </head>
 <body>
 	<%;
+	g_user.setId("admin12");//임시
 	UserDBController dbc= new UserDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02", g_user);
 	dbc.openDataBase();
 	String next_page;
 	boolean check=false;
 	
-	String postIdx = request.getParameter("postIdx");
+	//String postIdx = request.getParameter("postIdx");
+	int postIdx=10;//임시
 	
-	check=dbc.setBookMark(Integer.parseInt(postIdx));
+	//check=dbc.setBookMark(Integer.parseInt(postIdx));
+	check=dbc.setBookMark(postIdx);
 	
 	//db에서 유저정보 받기
 	if(check==true){

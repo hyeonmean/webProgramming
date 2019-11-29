@@ -21,6 +21,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<script type="text/javascript">alert("check")</script>
 	<%
 	UserDBController dbc= new UserDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02", g_user);
 	dbc.openDataBase();
@@ -108,6 +109,7 @@
 	//postindex=??
 	
 	check=dbc.writePostPage(comment, pictureList, post.getHashTagList());
+	dbc.closeDataBase();
 	
 	response.sendRedirect("NewsFeed.jsp");
 	%>

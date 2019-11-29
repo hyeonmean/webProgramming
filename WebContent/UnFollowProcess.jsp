@@ -13,6 +13,7 @@
 <body>
 	
 	<%;
+	g_user.setId("admin12");//임시
 	UserDBController dbc= new UserDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02", g_user);
 	dbc.openDataBase();
 	String next_page;
@@ -21,8 +22,9 @@
 	String user_follow = request.getParameter("follow");
 	String user_following= request.getParameter("following");
 	User user=null;
+	String test="admin";//임시
 	
-	check=dbc.unFollow(user_following);
+	check=dbc.unFollow(test);
 	
 	//db에서 유저정보 받기
 	if(check==true){

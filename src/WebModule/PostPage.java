@@ -103,7 +103,7 @@ public class PostPage {
 	public void findHashTag(String str) {
 	    Pattern p = Pattern.compile("\\#([0-9a-zA-Z°¡-ÆR]*)");
 	    Matcher m = p.matcher(str);
-	    ArrayList<String> list = null;
+	    ArrayList<String> list = new ArrayList<String>();
 	 
 	    while(m.find()) {
 	    	list.add(m.group());
