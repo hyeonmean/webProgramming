@@ -3,79 +3,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-        <meta charset="utf-8"/>
-        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-        <link rel="stylesheet" href="./css/common.css" type="text/css" />
-        <link rel="stylesheet" href="./css/WriteBox.css" type="text/css" />
-        <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
-        <script type="text/javascript" src="./writeBox.js"></script>
-        <script type="text/javascript">
-            function wrapWindowByMask(){
- 
-                //화면의 높이와 너비를 구한다.
-                var maskHeight = $(document).height();  
-                var maskWidth = $(window).width();  
-
-                //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채운다.
-                $("#mask").css({"width":maskWidth,"height":maskHeight});  
-
-                //애니메이션 효과 - 일단 0초동안 까맣게 됐다가 60% 불투명도로 간다.
-
-                $("#mask").fadeIn(0);      
-                $("#mask").fadeTo("slow",0.6);    
-
-                //윈도우 같은 거 띄운다.
-                $(".window").show();
-
-            }
-        </script>
-        <script type="text/javascript">
-                $(document).ready(function(){
-                 //검은 막 띄우기
-                 $(".openMask").click(function(e){
-                     e.preventDefault();
-                     wrapWindowByMask();
-                 });
-         
-                 //닫기 버튼을 눌렀을 때
-                 $(".window .close").click(function (e) {  
-                     //링크 기본동작은 작동하지 않도록 한다.
-                     e.preventDefault();  
-                     $("#mask, .window").hide();  
-                 });       
-         
-                 //검은 막을 눌렀을 때
-                 $("#mask").click(function () {  
-                     $(this).hide();  
-                     $(".window").hide();  
-                
-                 });      
-         
-                });
-        </script>
-        <script type="text/javascript">
-            function showImg(){                        
-             document.getElementById("ex_file").onchange = function () {
-             var reader = new FileReader();
-                 reader.onload = function (e) {
-                     // get loaded data and render thumbnail.
-                     document.getElementById("image").src = e.target.result;
-                 };
-                 // read the image file as a data URL.
-                 reader.readAsDataURL(this.files[0]);
-                };
-                }
-                </script>
-
-
-
-
-
-
-
+    <meta charset="utf-8"/>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="./css/common.css" type="text/css" />
+    <link rel="stylesheet" href="./css/WriteBox.css" type="text/css" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="./writeBox.js"></script>
 </head>
+
 <body>
+    <script type="text/javascript" src="./writeBox.js"></script>
         <div class="menu">
             <a class="logo" href="./NewsFeed.jsp"><i class="fas fa-circle-notch"></i></a>
             <label class="searchBar" style="text-align: center;">
@@ -106,7 +44,44 @@
             <div id = "container">  
                 <div id="mask"></div>
         <div class="window">
-			<%-- <jsp:include page="WriteBox.jsp"> --%>
+            <script type="text/javascript">
+                var userID ="what", locationOfProfileImg="./new.jpg"
+                var writeBoxTemplate = `
+                <div class="writeBox">
+                    <div class="MainLayout">
+                        <form action="PostProcess.jsp" method="post">
+                            <div class="NameBar">
+                                <a href="mypage.jsp">
+                                    <div id="ProfilePhoto"><img src=${locationOfProfileImg}/></div>
+                                    <button id="profile">${userID}</button>
+                                </a>
+                   
+                               </div>
+                               <div class="contentbox">
+                                    <div class="imagebox">
+                                        <img id="image"/>
+                                    </div>
+                                    <textarea class="textbox" placeholder="내용을 입력하세요 :)"></textarea>
+                                </div>
+                                <div class="bottom">
+                                    <div class="filebox">
+                                        <label for="ex_file"><i class="fas fa-camera"></i></label>
+                                        <input type="file" id="ex_file" accept=".jpg,.jpeg,.png,.gif" onchange="LoadImg(this);">
+                                        <script>
+                                            showImg();
+                                        </script>
+                                    </div>
+                                    <button class="submitbox" type="button">
+                                        <label><i class="fas fa-paper-plane"></i></label>
+                                    </button>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+                `
+
+                document.write(writeBoxTemplate);
+            </script>
         </div>  
                 </div>
                 </div>

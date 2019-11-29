@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<heml>
+<html>
     <head>
     <!-- 사용자 뉴스피드화면, 서버로부터 동적으로 데이터 받아와야함. 한번에 10개쯤? 받아오는게 좋을 듯 하다 -->
         <meta charset="utf-8"/>            
@@ -27,5 +27,5 @@
 
 
     </body>
-</heml>
+</html>
 
