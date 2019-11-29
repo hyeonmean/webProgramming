@@ -32,6 +32,7 @@
 	PostPage post=new PostPage();
 	
 	String comment=request.getParameter("comment");
+	String file=request.getParameter("imgfile");
 	String[] comment_main=comment.split("#");
 	int count=comment_main.length;
 	ArrayList<String> tagList=new ArrayList<String>();
@@ -62,11 +63,6 @@
 	
 	String name ="";
     String subject ="";
-     
-    /*String fileName1 ="";// 중복처리된 이름
-    String originalName1 ="";// 중복 처리전 실제 원본 이름
-    long fileSize =0;// 파일 사이즈
-    String fileType ="";// 파일 타입*/
     
     FileInputStream fin = null;
     FileOutputStream fout = null;
@@ -124,7 +120,7 @@
 	check=dbc.writePostPage(comment, pictureList, tagList);
 	dbc.closeDataBase();
 	
-	response.sendRedirect("NewsFeed.jsp");
+	//response.sendRedirect("NewsFeed.jsp");
 	%>
 </body>
 </html>

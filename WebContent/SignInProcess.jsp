@@ -39,20 +39,21 @@ fuction popup(){
 		session.setAttribute("name",g_user.getName());
 		session.setAttribute("phone",g_user.getPhoneNumber());*/
 		//g_followList.setUserId(g_user.getId());
-		g_followList.setFollowerList(dbc2.searchFollowerUser(g_user.getId()));
-		g_followList.setFollowID(dbc2.searchFollowingUser(g_user.getId()));
+		//g_followList.setFollowerList(dbc2.searchFollowerUser(g_user.getId()));
+		//g_followList.setFollowID(dbc2.searchFollowingUser(g_user.getId()));
+		dbc2.closeDataBase();
 		session.setAttribute("userID",user_id);
 		next_page="NewsFeed.jsp";
+		response.sendRedirect(next_page);
 	}
 	else{
+		
 		next_page="sign_up.jsp";
-		//로그인 실패
 	}
 	//dbc.closeDataBase();
-	
-	
-	response.sendRedirect(next_page);
 	%>
+	<script type="text/javascript">alert("로그인실패")</script>
+	<%response.sendRedirect(next_page); %>
 	
 
 </body>
