@@ -71,7 +71,7 @@
                                             showImg();
                                         <\/script>
                                     </div>
-                                    <button class="submitbox" type="button">
+                                    <button class="submitbox">
                                         <label><i class="fas fa-paper-plane"></i></label>
                                     </button>
                                 </div>
