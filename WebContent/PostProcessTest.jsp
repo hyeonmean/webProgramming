@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ page import="WebModule.*"%>
 <%@ page import="java.util.*"%>
 <%@ include file="global.jsp"%>
@@ -36,7 +36,7 @@
 	ArrayList<String> hashTagList=new ArrayList<String>();
 	ArrayList<String> pictureList=new ArrayList<String>();
 	
-	String comment="°¡³ª´Ù¶ó#ÇØ½Ã   #ÅÂ±×???";
+	String comment="ê°€ë‚˜ë‹¤ë¼#í•´ì‹œ   #íƒœê·¸???";
 	String[] comment_main=comment.split("#");
 	int count=comment_main.length;
 	ArrayList<String> tagList=new ArrayList<String>();
