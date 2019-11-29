@@ -28,7 +28,7 @@
 <body>
     <div class="writeBox">
     <div class="MainLayout">
-        <form action="url" method="post">
+        <form action="PostProcess.jsp" method="post" >
             <div class="NameBar">
                 <a href="mypage.jsp">
                     <div id="ProfilePhoto"><img src="new.jpg"/></div>

@@ -26,11 +26,16 @@
 	dbc.openDataBase();
 	boolean check=false;
 	
+	PostPage post=new PostPage();
+	
 	int pictureidx;
 	ArrayList<String> hashTagList=null;
+	ArrayList<String> pictureList=null;
 	
 	String comment=request.getParameter("name");
 	String savePath=request.getRealPath("/uploadFile/post/");
+	
+	post.findHashTag(comment);
 	
 	String uploadFile = "";
 	 
@@ -61,7 +66,7 @@
         multi =new MultipartRequest(request,savePath,maxSize,"utf-8",new DefaultFileRenamePolicy());
          
     	 // 파일업로드
-        uploadFile = multi.getFilesystemName("name정하고");
+        //uploadFile = multi.getFilesystemName("name정하고");
  
         // 실제 저장할 파일명(ex : 20140819151221.zip)
         newFileName = simDf.format(new Date(currentTime));
@@ -72,7 +77,8 @@
  
          
         // 실제 저장될 파일 객체 생성
-        File newFile = new File(savePath + newFileName);
+        File newFile = new File(savePath + newFileName + g_user.getId());
+        pictureList.add(savePath + newFileName + g_user.getId());
          
  
         // 파일명 rename
@@ -101,7 +107,9 @@
 	//picturename=postindx_num
 	//postindex=??
 	
-	//check=dbc.writePostPage(comment, pictureList, hashTagList);
+	check=dbc.writePostPage(comment, pictureList, post.getHashTagList());
+	
+	response.sendRedirect("NewsFeed.jsp");
 	%>
 </body>
 </html>

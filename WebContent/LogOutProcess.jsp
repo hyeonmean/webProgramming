@@ -11,7 +11,7 @@
 <body>
 	<%
 		session.invalidate();
-		response.sendRedirect("로그인화면");
+		response.sendRedirect("sign_in.jsp");
 	%>
 
 </body>

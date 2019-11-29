@@ -4,6 +4,8 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.tomcat.util.codec.binary.StringUtils;
+
 
 public class PostPage {
 	private int postIdx;
@@ -98,6 +100,14 @@ public class PostPage {
 		this.favoriteList=builder.favoriteList;
 	}
 	
-	
-
+	public void findHashTag(String str) {
+	    Pattern p = Pattern.compile("\\#([0-9a-zA-Z°¡-ÆR]*)");
+	    Matcher m = p.matcher(str);
+	    ArrayList<String> list = null;
+	 
+	    while(m.find()) {
+	    	list.add(m.group());
+	    }
+	    this.setHashTagList(list);
+	}
 }
