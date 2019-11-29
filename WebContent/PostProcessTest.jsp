@@ -26,7 +26,8 @@
 	UserDBController dbc= new UserDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02", g_user);
 	dbc.openDataBase();
 	boolean check=false;
-	String fulltag, tag=null;
+	String fulltag="";
+	String tag="";
 	
 	
 	PostPage post=new PostPage();
@@ -38,19 +39,21 @@
 	String comment="가나다라#해시   #태그???";
 	String[] comment_main=comment.split("#");
 	int count=comment_main.length;
+	ArrayList<String> tagList=new ArrayList<String>();
 	
 	for(int i=1; i<count; i++){
-		//tag=comment_main[i];
-		fulltag=tag.concat(comment_main[i]);
+		tag=comment_main[i];
+		//fulltag=tag.concat(comment_main[i]);
+		tagList.add(tag);
 	}
 	
 	String savePath="C:\\Users\\HM\\Documents\\test\\qqqqq.png";
 	
-	comment=comment_main[1];
+	comment=comment_main[0];
 	
 	pictureList.add(savePath);
 	
-	post.findHashTag(comment);
+	post.findHashTag(fulltag);
 
 
 	//picturename=postindx_num
