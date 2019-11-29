@@ -53,7 +53,7 @@
 	
 	pictureList.add(savePath);
 	
-	post.findHashTag(fulltag);
+	//post.findHashTag(fulltag);
 
 
 	//picturename=postindx_num

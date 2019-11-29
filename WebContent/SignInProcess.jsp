@@ -48,13 +48,11 @@ fuction popup(){
 	}
 	else{
 		
-		next_page="sign_up.jsp";
 	}
 	//dbc.closeDataBase();
 	%>
 	<script type="text/javascript">alert("로그인실패")</script>
-	<%response.sendRedirect(next_page); %>
-	
+
 
 </body>
 </html>
