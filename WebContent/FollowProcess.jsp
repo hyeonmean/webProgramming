@@ -13,19 +13,13 @@
 <body>
 	
 	<%
-	g_user.setId("admin12");//임시
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	String next_page;
 	boolean check=false;
-	//g_user=dbc.searchAboutUser("admin12");
 	
+	String user_following;
 	
-	//String user_follow = request.getParameter("follow");
-	//String user_following= request.getParameter("following");
-	User user=null;
-	String user_following="admin";//임시
-	
-	check=dbc.follow(user_following);
+	//check=dbc.follow(user_following);
 	
 	//db에서 유저정보 받기
 	if(check==true){

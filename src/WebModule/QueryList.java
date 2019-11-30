@@ -56,7 +56,8 @@ public class QueryList {
 			+ "phoneNumber = ?, "
 			+ "gender = ?, "
 			+ "letter = ?, "
-			+ "birthday = ? "
+			+ "birthday = ?, "
+			+ "profileAddress=? "
 			+ "where id = ?";
 	
 	//Ʈ������ ���� ������

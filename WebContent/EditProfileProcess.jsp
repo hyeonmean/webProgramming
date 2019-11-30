@@ -3,6 +3,9 @@
 <%@ page import="WebModule.*"%>
 <%@ page import="java.util.*" %>
 <%@ include file="global.jsp"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
+<%@ page import="java.io.*"%>
 
 <!DOCTYPE html>
 <html>
@@ -12,49 +15,82 @@
 </head>
 <body>
 	<%
+	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
+	dbc.openDataBase();
+	String user_id=(String)session.getAttribute("userID");
+	User user=dbc.searchAboutUser(user_id);
+	
 	String next_page;
 	boolean check=false;
 	
-	String user_name=request.getParameter("name");
+	String profilePath=user.getProfilePictureAddress();
 	
-	String num1=request.getParameter("phone1");
-	String num2=request.getParameter("phone2");
-	String num3=request.getParameter("phone3");
+	String savePath="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures";
+	
+	int maxSize=1024*1024*10;
+	
+	MultipartRequest multi =new MultipartRequest(request,savePath,maxSize,"utf-8",new DefaultFileRenamePolicy());	
+	
+	String filename = "";
+    
+	filename=multi.getFilesystemName("img_file");
+	
+	String fullPath=savePath+"\\"+filename;
+	
+	String user_name=multi.getParameter("name");
+	
+	String num1=multi.getParameter("phone1");
+	String num2=multi.getParameter("phone2");
+	String num3=multi.getParameter("phone3");
 	String user_phone=num1+num2+num3;
 	
-	String year=request.getParameter("user_birth_year");
-	String month=request.getParameter("user_birth_month");
-	String day=request.getParameter("user_birth_day");
+	String year=multi.getParameter("user_birth_year");
+	String month=multi.getParameter("user_birth_month");
+	String day=multi.getParameter("user_birth_day");
 	String birthday=year+"-"+month+"-"+day;
 	
 	//String user_age=request.getParameter("age");
-	String user_gender=request.getParameter("gender");
-	String user_letter=request.getParameter("letter");
-	String user_pictureAddress=request.getParameter("EditPhoto");
-	String user_date=request.getParameter("date");
+	String user_gender=multi.getParameter("gender");
+	String user_letter=multi.getParameter("letter");
+	String user_pictureAddress=fullPath;
+	String user_date=multi.getParameter("date");
 	boolean user_manage=false;
 	boolean lock=false;
 	Gender u_gender;
 	
-	if(user_gender.equals("male")){
+	if(user_gender.equals("man")){
 		u_gender=Gender.Male;
 	}
-	else if(user_gender.equals("female")){
+	else if(user_gender.equals("woman")){
 		u_gender=Gender.Female;
 	}
 	else{
 		u_gender=Gender.Unknown;
 	}
+	File f= new File(profilePath);
+	if(f.exists())
+		f.delete();
 	
-	g_user.setName(user_name);
-	g_user.setPhoneNumber(user_phone);
-	g_user.setGender(u_gender);
-	g_user.setLetter(user_letter);
-	g_user.setProfilePictureAddress(user_pictureAddress);
+	user.setName(user_name);
+	user.setPhoneNumber(user_phone);
+	user.setGender(u_gender);
+	user.setLetter(user_letter);
+	user.setProfilePictureAddress(fullPath);
 	
-	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
+	dbc.closeDataBase();
+	
+	session.removeAttribute("DBController");
+	
+	UserDBController dbc2= new UserDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02", user);
+	dbc2.openDataBase();
+	
+	session.setAttribute("DBController", dbc2);
+	
 		
-	check=dbc.editProfile();
+	check=dbc2.editProfile();
+	
+	dbc2.closeDataBase();
+	
 
 	
 	%>

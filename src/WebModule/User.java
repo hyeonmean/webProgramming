@@ -4,13 +4,13 @@ import java.util.Calendar;
 
 public class User {
 
-    //ÇÊ¼ö »çÇ×
+    //ï¿½Ê¼ï¿½ ï¿½ï¿½ï¿½ï¿½
     private String id;
     private String pswd;
     private String name;
     private String phoneNumber;
 
-    //¼±ÅÃ »çÇ×
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private int age;
     private Gender gender;
     private String letter;
@@ -18,17 +18,17 @@ public class User {
     private String profilePictureAddress;
     private Calendar date;
 
-    //ÀÚµ¿ ÀÔ·ÂµÇ´Â ºÎºÐ (true ·Î ÀÚµ¿¼³Á¤)
-    private boolean locked; //°ü¸®ÀÚ¿¡ ÀÇÇÑ »ç¿ë ±ÝÁö ¿©ºÎ
+    //ï¿½Úµï¿½ ï¿½Ô·ÂµÇ´ï¿½ ï¿½Îºï¿½ (true ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½)
+    private boolean locked; //ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     /*
-    Àú°Å ±×´ë·Î ¾²¸é
-    ÆÄ¶ó¹ÌÅÍ¸¦ È°¿ëÇÑ »ý¼ºÀÚ ÄÚµå°¡ °³ÆÇÀÌ µÇ¹Ç·Î
-    ºô´õÆÐÅÏ Àû¿ë
-    ¾Æ´Ï¸é ÀÚ¹ÙºóÁî setProperty »ç¿ëÇØµµ µÇ±¸¿ä..
+    ï¿½ï¿½ï¿½ï¿½ ï¿½×´ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    ï¿½Ä¶ï¿½ï¿½ï¿½Í¸ï¿½ È°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµå°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¹Ç·ï¿½
+    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    ï¿½Æ´Ï¸ï¿½ ï¿½Ú¹Ùºï¿½ï¿½ï¿½ setProperty ï¿½ï¿½ï¿½ï¿½Øµï¿½ ï¿½Ç±ï¿½ï¿½ï¿½..
      */
 
-    //ÀÚ¹ÙºóÁî¿ë »ý¼º Å¬·¡½º
+    //ï¿½Ú¹Ùºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
     public User() {
 
     }
@@ -50,7 +50,7 @@ public class User {
     public void setId(String id) { this.id = id; }
     public void setPswd(String pswd) { this.pswd = pswd; }
     public void setName(String name) { this.name = name; }
-    public void setPhoneNumber(String phoneNumber) { this.name = phoneNumber; }
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
     public void setAge(int age) { this.age = age; }
     public void setGender(Gender gender) { this.gender = gender; }
     public void setLetter(String letter) { this.letter = letter; }
@@ -62,17 +62,17 @@ public class User {
     public void setLocked(boolean locked) { this.locked = locked; }
 
 
-    // ÀÚ¹Ù ºóÁî¸¦ »ç¿ëÇÏÁö ¾Ê°í
-    // ½ßÀ¸·Î »ý¼ºÇÒ °æ¿ì ºô´õ Å¬·¡½º »ç¿ë
+    // ï¿½Ú¹ï¿½ ï¿½ï¿½ï¿½î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
     public static class Builder {
 
-        //ÇÊ¼ö »çÇ×
+        //ï¿½Ê¼ï¿½ ï¿½ï¿½ï¿½ï¿½
         private String id;
         private String pswd;
         private String name;
         private String phoneNumber;
 
-        //¼±ÅÃ »çÇ×
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         private int age;
         private Gender gender;
         private String letter;
@@ -80,11 +80,11 @@ public class User {
         private String profilePictureAddress;
         private Calendar date;
 
-        //ÀÚµ¿ ÀÔ·ÂµÇ´Â ºÎºÐ (true ·Î ÀÚµ¿¼³Á¤)
-        private boolean locked; //°ü¸®ÀÚ¿¡ ÀÇÇÑ »ç¿ë ±ÝÁö ¿©ºÎ
+        //ï¿½Úµï¿½ ï¿½Ô·ÂµÇ´ï¿½ ï¿½Îºï¿½ (true ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½)
+        private boolean locked; //ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-        // ÇÊ¼ö ÀÔ·Â »çÇ×µé
-        // ¾ÆÀÌµð, ÆÐ½º¿öµå, ÀÌ¸§, Àü¹ø
+        // ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½×µï¿½
+        // ï¿½ï¿½ï¿½Ìµï¿½, ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½
         public Builder(String _id, String _pswd, String _name, String _phoneNumber,
                        boolean _isManager, boolean _locked) {
 
@@ -112,15 +112,15 @@ public class User {
                 throw new NullPointerException("Name length must not be zero");
             this.phoneNumber = _phoneNumber;
 
-            //¿î¿µÀÚ ¿©ºÎ¿Í, »ç¿ëÀÚ Àá±Ý ¿©ºÎ·Î
-            //È¸¿ø °¡ÀÔ ½Ã ÇÊ¼öÀÔ·ÂÀº ¾Æ´ÏÁö¸¸
-            //µÑ ´Ù false·Î Äõ¸®¹®ÀÌ ³¯¶ó°£´Ù.
+            //ï¿½î¿µï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î·ï¿½
+            //È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê¼ï¿½ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ï¿½ï¿½ï¿½ï¿½
+            //ï¿½ï¿½ ï¿½ï¿½ falseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ó°£´ï¿½.
             this.isManager = _isManager;
             this.locked = _locked;
 
         }
 
-        //³ª¸ÓÁö¾ÖµéÀº ¼±ÅÃ»çÇ×
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½
         /*
         private int age;
         private Gender gender;
@@ -149,12 +149,12 @@ public class User {
             return this;
         }
 
-        //ºôµå
+        //ï¿½ï¿½ï¿½ï¿½
         public User build() {
             return new User(this);
         }
     }
-    //ºô´õ¸¦ È°¿ëÇÑ »ý¼ºÀÚ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private User(Builder _builder) {
         this.id = _builder.id;
         this.pswd = _builder.pswd;

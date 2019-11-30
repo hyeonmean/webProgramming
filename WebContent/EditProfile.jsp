@@ -50,7 +50,7 @@
  
         $(document).ready(function() {
             $("#profile_file").on("change", handleImgFileSelect);
-        }); `
+        }); '
  
         function handleImgFileSelect(e) {
             var files = e.target.files;

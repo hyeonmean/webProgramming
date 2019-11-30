@@ -12,15 +12,17 @@
 </head>
 <body>
 	<%
-	/*
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();
-	int postIdx;
+	String idx=request.getParameter("postIdx");
+	int postIdx=Integer.parseInt(idx);
 	boolean check=false;
+	check=dbc.deletePostPage(postIdx);
+	
 	dbc.closeDataBase();
-	//postIdx=getAttribute("postIndex");
-	//check=dbc.deletePostPage(postIdx);
-	*/
+	
+	response.sendRedirect("NewsFeed.jsp");
+	
 	%>
 
 	<script type="text/javascript">
