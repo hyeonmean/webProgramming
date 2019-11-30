@@ -18,7 +18,7 @@
 
 	boolean check=false;
 	
-	String user_following = request.getParameter("following");
+	String user_following = request.getParameter("followingID");
 	
 	check=dbc.follow(user_following);
 	
