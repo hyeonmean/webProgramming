@@ -1,17 +1,19 @@
 package WebModule;
 
 public class QueryList {
-	//·Î±×ÀÎ
+	//ï¿½Î±ï¿½ï¿½ï¿½
 	public static String SIGN_IN = "select exists "
 			+ "(select * from User where id = ? and pswd = ?) as success";
 	
-	//È¸¿ø °¡ÀÔ ÇÏ±â Àü¿¡ ¶È°°Àº ¾ÆÀÌµð°¡ ÀÖ´Â Áö È®ÀÎ
+	//È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ È®ï¿½ï¿½
 	public static String HAVE_SAME_ID = "select exists "
 			+ "(select * from User where id = ?) as success";
 	
-	//°Ô½Ã±ÛÀÌ Á¸ÀçÇÏ´Â Áö È®ÀÎ
+	//ï¿½Ô½Ã±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ È®ï¿½ï¿½
 	public static String IS_POSTPAGE_EXIST = "select exists "
 			+ "(select * from PostPage where postIdx = ?) as success";
+	
+	public static String GET_POST_PAGE_BY_ID = "select * from PostPage where userId = ?";
 	
 	public static String SIGN_UP = "insert into User("
 			+ "id,"
@@ -28,27 +30,27 @@ public class QueryList {
 			+ ") values ("
 			+ "?,?,?,?,?,?,?,?,?,?,?)";
 	
-	//ÁÁ¾Æ¿ä
-	//1 -> °Ô½Ã±Û ÀÎµ¦½º
-	//2 -> À¯Àú¾ÆÀÌµð
+	//ï¿½ï¿½ï¿½Æ¿ï¿½
+	//1 -> ï¿½Ô½Ã±ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+	//2 -> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½
 	public static String FAVORITE = "insert into Favorite(postIdx, userId, favoriteDate) "
 			+ "values(?, ? , date_format(now(), '%Y-%m-%d %H:%i:%s'))";
 	
-	//¾ÈÁÁ¾Æ¿ä
-	//1 -> °Ô½Ã±Û ÀÎµ¦½º
-	//2 -> À¯Àú¾ÆÀÌµð
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½
+	//1 -> ï¿½Ô½Ã±ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+	//2 -> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½
 	public static String UNFAVORITE = "delete from Favorite where postIdx = ? and userId = ?";
 	
-	//ÆÈ·Î¿ì, ¾ðÆÈ·Î¿ì
+	//ï¿½È·Î¿ï¿½, ï¿½ï¿½ï¿½È·Î¿ï¿½
 	public static String FOLLOW = "insert into Follow(followerID, followingID) values (?,?)";
 	public static String UNFOLLOW = "delete from Follow where followerID = ? and followingID = ?";
 	
-	//ºÏ¸¶Å© ¼³Á¤/ÇØÁ¦
-	//°Ô½Ã±Û ÀÎµ¦½º, À¯Àú¾ÆÀÌµð
+	//ï¿½Ï¸ï¿½Å© ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½
+	//ï¿½Ô½Ã±ï¿½ ï¿½Îµï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½
 	public static String SET_BOOKMARK = "insert into BookMark(postIdx, userId) values(?,?)";
 	public static String UNSET_BOOKMARK = "delete from BookMark where postIdx = ? and userId = ?";
 	
-	//ÇÁ·ÎÇÊ ¼öÁ¤
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public static String EDIT_PROFILE = "update User "
 			+ "set name = ?, "
 			+ "phoneNumber = ?, "
@@ -57,73 +59,73 @@ public class QueryList {
 			+ "birthday = ? "
 			+ "where id = ?";
 	
-	//Æ®·£Á§¼Ç ¼³Á¤ Äõ¸®¹®
+	//Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public static String START_TRANSACTION = "start transaction";
 	public static String ROLLBACK = "rollback";
 	public static String COMMIT = "commit";
 	
-	//ÀÏºÎ ÇÁ·Î½ÃÀú¿¡ ´ëÇÑ °á°ú°ª º¸±â
+	//ï¿½Ïºï¿½ ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public static String GET_RESULT = "select @result";
 	
-	// °Ô½Ã±Û »ðÀÔ Äõ¸®¹®
-	// ¾ê´Â ¿©·¯°³¸¦ »ç¿ëÇØ¾ß ÇÏ±â ¶§¹®¿¡
-	// Å¬·¡½º·Î ¹­À½
+	// ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public static class MakePostPage {
 		public static String MAKE_POST_PAGE = "call make_PostPage(?,?,@result)";
 		public static String GET_POST_IDX = "select @result";
 		public static String UPLOAD_PICTURE = "call insert_picture(?,?,@result)";
 		public static String UPLOAD_HASHTAG = "insert into HashTag(tagName, postIdx) values(?,?)";
 	}
-	//°Ô½Ã¹° »èÁ¦
+	//ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public static String DELETE_POST_PAGE = "call delete_PostPage(?, @result)";
 	
-	//´ñ±Û ¾²±â
+	//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public static String WRITE_COMMENT="call insert_comment(?, ?, ?, @result)";
 	
-	//´ñ±Û »èÁ¦
+	//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public static String DELETE_COMMENT = "call delete_comment(?, @result)";
 	
 	public static class SearchPostPageByIndex {
-		//picture index·Î °Ô½Ã¹°°ü·Ã µ¥ÀÌÅÍ Ã£±â
+		//picture indexï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½
 		
-		//°Ô½Ã±Û ±âº» µ¥ÀÌÅÍ Ã£±â
+		//ï¿½Ô½Ã±ï¿½ ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½
 		public static String SEARCH_POSTPAGE_BY_IDX = "select * from PostPage where postIdx = ?";
 		
-		//°Ô½Ã±Û ÀÎµ¦½º·Î ÇØ½¬µ¥ÀÌÅÍ Ã£±â
+		//ï¿½Ô½Ã±ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½
 		public static String SEARCH_HASHTAG_FROM_POST = "select tagName from HashTag where postIdx = ?";
 		
-		//°Ô½Ã±Û ÀÎµ¦½º·Î ´ñ±Û Ã£±â
+		//ï¿½Ô½Ã±ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½
 		public static String SEARCH_COMMENT_IDX_FROM_POST = "select idx from PostComment where postIdx = ?";
 		
-		//°Ô½Ã±Û ÀÎµ¦½º·Î ±×¸² Ã£±â
+		//ï¿½Ô½Ã±ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ Ã£ï¿½ï¿½
 		public static String SEARCH_PICTURE_IDX_FROM_POST = "select pictureIdx from Picture where postIdx = ?";
 		
-		//°Ô½Ã±Û ÀÎµ¦½º·Î ÁÁ¾Æ¿ä ¸®½ºÆ® Ã£±â
+		//ï¿½Ô½Ã±ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Ã£ï¿½ï¿½
 		public static String SERACH_FAVORITE_USER_FROM_POST = "select userId from Favorite where postIdx = ?";
 	}
 	
-	//±×¸² ¹× ´ñ±Û µ¥ÀÌÅÍ Ã£±â
+	//ï¿½×¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½
 	public static String SEARCH_PICTURE_DATA_BY_IDX = "select * from Picture where pictureIdx = ?";
 	public static String SEARCH_COMMENT_DATA_BY_IDX = "select * from PostComment where idx = ?";
 	
-	//ÇØ´ç À¯Àú¿¡ ´ëÇÑ ¸ðµç Á¤º¸ Ã£±â
+	//ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½
 	public static String SEARCH_ABOUT_USER = "select * from User where id = ?";
 	
-	//ÇØ´ç À¯Àú°¡ ÆÈ·ÎÀ×ÇÑ ´Ù¸¥ À¯ÀúÀÇ ¾ÆÀÌµð Ã£±â
+	//ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ Ã£ï¿½ï¿½
 	public static String SEARCH_FOLLOWER_USER = "select followerID from Follow where followingID = ?";
 	
-	//ÇØ´ç À¯Àú°¡ ÆÈ·ÎÀ× µÈ ´Ù¸¥ À¯ÀúÀÇ ¾ÆÀÌµð Ã£±â
+	//ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ Ã£ï¿½ï¿½
 	public static String SEARCH_FOLLOWING_USER = "select followingID from Follow where followerID = ?";
 	
-	//´º½ºÇÇµå -> °Ô½Ã±Û ÀÎµ¦½º¸¸
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½ -> ï¿½Ô½Ã±ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½
 	public static String GET_NEWSFEED = "select postIdx from PostPage where userId in "
 			+ "( select followingID from Follow where followerID = ?) "
 			+ "order by writeDate desc limit 10";
 	
-	//À¯Àú »èÁ¦
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public static String DELETE_USER = "call delete_user(?, @result)";
 	
-	//ÇØ½ÃÅÂ±×¿¡ Æ÷ÇÔµÈ °Ô½Ã±Û ºÒ·¯¿À±â
+	//ï¿½Ø½ï¿½ï¿½Â±×¿ï¿½ ï¿½ï¿½ï¿½Ôµï¿½ ï¿½Ô½Ã±ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 	public static String GET_POST_BY_HASHTAG = "select pp.postIdx from PostPage as pp " + 
 			"join HashTag as ht on ht.tagName = ? " + 
 			"where ht.postIdx = pp.postIdx";

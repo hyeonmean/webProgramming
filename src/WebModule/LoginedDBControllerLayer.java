@@ -13,8 +13,8 @@ import java.sql.*;
 import WebModule.*;
 import WebModule.User.Builder;
 
-//ÀÏ¹İÀ¯Àú¿Í °ü¸®ÀÚ µÑ ´Ù »ç¿ëÇÏ´Â
-//Ãß»ó Å¬·¡½º
+//ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
+//ï¿½ß»ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
 public abstract class LoginedDBControllerLayer extends DBController {
 	
 	protected User userInfo;
@@ -25,14 +25,14 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		userInfo = newUser;
 	}
 	
-	// Äõ¸®¹®À» »ç¿ëÇÑ DBÃ³¸®
-	// º¸Åë SQLExceptionÀÌ ¶á °ÍÀº
-	// ½ÇÆĞÇß´Ù´Â °ÍÀ» ÀÇ¹ÌÇÑ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ DBÃ³ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ SQLExceptionï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ß´Ù´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½Ñ´ï¿½.
 	
-	//ÁÁ¾Æ¿ä, ¾ÈÁÁ¾Æ¿ä
-	//parameter -> °Ô½Ã±Û ÀÎµ¦½º
-	//ÁÁ¾Æ¿ä
-	//@param -> int postIdx -> °Ô½Ã±Û ¹øÈ£
+	//ï¿½ï¿½ï¿½Æ¿ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½
+	//parameter -> ï¿½Ô½Ã±ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+	//ï¿½ï¿½ï¿½Æ¿ï¿½
+	//@param -> int postIdx -> ï¿½Ô½Ã±ï¿½ ï¿½ï¿½È£
 	public boolean favorite(int postIdx) throws SQLException {
 		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.FAVORITE);
 		pstmt.setInt(1, postIdx);
@@ -41,8 +41,8 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		return true;
 	}
 	
-	//¾ÈÁÁ¾Æ¿ä
-	//@param -> int postIdx -> °Ô½Ã±Û ¹øÈ£
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½
+	//@param -> int postIdx -> ï¿½Ô½Ã±ï¿½ ï¿½ï¿½È£
 	public boolean disFavofite(int postIdx) throws SQLException {
 		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.UNFAVORITE);
 		pstmt.setInt(1, postIdx);
@@ -51,7 +51,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		return true;
 	}
 	
-	//ÆÈ·Î¿ì, ¾ğÆÈ·Î¿ì
+	//ï¿½È·Î¿ï¿½, ï¿½ï¿½ï¿½È·Î¿ï¿½
 	public boolean follow(String followingId) throws SQLException {
 		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.FOLLOW);
 		pstmt.setString(1, this.userInfo.getId());
@@ -69,8 +69,8 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		return true;
 	}
 	
-	//ºÏ¸¶Å© ¼³Á¤ ÇØÁ¦
-	//ÀÎÀÚ°ª -> °Ô½Ã±Û ÀÎµ¦½º
+	//ï¿½Ï¸ï¿½Å© ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	//ï¿½ï¿½ï¿½Ú°ï¿½ -> ï¿½Ô½Ã±ï¿½ ï¿½Îµï¿½ï¿½ï¿½
 	public boolean setBookMark(int postIdx) throws SQLException {
 		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.SET_BOOKMARK);
 		pstmt.setInt(1, postIdx);
@@ -87,13 +87,13 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		return true;
 	}
 	
-	// ÇÁ·ÎÇÊ ¼öÁ¤
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	/*
-	 * ÇÁ·ÎÇÊ ¼öÁ¤Àº
-	 * ÀÚ±â ÀÚ½ÅÀÇ userinfoÀÇ µ¥ÀÌÅÍ¸¦ ±×´ë·Î
-	 * DB¿¡ ¾÷µ¥ÀÌÆ® ÇÏ¸ç
-	 * ÀÌ¸¦ ¼öÇà ÇÏ±â Àü¿¡
-	 * set¸Ş¼Òµå·Î µ¥ÀÌÅÍ¸¦ ¼öÁ¤ÇØ¾ß ÇÑ´Ù.
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * ï¿½Ú±ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ userinfoï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½×´ï¿½ï¿½
+	 * DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï¸ï¿½
+	 * ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½
+	 * setï¿½Ş¼Òµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½Ñ´ï¿½.
 	 */
 	public boolean editProfile() throws Exception {
 		
@@ -103,14 +103,14 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		pstmt.setString(1,  userInfo.getName());
 		pstmt.setString(2, userInfo.getPhoneNumber());
 		
-		//¼ºº° ³Î°ª ¿©ºÎ
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½Î°ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(userInfo.getGender() == null) {
 			pstmt.setString(3, Gender.Unknown.getTable1Value());
 		} else {
 			pstmt.setString(3, userInfo.getGender().getTable1Value());
 		}
 		
-		//ÀÚ±â¼Ò°³ ¿©ºÎ
+		//ï¿½Ú±ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if( userInfo.getLetter() == null) {
 			pstmt.setNull(4, Types.VARCHAR);
 		} else if(userInfo.getLetter().length() == 0 ) {
@@ -119,7 +119,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 			pstmt.setString(4, userInfo.getLetter());
 		}
 		
-		//µ¥ÀÌÆ® ³Î°ª ¿©ºÎ
+		//ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Î°ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(userInfo.getDate() != null) {
 			Calendar birthDay = userInfo.getDate();
 			
@@ -131,33 +131,33 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		}
 		pstmt.setString(6, userInfo.getId());
 		
-		//Äõ¸®¹® ¼öÇà
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		pstmt.executeUpdate();
 		pstmt.close();
 		
 		return true;
 	}
 	
-	//°Ô½Ã±Û ¿Ã¸®±â
+	//ï¿½Ô½Ã±ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½
 	public boolean writePostPage(String comment, ArrayList<String> pictureList, ArrayList<String> hashTagList) 
 		throws Exception {
 		
 		PreparedStatement pstmt = null;
 		
-		//µ¥ÀÌÅÍ Ä§¹üÀ» ¹æÁöÇÏ±â À§ÇÑ Æ®·£Àè¼Ç ¼³Á¤
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä§ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		pstmt = this.conn.prepareStatement(QueryList.START_TRANSACTION);
 		pstmt.executeUpdate();
 		pstmt.close();
-		//Æ®·£Á§¼ÇÀ» °É¾î³õ¾Ò±â ¶§¹®¿¡ ¿¹¿ÜÃ³¸® ¾ÈÇÏ¸é ÅÍÁü
+		//Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¾ï¿½ï¿½ï¿½Ò±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 		try  {
-			//ÀÏ´Ü °Ô½Ã±ÛºÎÅÍ ¿Ã¸®ÀÚ
+			//ï¿½Ï´ï¿½ ï¿½Ô½Ã±Ûºï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½
 			pstmt = this.conn.prepareStatement(QueryList.MakePostPage.MAKE_POST_PAGE);
 			pstmt.setString(1,  this.userInfo.getId());
 			pstmt.setString(2, comment);
 			pstmt.executeUpdate();
 			pstmt.close();
 			
-			//¿Ã¸° ÈÄ °Ô½Ã±Û ÀÎµ¦½º °®°í¿À±â
+			//ï¿½Ã¸ï¿½ ï¿½ï¿½ ï¿½Ô½Ã±ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			pstmt = this.conn.prepareStatement(QueryList.MakePostPage.GET_POST_IDX);
 			ResultSet result = pstmt.executeQuery();
 			
@@ -165,7 +165,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 			int postIdx = result.getInt("@result");
 			pstmt.close();
 			
-			//ÇØ½ÃÅÂ±×¸¦ ¿Ã¸®ÀÚ
+			//ï¿½Ø½ï¿½ï¿½Â±×¸ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½
 			if(hashTagList != null) {
 				Iterator<String> cursor = hashTagList.iterator();
 				pstmt = this.conn.prepareStatement(QueryList.MakePostPage.UPLOAD_HASHTAG);
@@ -179,9 +179,9 @@ public abstract class LoginedDBControllerLayer extends DBController {
 				pstmt.close();
 			}
 			
-			//ÆÄÀÏ ¾÷·Îµå´Â jsp¿¡¼­ Ã³¸®
+			//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ï¿½ jspï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 			
-			//ÆÄÀÏ ÁÖ¼Ò¸¦ ¾÷·ÎµåÇÏÀÚ
+			//ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼Ò¸ï¿½ ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½
 			if(pictureList != null) {
 				Iterator<String> cursor = pictureList.iterator();
 				pstmt = this.conn.prepareStatement(QueryList.MakePostPage.UPLOAD_PICTURE);
@@ -194,7 +194,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 				pstmt.close();
 			}
 			
-			//¿Ï·á
+			//ï¿½Ï·ï¿½
 			pstmt = this.conn.prepareStatement(QueryList.COMMIT);
 			pstmt.executeUpdate();
 			pstmt.close();
@@ -209,17 +209,17 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		return true;
 	}
 	
-	//´ñ±Û ´Ş±â
-	//¿¡·¯ ½Ã ¿¹¿Ü
-	//´ñ±Û ´Ş±â ½ÇÆĞ(ÀÎµ¦½º¿¡ ÇØˆÔÇÏ´Â °Ô½Ã±Û ¾øÀ½) ½Ã false ¹İÈ¯
+	//ï¿½ï¿½ï¿½ ï¿½Ş±ï¿½
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ ï¿½Ş±ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Øˆï¿½ï¿½Ï´ï¿½ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ false ï¿½ï¿½È¯
 	public boolean writeComment(int postIdx, String comment) throws SQLException {
 		
 		PreparedStatement pstmt = null;
-		//°á°ú°ªÀ» °¡Á®¿Í¾ß ÇÏ¹Ç·Î Æ®·£Á§¼Ç ¼³Á¤
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¾ï¿½ ï¿½Ï¹Ç·ï¿½ Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		pstmt = this.conn.prepareStatement(QueryList.START_TRANSACTION);
 		pstmt.executeUpdate();
 		
-		// ´ñ±Û ¿Ã¸®±â
+		// ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½
 		try {
 			pstmt = this.conn.prepareStatement(QueryList.WRITE_COMMENT);
 		
@@ -238,7 +238,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 			rSet.close();
 			pstmt.close();
 			
-			//¼º°ø ½Ã ³¡³»±â
+			//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			pstmt = this.conn.prepareStatement(QueryList.COMMIT);
 			pstmt.executeUpdate();
 			pstmt.close();
@@ -255,33 +255,33 @@ public abstract class LoginedDBControllerLayer extends DBController {
 	}	
 	
 	
-	//ÀÎµ¦½º·Î °Ô½Ã±Û Á¤º¸ Ã£±â(ÃÖ¼Ò ´ÜÀ§ ¿¬»ê)
-	//µğºñ¿¡·¯ -> Exception
-	//¼º°ø½Ã PostPage
-	//½ÇÆĞ½Ã null
+	//ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½(ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	//ï¿½ï¿½ñ¿¡·ï¿½ -> Exception
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ PostPage
+	//ï¿½ï¿½ï¿½Ğ½ï¿½ null
 	public PostPage searchPostPageByPostIdx(int postIdx) throws Exception {
 		
-		PostPage resultPostPage = null; //¸®ÅÏ°ª
+		PostPage resultPostPage = null; //ï¿½ï¿½ï¿½Ï°ï¿½
 		PreparedStatement pstmt = null;
 		
-		//ÇØ´ç ÀÎµ¦½º¿¡ Á¸ÀçÇÏ´Â °Ô½Ã±ÛÀÌ ÀÖ´Â Áö È®ÀÎ
+		//ï¿½Ø´ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô½Ã±ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ È®ï¿½ï¿½
 		pstmt = this.conn.prepareStatement(QueryList.IS_POSTPAGE_EXIST);
 		pstmt.setInt(1, postIdx);
 		
 		ResultSet rSet = pstmt.executeQuery();
-		//¾ø¾îÁü
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		rSet.next();
 		if(rSet.getInt("success") == 0)
 			return null;
 		rSet.close();
 		pstmt.close();
 		
-		//Æ÷½ºÆ®ÆäÀÌÁö µ¥ÀÌÅÍ »Ì¾Æ³»±â
-		//1.±âº» µ¥ÀÌÅÍ »Ì¾Æ³»±â
+		//ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¾Æ³ï¿½ï¿½ï¿½
+		//1.ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¾Æ³ï¿½ï¿½ï¿½
 		pstmt = this.conn.prepareStatement(QueryList.SearchPostPageByIndex.SEARCH_POSTPAGE_BY_IDX);
 		pstmt.setInt(1, postIdx);
 		
-		//µ¥ÀÌÅÍ ¹Ş±â
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ş±ï¿½
 		rSet = pstmt.executeQuery();
 		rSet.next();
 		
@@ -290,13 +290,13 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		Calendar writeDate = Calendar.getInstance();
 		writeDate.setTime(rSet.getDate("writeDate"));
 		
-		//Builder »ı¼º
+		//Builder ï¿½ï¿½ï¿½ï¿½
 		PostPage.Builder builder = new PostPage.Builder(postIdx, userId, comment, writeDate);
 		
 		rSet.close();
 		pstmt.close();
 		
-		//±×¸² ÀÎµ¦½º Ã£±â
+		//ï¿½×¸ï¿½ ï¿½Îµï¿½ï¿½ï¿½ Ã£ï¿½ï¿½
 		pstmt = this.conn.prepareStatement(QueryList.SearchPostPageByIndex.SEARCH_PICTURE_IDX_FROM_POST);
 		pstmt.setInt(1, postIdx);
 		rSet = pstmt.executeQuery();
@@ -307,7 +307,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		rSet.close();
 		pstmt.close();
 		
-		//ÇØ½¬µ¥ÀÌÅÍ Ã£±â
+		//ï¿½Ø½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½
 		pstmt = this.conn.prepareStatement(QueryList.SearchPostPageByIndex.SEARCH_HASHTAG_FROM_POST);
 		pstmt.setInt(1, postIdx);
 		rSet = pstmt.executeQuery();
@@ -318,7 +318,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		rSet.close();
 		pstmt.close();
 		
-		//´ñ±Û ÀÎµ¦½º Ã£±â
+		//ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ Ã£ï¿½ï¿½
 		pstmt = this.conn.prepareStatement(QueryList.SearchPostPageByIndex.SEARCH_COMMENT_IDX_FROM_POST);
 		pstmt.setInt(1, postIdx);
 		rSet = pstmt.executeQuery();
@@ -330,7 +330,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		pstmt.close();
 		
 
-		//ÁÁ¾Æ¿ä ¸®½ºÆ® Ã£±â
+		//ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Ã£ï¿½ï¿½
 		pstmt = this.conn.prepareStatement(QueryList.SearchPostPageByIndex.SERACH_FAVORITE_USER_FROM_POST);
 		pstmt.setInt(1, postIdx);
 		rSet = pstmt.executeQuery();
@@ -341,19 +341,19 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		rSet.close();
 		pstmt.close();
 		
-		//Ãß°¡
+		//ï¿½ß°ï¿½
 		builder.pictureList(pictureIdxList)
 			.commentList(commentIdxList)
 			.hashTagList(hashTagList)
 			.favoriteList(favoriteList);		
 		
-		//ºôµåÇÏ°í ¸®ÅÏ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 		resultPostPage = builder.build();
 		return resultPostPage;
 		
 	}
-	//ÀÖÀ¸¸é Picture
-	//¾øÀ¸¸é null Ã³¸®
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Picture
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ null Ã³ï¿½ï¿½
 	public Picture searchPictureDataByIdx(int pictureIdx) throws Exception {
 		PreparedStatement pstmt = null;
 		pstmt = this.conn.prepareStatement(QueryList.SEARCH_PICTURE_DATA_BY_IDX);
@@ -370,8 +370,8 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		return resultPictureData;
 	}
 	
-	//´ñ±Û µ¥ÀÌÅÍ Ã£±â
-	//ÀÖÀ¸¸é µ¥ÀÌÅÍ, ¾øÀ¸¸é null
+	//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ null
 	public PostComment searchPostCommentDataByIdx(int commentIdx) throws Exception {
 		PreparedStatement pstmt = null;
 		pstmt = this.conn.prepareStatement(QueryList.SEARCH_COMMENT_DATA_BY_IDX);
@@ -381,7 +381,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		if(rSet.next() == false)
 			return null;
 		
-		// µ¥ÀÌÅÍ ÃßÃâ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		int postIdx = rSet.getInt("postIdx");
 		String userId = rSet.getString("userId");
 		String comment = rSet.getString("comment");
@@ -394,8 +394,8 @@ public abstract class LoginedDBControllerLayer extends DBController {
 	}
 	
 	
-	//À¯Àú µ¥ÀÌÅÍ °®°í ¿À±â
-	//¾øÀ¸¸é ³Î Ã³¸®
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã³ï¿½ï¿½
 	public User searchAboutUser(String id) throws Exception {
 		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.HAVE_SAME_ID);
 		pstmt.setString(1, id);
@@ -406,17 +406,17 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		if( result == 0)
 			return null;
 		else {
-			// À¯Àú µ¥ÀÌÅÍ °®°í ¿À±â
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			rSet.close();
 			pstmt.close();
 			pstmt = this.conn.prepareStatement("select * from User where id = ?");
 			pstmt.setString(1, id);
 			rSet = pstmt.executeQuery();
 			
-			//´ÙÀ½À¸·Î ³Ñ°Ü¾ß µ¥ÀÌÅÍ¸¦ ¹ŞÀ» ¼ö ÀÖÀ½
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°Ü¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			rSet.next();
 			
-			// User¸¦ ¸¸µé±â À§ÇÑ ºô´õ »ı¼º
+			// Userï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			User.Builder builder = new Builder(
 				rSet.getString("id"), rSet.getString("pswd"),
 				rSet.getString("name"), rSet.getString("phoneNumber"),
@@ -424,7 +424,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 			);
 			builder.age(rSet.getInt("age"));
 			
-			//³ªÀÌ
+			//ï¿½ï¿½ï¿½ï¿½
 			Gender gender = null;
 			if(rSet.getString("gender").equals("male") )
 				gender = Gender.Male;
@@ -434,41 +434,41 @@ public abstract class LoginedDBControllerLayer extends DBController {
 				gender = Gender.Unknown;
 			builder.gender(gender);
 			
-			//ÀÚ±â¼Ò°³
+			//ï¿½Ú±ï¿½Ò°ï¿½
 			builder.letter(rSet.getString("letter"));
-			//»çÁø ÁÖ¼Ò
+			//ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½
 			builder.profilePictureAddress(rSet.getString("profileAddress"));
 			
-			//»ıÀÏÀÎµ¥ Date°¡ ¸®ÅÏ°ªÀÌ¹Ç·Î Calendar·Î ÀüÈ¯
+			//ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ Dateï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ï¿½Ì¹Ç·ï¿½ Calendarï¿½ï¿½ ï¿½ï¿½È¯
 			Date tmpDate = rSet.getDate("birthday");
 			
 			
-			//null°ªÀÌ ¾Æ´Ï¸é Ã³¸®
+			//nullï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¸ï¿½ Ã³ï¿½ï¿½
 			if(tmpDate != null) {
 				Calendar cal = Calendar.getInstance();
 				
 				cal.setTime(tmpDate);
 				builder.date(cal);
 			}
-			else //null°ªÀÌ¸é null°ª Áı¾î³Ö±â
+			else //nullï¿½ï¿½ï¿½Ì¸ï¿½ nullï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
 			{
 				builder.date(null);
 			}
 			pstmt.close();
 			rSet.close();
 			
-			//ºôµå!
+			//ï¿½ï¿½ï¿½ï¿½!
 			return builder.build();
 		}
 	}
 	
-	//ÇØ´ç À¯Àú°¡ ÆÈ·ÎÀ×ÇÑ ´Ù¸¥ À¯ÀúÀÇ ¾ÆÀÌµğ Ã£±â
+	//ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ Ã£ï¿½ï¿½
 	public ArrayList<String> searchFollowerUser(String followingID) throws Exception {
 		
 		PreparedStatement pstmt = this.conn.prepareCall(QueryList.SEARCH_FOLLOWER_USER);
 		pstmt.setString(1, followingID);
 		
-		//µ¥ÀÌÅÍ °®°í¿À±â
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		ResultSet rSet = pstmt.executeQuery();
 
 		ArrayList<String> resultList = new ArrayList<>();
@@ -498,8 +498,24 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		return resultList;
 	}
 	
-	//´º½ºÇÇµå
-	//°Ô½Ã±Û ÀÎµ¦½º ¸®½ºÆ®
+	//ìœ ì € ì•„ì´ë””ì— ëŒ€í•œ ê²Œì‹œê¸€ ë¦¬ìŠ¤íŠ¸ ë§Œë“¤ê¸°
+	public ArrayList<Integer> getPostPageIdxByUserId(String userId) throws Exception {
+		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.GET_POST_PAGE_BY_ID);
+		pstmt.setString(1, userId);
+		ResultSet rSet = pstmt.executeQuery();
+		
+		ArrayList<Integer> postIdxList = new ArrayList<>();
+		
+		while(rSet.next())
+			postIdxList.add(rSet.getInt("postIdx"));
+		rSet.close();
+		pstmt.close();
+	
+		return postIdxList;
+	}
+	
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½
+	//ï¿½Ô½Ã±ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	public ArrayList<Integer> getNewsFeed() throws Exception {
 		
 		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.GET_NEWSFEED);
@@ -526,7 +542,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		
 	}
 	
-	//ÇØ½ÃÅÂ±×¿¡ µû¸¥ °Ô½Ã±Û ÀÎµ¦½º ¸®½ºÆ® ºÒ·¯¿À±â
+	//ï¿½Ø½ï¿½ï¿½Â±×¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã±ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 	public ArrayList<Integer> getPostPageIdxByHashTag(String tagName) throws Exception {
 		
 		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.GET_POST_BY_HASHTAG);
@@ -543,7 +559,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		return postIdxList;
 	}
 	
-	//»èÁ¦°ü·Ã ±â´ÉÀº ±ÇÇÑ¿¡ µû¶ó ´Ù¸§
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½
 	public abstract boolean deletePostPage(int postIdx) throws Exception;
 	public abstract boolean deleteComment(int cmtIdx) throws Exception;
 

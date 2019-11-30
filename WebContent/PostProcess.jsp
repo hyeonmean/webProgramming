@@ -33,7 +33,8 @@
 	String tag="";
 	
 	//PostPage post=new PostPage();
-	String savePath=request.getServletContext().getRealPath("folder");
+	//String savePath=request.getServletContext().getRealPath("folder");
+	String savePath="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\postPictures";
 	int maxSize=1024*1024*10;
 	MultipartRequest multi =new MultipartRequest(request,savePath,maxSize,"utf-8",new DefaultFileRenamePolicy());
 	

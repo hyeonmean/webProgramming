@@ -19,7 +19,7 @@
             <i class="fas fa-user"></i>     <label><input class="text_box" type= "text"  name="id" placeholder="아이디" ></label><br>
             <i class="fas fa-key"></i>     <label for "pass"><input class="text_box" name="pswd" type= 'password'  placeholder="비밀번호"></label><br>
             <i class="fas fa-key"></i>     <label for "pass"><input class="text_box" name="checkpswd" type= 'password' placeholder="비밀번호확인"></label><br>
-            <i class="fas fa-user"></i>     <label><input class="text_box" type= "text"  name="usermame" placeholder="이름" ></label><br>
+            <i class="fas fa-user"></i>     <label><input class="text_box" type= "text"  name="username" placeholder="이름" ></label><br>
             <i class="fas fa-phone"></i>     						
             <div id="PhoneBox">
                 <input id = "PhoneNum"  type="text" name="phone1" value="010"/>-

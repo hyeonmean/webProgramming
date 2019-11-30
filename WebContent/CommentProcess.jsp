@@ -13,13 +13,15 @@
 <body>
 	<%
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
+	String userId=session.getId();
+	User user=dbc.searchAboutUser(userId);
 	String next_page;
 	boolean check=false;
 	
-	int postIdx=1;
+	int postIdx=0;
 	String postIndex=request.getParameter("postIndex");
 	postIdx=(Integer.parseInt(postIndex));
-	String userId=g_user.getId();
+	
 	String comment=request.getParameter("comment");
 	
 	check=dbc.writeComment(postIdx, comment);

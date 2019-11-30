@@ -20,7 +20,7 @@
 	//전해받은 유저 정보
 		String user_id = request.getParameter("id");
 		String user_pw= request.getParameter("pswd");
-		String user_name=/*request.getParameter("name")*/"name";
+		String user_name=request.getParameter("username");
 		
 		String num1=request.getParameter("phone1");
 		String num2=request.getParameter("phone2");
@@ -30,6 +30,7 @@
 		String user_age=/*request.getParameter("age")*/"20";
 		String user_gender=request.getParameter("gender");
 		String user_letter=null;
+		//기본프로필 경로
 		String user_pictureAddress=null;
 		String user_date=request.getParameter("date");
 		
@@ -40,12 +41,15 @@
 		
 		if(user_gender.equals("male")){
 			u_gender=Gender.Male;
+			user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\male.gif";
 		}
 		else if(user_gender.equals("female")){
 			u_gender=Gender.Female;
+			user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\female.gif";
 		}
 		else{
 			u_gender=Gender.Unknown;
+			user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\unknown.gif";
 		}
 		
 		
