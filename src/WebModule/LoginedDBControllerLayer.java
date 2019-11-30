@@ -11,6 +11,7 @@ import java.util.Date;
 import java.sql.*;
 
 import WebModule.*;
+import WebModule.User.Builder;
 
 //일반유저와 관리자 둘 다 사용하는
 //추상 클래스
@@ -416,7 +417,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 			rSet.next();
 			
 			// User를 만들기 위한 빌더 생성
-			User.Builder builder = new User.Builder(
+			User.Builder builder = new Builder(
 				rSet.getString("id"), rSet.getString("pswd"),
 				rSet.getString("name"), rSet.getString("phoneNumber"),
 				rSet.getBoolean("isManager"), rSet.getBoolean("locked")
@@ -513,10 +514,34 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		rSet.close();
 		pstmt.close();
 		
+		pstmt = this.conn.prepareStatement("select postIdx from PostPage where id = ?");
+		pstmt.setString(1, userInfo.getId());
+		rSet = pstmt.executeQuery();
+		
+		while(rSet.next())
+			postIdxList.add(rSet.getInt("postIdx"));
+		rSet.close();
+		pstmt.close();
 		return postIdxList;
 		
 	}
-
+	
+	//해시태그에 따른 게시글 인덱스 리스트 불러오기
+	public ArrayList<Integer> getPostPageIdxByHashTag(String tagName) throws Exception {
+		
+		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.GET_POST_BY_HASHTAG);
+		pstmt.setString(1, tagName);
+		ResultSet rSet = pstmt.executeQuery();
+		
+		ArrayList<Integer> postIdxList = new ArrayList<>();
+		
+		while(rSet.next())
+			postIdxList.add(rSet.getInt("pp.postIdx"));
+		rSet.close();
+		pstmt.close();
+		
+		return postIdxList;
+	}
 	
 	//삭제관련 기능은 권한에 따라 다름
 	public abstract boolean deletePostPage(int postIdx) throws Exception;

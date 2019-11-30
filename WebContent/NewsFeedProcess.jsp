@@ -29,6 +29,7 @@
 	
 	for(Integer i: feedList){
 		post=dbc.searchPostPageByPostIdx(i);
+		//System.out.println(post.getComment());
 		
 		postIdx.add(post.getPostIdx());//에러
 		userId.add(post.getUserId());
@@ -39,15 +40,18 @@
 		
 		picture.add(pic.getPictureAddress());
 	}
-	request.setAttribute("post",post);
+	request.setAttribute("post",postIdx);
 	request.setAttribute("userId",userId);
 	request.setAttribute("comment",comment);
 	request.setAttribute("picture",picture);
 	
 	dbc.closeDataBase();
 	
+	//System.out.println(post.getComment());
+	
 	response.sendRedirect("NewsFeed.jsp");
 	%>
+	<--<p><%= feedList.get(1)%></p>-->
 
 </body>
 </html>
