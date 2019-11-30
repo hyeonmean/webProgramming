@@ -67,7 +67,7 @@
                 var writeBoxTemplate = `
                 <div class="writeBox">
                     <div class="MainLayout">
-                        <form action="PostProcess.jsp" method="post">
+                        <form action="PostProcess.jsp" method="post" enctype="multipart/form-data">
                             <div class="NameBar">
                                 <a href="mypage.jsp">
                                     <div id="ProfilePhoto"><img src=${locationOfProfileImg}/></div>
