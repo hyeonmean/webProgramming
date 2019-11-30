@@ -84,7 +84,7 @@
 	<div class="EditBox">
 		 <div class="BoxLayout" >            <!-- ������ ���� -->
 			<img id="ProfilePhoto" src="new.jpg">
-			<form name="modify" method="POST" action="EditProfileProcess.jsp">
+			<form name="modify" method="POST" action="EditProfileProcess.jsp" enctype="multipart/form-data">
 			<label id="file-label" for="profile_file">프로필 사진 편집</label>
 
 			<input type="file" name="img_file" id="profile_file" accept=".jpg,.jpeg,.png,.gif">
