@@ -39,12 +39,13 @@
                   postList_temp = (ArrayList<Integer>)request.getAttribute("postList");
                   pictureList_temp = (ArrayList<String>)request.getAttribute("pictureList");
               %>
-              
+
             <script type="text/javascript">
                   var post_array = new Array();
                   var picture_array = new Array();
                   <%for(int i=0; i<postList_temp.size(); i++){%>
                       post_array.push(<%=(Integer)postList_temp.get(i)%>);
+                      alert(post_array[i]);
                       picture_array.push('<%=(String)pictureList_temp.get(i)%>');
                   <%}%>
                searchListPrint(post_array, picture_array)

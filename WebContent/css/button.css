@@ -1,7 +1,7 @@
 
   button{
-    background:cadetblue;
-    color:#fff;
+    background: rgba(255,69,0,0.93);
+    color:white;
     border:none;
     position:relative;
     width:300px;
@@ -15,17 +15,18 @@
     margin-bottom:5px;
   }
   button:hover{
-    background:#fff;
-    color:cadetblue;
+    background:none;
+    color:red;
+    font-weight:600;
   }
   button:before,button:after{
     content:'';
     position:absolute;
     top:0;
     right:0;
-    height:2px;
+    height:1px;
     width:0;
-    background: cadetblue;
+    background: red;
     transition:400ms ease all;
   }
   button:after{

@@ -8,11 +8,15 @@
     <link rel="stylesheet" href="./css/sign_in.css" type="text/css" />
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Slab&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="./css/button.css" type="text/css" />
+    <link rel="stylesheet" href="./css/background.css" type="text/css" />
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
 	<script type="text/javascript" src="./validityCheck.js"></script>
+    <div class="back-design">
+        <img src="./red.jpeg">
+    </div>
         <div class="frame">
             <h1>onion</h1>
             <form name="login" class="login" method="POST" action="SignInProcess.jsp">

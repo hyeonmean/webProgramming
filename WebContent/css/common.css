@@ -18,6 +18,12 @@ body{
     padding-top: 19px;
     
 }
+.menu form{
+	flex-grow: 1;
+    margin-right: 40px;
+    margin-left: 15px;
+    margin-top: -3px;
+}
 
 .logo{
 margin-left: 25px;
@@ -27,14 +33,7 @@ margin-top:1px;
 	width:33px;
 	height:33px;
 }
-.searchBar{
-flex-grow: 1;
-    
-    margin-right: 40px;
-    margin-left:15px;
-    margin-top:-3px;
-    
-}
+
 .searchBar input{
     /* width: 500px; */
     height: 37px;
@@ -49,7 +48,7 @@ flex-grow: 1;
     width: 100%;
     background-color: rgb(235, 235, 235);
     min-width: 150px;
-    margin-right: 15px;
+    margin-right: 15px;	
     padding-left:15px;
 }
 .searchBar input::placeholder{

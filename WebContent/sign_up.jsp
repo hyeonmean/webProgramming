@@ -6,12 +6,16 @@
 	<!-- 회원가입 페이지 마찬가지로 폼태그는 작성해 놓음 -->
     <link rel="stylesheet" href="./css/sign_in.css" type="text/css" />
     <link rel="stylesheet" href="./css/button.css" type="text/css" />
+    <link rel="stylesheet" href="./css/background.css" type="text/css" />
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 
 </head>
 <body>
 	<script type="text/javascript" src="./datePrint.js"></script>
+    <div class="back-design">
+        <img src="./red.jpeg">
+    </div>
     <div id="signUpFrame">
         <h1>Onion</h1>
         <h2>register</h2>
