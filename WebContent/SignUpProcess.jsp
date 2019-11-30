@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
     
 <%@ page import="WebModule.*" %>   
 <%@ page import="java.util.*"%>
@@ -9,15 +9,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 </head>
 <body>
 	
 	<%
+	request.setCharacterEncoding("utf-8");
 		UnLoginedDBController dbc=new UnLoginedDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02");
 		dbc.openDataBase();	
-	//ÀüÇØ¹ŞÀº À¯Àú Á¤º¸
+	//ì „í•´ë°›ì€ ìœ ì € ì •ë³´
 		String user_id = request.getParameter("id");
 		String user_pw= request.getParameter("pswd");
 		String user_name=request.getParameter("username");
@@ -30,7 +31,7 @@
 		String user_age=/*request.getParameter("age")*/"20";
 		String user_gender=request.getParameter("gender");
 		String user_letter=null;
-		//±âº»ÇÁ·ÎÇÊ °æ·Î
+		//ê¸°ë³¸í”„ë¡œí•„ ê²½ë¡œ
 		String user_pictureAddress=null;
 		String user_date=request.getParameter("date");
 		
@@ -58,7 +59,7 @@
 		boolean check=false;
 		User user=new User.Builder(user_id, user_pw, user_name, user_phone, false, true).age(Integer.parseInt(user_age)).gender(u_gender).letter(user_letter).profilePictureAddress(user_pictureAddress).build();
 		
-		//À¯ÀúÁ¤º¸ db¿¡ ÀúÀå
+		//ìœ ì €ì •ë³´ dbì— ì €ì¥
 		check=dbc.signUp(user);
 		if(check==true){
 			next_page="sign_in.jsp";	

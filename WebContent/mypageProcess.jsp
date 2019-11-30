@@ -1,20 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ page import="WebModule.*" %>
 <%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 </head>
 <body>
 	<%
-	//ÇÁ·ÎÇÊ»çÁø, °Ô½Ã¹°½´, ÆÈ·Î¿ì½´, ÆÈ·Î¿ö½´, ÀÌ¸§, ·¹ÅÍ
+	//í”„ë¡œí•„ì‚¬ì§„, ê²Œì‹œë¬¼ìŠˆ, íŒ”ë¡œìš°ìŠˆ, íŒ”ë¡œì›ŒìŠˆ, ì´ë¦„, ë ˆí„°
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();
 	//User user=dbc.searchAboutUser((String)session.getAttribute("userID"));
-	//ÇÁ·ÎÇÊ »çÁøÀº editprofile¸¸µç ÈÄ¿¡ ÀÛ¼º
+	//í”„ë¡œí•„ ì‚¬ì§„ì€ editprofileë§Œë“  í›„ì— ì‘ì„±
 	String user_id=(String)session.getAttribute("userId");
 	User user=dbc.searchAboutUser(user_id);
 	

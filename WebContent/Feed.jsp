@@ -4,7 +4,7 @@
 <html>
 <head>
 <!-- 게시물양식 -->
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 </head>
 <body>

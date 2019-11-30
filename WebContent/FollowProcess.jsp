@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ page import="WebModule.*"%>
 <%@ page import="java.util.*"%>
 <%@ include file="global.jsp"%>
@@ -7,13 +7,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 </head>
 <body>
 	
 	<%
-	g_user.setId("admin12");//ÀÓ½Ã
+	g_user.setId("admin12");//ì„ì‹œ
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	String next_page;
 	boolean check=false;
@@ -23,18 +23,18 @@
 	//String user_follow = request.getParameter("follow");
 	//String user_following= request.getParameter("following");
 	User user=null;
-	String user_following="admin";//ÀÓ½Ã
+	String user_following="admin";//ì„ì‹œ
 	
 	check=dbc.follow(user_following);
 	
-	//db¿¡¼­ À¯ÀúÁ¤º¸ ¹Ş±â
+	//dbì—ì„œ ìœ ì €ì •ë³´ ë°›ê¸°
 	if(check==true){
-		//ÆÈ·ÎÀ®¼º°ø
+		//íŒ”ë¡œìœ™ì„±ê³µ
 		//next_page="...jsp";
 	}
 	else{
 		//next_page="...jsp";
-		//ÆÈ·ÎÀ® ½ÇÆĞ
+		//íŒ”ë¡œìœ™ ì‹¤íŒ¨
 	}%>
 
 </body>
