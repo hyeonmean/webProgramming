@@ -1,4 +1,4 @@
-function newsfeedPrint(isEmpty, userId_array, comment_array, picture_array, favoriteNum_array){
+function newsfeedPrint(isEmpty, post_array, userId_array, comment_array, picture_array, favoriteNum_array){
 	//출력해야하는 피드의 양은 백엔드에서?
 	//사용하는 변수 : writerName, locationOfPhoto, theNumberOfGood, contentVariable, replyVariable
 	//아래의 변수 초기화값은 나중에 삭제할 예정
@@ -10,7 +10,7 @@ function newsfeedPrint(isEmpty, userId_array, comment_array, picture_array, favo
 	    		<div id="username">${writerId}</div>
 			</div>
 		<div class="photo_box">
-	    	<img src="${locationOfPhoto}">  
+	    	<a href="#" onclick="location.href='FeedDetail.jsp?postIdx=${postIdx}'"><img src="${locationOfPhoto}"></a>
 		</div>
 		<!-- 사진 바로 밑에 하트, 말풍선, 공유, 북마크 아이콘 -->
 		<div class="button_box">
@@ -36,6 +36,7 @@ function newsfeedPrint(isEmpty, userId_array, comment_array, picture_array, favo
 	}
 
 	var theNumberOfFeed = userId_array.length;
+	var postIdx;
 	var writerId = 'dongjun', locationOfPhoto='./sample/4.JPG';
 	var theNumberOfGood = 10;
 	var contentVariable = `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, minima. 
@@ -48,6 +49,7 @@ function newsfeedPrint(isEmpty, userId_array, comment_array, picture_array, favo
 
 	for(var i =0; i < theNumberOfFeed; i++){
 		//변수수정 코드 이부분에 삽입
+		postIdx = post_array[theNumberOfFeed - 1 - i];
 		writerId = userId_array[theNumberOfFeed - 1 - i];
 		locationOfPhoto = picture_array[theNumberOfFeed - 1 - i];
 		contentVariable = comment_array[theNumberOfFeed - 1 - i]; //최신순

@@ -23,11 +23,13 @@
         <jsp:include page="NewsFeedProcess.jsp"/>
         <%
             boolean empty = (boolean)request.getAttribute("empty");
+            ArrayList<Integer> postIdx_temp = new ArrayList<Integer>();
             ArrayList<String> userId_temp = new ArrayList<String>();
             ArrayList<String> comment_temp = new ArrayList<String>();
             ArrayList<String> picture_temp = new ArrayList<String>();
             ArrayList<Integer> favoriteNum_temp = new ArrayList<Integer>();
             if(empty == true){
+                postIdx_temp = (ArrayList<Integer>)request.getAttribute("post");
                 userId_temp = (ArrayList<String>)request.getAttribute("userId");
                 comment_temp = (ArrayList<String>)request.getAttribute("comment");
                 picture_temp = (ArrayList<String>)request.getAttribute("picture");
@@ -47,18 +49,20 @@
 
       <script type="text/javascript">
             var empty = <%=(boolean)request.getAttribute("empty")%>;
+            var post_array = new Array();
             var userId_array = new Array();
             var comment_array = new Array();
             var picture_array = new Array();
             var favoriteNum_array = new Array();
             <%for(int i=0; i<userId_temp.size(); i++){%>
+                post_array.push(<%=(Integer)postIdx_temp.get(i)%>);
                 userId_array.push('<%=(String)userId_temp.get(i)%>');
                 comment_array.push('<%=(String)comment_temp.get(i)%>');
                 picture_array.push('<%=(String)picture_temp.get(i)%>');
                 favoriteNum_array.push(<%=(Integer)favoriteNum_temp.get(i)%>);
             <%}%>
             console.log(typeof empty);
-         newsfeedPrint(empty,userId_array, comment_array, picture_array, favoriteNum_array);
+         newsfeedPrint(empty, post_array, userId_array, comment_array, picture_array, favoriteNum_array);
       </script>
         
 
