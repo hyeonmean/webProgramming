@@ -1,4 +1,4 @@
-function newsfeedPrint(isEmpty, userId_array, comment_array, picture_array){
+function newsfeedPrint(isEmpty, userId_array, comment_array, picture_array, favoriteNum_array){
 	//출력해야하는 피드의 양은 백엔드에서?
 	//사용하는 변수 : writerName, locationOfPhoto, theNumberOfGood, contentVariable, replyVariable
 	//아래의 변수 초기화값은 나중에 삭제할 예정
@@ -51,6 +51,7 @@ function newsfeedPrint(isEmpty, userId_array, comment_array, picture_array){
 		writerId = userId_array[theNumberOfFeed - 1 - i];
 		locationOfPhoto = picture_array[theNumberOfFeed - 1 - i];
 		contentVariable = comment_array[theNumberOfFeed - 1 - i]; //최신순
+		theNumberOfGood = favoriteNum_array[theNumberOfFeed - 1 - i];
 		document.write(fillTemplate(writerId, locationOfPhoto, theNumberOfGood, contentVariable, replyVariable));
 	}
 	
