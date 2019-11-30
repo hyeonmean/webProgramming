@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 
 
@@ -18,6 +19,9 @@
     <body>
     	<script type="text/javascript" src="dynamicSearch.js"></script>
   		<jsp:include page="navbar.jsp"/>
+        <%
+            request.setAttribute("searchKeyword", (String)request.getAttribute("searchKeyword"));
+        %>
         <jsp:include page="SearchProcess.jsp"/>
         <button class="back" onclick="history.go(-1);"></button>
         <div onclick="history.go(-1);"><i class="fas fa-arrow-left"></i></div>      
@@ -35,13 +39,13 @@
                   postList_temp = (ArrayList<Integer>)request.getAttribute("postList");
                   pictureList_temp = (ArrayList<String>)request.getAttribute("pictureList");
               %>
-
+              
             <script type="text/javascript">
                   var post_array = new Array();
                   var picture_array = new Array();
                   <%for(int i=0; i<postList_temp.size(); i++){%>
-                      post_array.push(<%=(Integer)postIdx_temp.get(i)%>);
-                      picture_array.push('<%=(String)picture_temp.get(i)%>');
+                      post_array.push(<%=(Integer)postList_temp.get(i)%>);
+                      picture_array.push('<%=(String)pictureList_temp.get(i)%>');
                   <%}%>
                searchListPrint(post_array, picture_array)
             </script>

@@ -5,7 +5,7 @@ function searchListPrint(post_array, picture_array){
 	document.write(`<div class="columns">`);
 	
 	for(var i = 0; i < theNumberOfSearchResult; i++){
-		document.write(`<a href="FeedDetail.jsp?${post_array[i]}"><figure><img src="${picture_array[i]}"/></figure></a>`);
+		document.write(`<a href="FeedDetail.jsp?postIdx=${post_array[i]}"><figure><img src="${picture_array[i]}"/></figure></a>`);
 	}
 	
 	//document.write('</div>');

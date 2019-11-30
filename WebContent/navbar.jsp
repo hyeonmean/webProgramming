@@ -28,7 +28,7 @@
         <div class="menu">
             <div id="u-mask"></div>
             <a class="logo" href="./NewsFeed.jsp"><img class="onion" src="onion.png"/></a>
-            <form action="./SearchProcess.jsp" method="get">
+            <form action="./search_result.jsp" method="get">
                 <label class="searchBar" style="text-align: center">
                     <input type="text" name="searchKeyword" placeholder="검색"/>
                 </label>
