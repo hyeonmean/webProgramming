@@ -50,7 +50,7 @@
  
         $(document).ready(function() {
             $("#profile_file").on("change", handleImgFileSelect);
-        }); 
+        }); `
  
         function handleImgFileSelect(e) {
             var files = e.target.files;
@@ -97,7 +97,7 @@
 					<div class="Text">소개</div>
 				</div>
 				<div class="InputBox">
-					<form name="modify" method="POST" action="EditProfilePrecess.jsp">
+					<form name="modify" method="POST" action="EditProfileProcess.jsp">
 						<label><input class="TextEditBox" type="text" name="name" value="dongjun" /></label><br>
 						<div id="PhoneBox">
 							<label><input id = "PhoneNum"  type="text" name="phone1" value="010"/>-
