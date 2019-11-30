@@ -15,7 +15,7 @@
 	//User user=dbc.searchAboutUser((String)session.getAttribute("userID"));
 	
 	ArrayList<Integer> feedList=new ArrayList<Integer>();
-	feedList=dbc.getNewsFeed();
+	feedList=dbc.getNewsFeed();//에러
 	
 	ArrayList<PostPage> pageList=new ArrayList<PostPage>();
 	PostPage post=new PostPage();
@@ -45,6 +45,8 @@
 	request.setAttribute("picture",picture);
 	
 	dbc.closeDataBase();
+	
+	response.sendRedirect("NewsFeed.jsp");
 	%>
 
 </body>
