@@ -3,11 +3,11 @@ package WebModule;
 import java.sql.*;
 import java.util.Properties;
 
-//ÁÖÀÇ! Libraries¿¡ jdbc°¡ Æ÷ÇÔµÇ¾î¾ß ÇÕ´Ï´Ù!
-//++ tomcatÀÇ libÀ§Ä¡¿¡ jdbc jar ÆÄÀÏÀÌ µé¾î°¡¾ß ±¸µ¿°¡´ÉÇÕ´Ï´Ù.
+//ï¿½ï¿½ï¿½ï¿½! Librariesï¿½ï¿½ jdbcï¿½ï¿½ ï¿½ï¿½ï¿½ÔµÇ¾ï¿½ï¿½ ï¿½Õ´Ï´ï¿½!
+//++ tomcatï¿½ï¿½ libï¿½ï¿½Ä¡ï¿½ï¿½ jdbc jar ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 
-// DB ÄÁÆ®·Ñ·¯
-// ¿©±â¼­ DB Äõ¸®¹® ½ÇÇà
+// DB ï¿½ï¿½Æ®ï¿½Ñ·ï¿½
+// ï¿½ï¿½ï¿½â¼­ DB ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 public class DBController {
 	protected Connection conn;
 	protected String host;
@@ -15,7 +15,7 @@ public class DBController {
 	protected String pswd;
 	protected String dataBase;
 	
-	// µå¶óÀÌ¹ö ·Îµù ½ÇÆÐ ½Ã Exception È£Ãâ
+	// ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Exception È£ï¿½ï¿½
 	public DBController(String host, String userId, String pswd, String dataBase) throws Exception {
 		
 		Class.forName("com.mysql.jdbc.Driver");
@@ -26,10 +26,10 @@ public class DBController {
 		this.dataBase = dataBase;
 	}
 	
-	//Get SetÀº º¸¾È»ó »ý¼º ¤¤¤¤
+	//Get Setï¿½ï¿½ ï¿½ï¿½ï¿½È»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
-	// µðºñ¿¡ ¿¬°áÇÏ´Â ¸Þ¼Òµå
-	// ¿¬°á ½ÇÆÐ ½Ã Exception È£Ãâ
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼Òµï¿½
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Exception È£ï¿½ï¿½
 	public void openDataBase() throws SQLException {
 		Properties props = new Properties();
 		props.put("user", this.userId);
@@ -37,18 +37,18 @@ public class DBController {
 		
 		String connStr = "jdbc:mysql://"+this.host+":3306/"+this.dataBase+"?useUnicode=true&characterEncoding=UTF-8";
 		
-		//¿¬°á ½Ãµµ
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½Ãµï¿½
 		this.conn = DriverManager.getConnection(
-			connStr, props
+				connStr, props
 		);
 	}
 	
-	//µðºñ¿¡ ¿¬°á ÇØÁ¦ÇÏ´Â ÄÚµå
+	//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Úµï¿½
 	public void closeDataBase() throws NullPointerException, SQLException {
-		//µî·Ï ¾ÈµÇ¸é ¿À·ùÃ³¸®
+		//ï¿½ï¿½ï¿½ ï¿½ÈµÇ¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
 		if(this.conn == null)
 			throw new NullPointerException("This Connection is not inited");
-		//¾êµµ ¾È´ÝÈ÷°Å³ª ÀÌ¹Ì ´ÝÈù°Å¸é ¿¹¿ÜÃ³¸®
+		//ï¿½êµµ ï¿½È´ï¿½ï¿½ï¿½ï¿½Å³ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
 		this.conn.close();
 	}
 	

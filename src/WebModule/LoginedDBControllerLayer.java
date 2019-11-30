@@ -25,6 +25,8 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		userInfo = newUser;
 	}
 	
+	public User getUser() { return userInfo; }
+	
 	// �������� ����� DBó��
 	// ���� SQLException�� �� ����
 	// �����ߴٴ� ���� �ǹ��Ѵ�.
@@ -289,7 +291,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		String userId = rSet.getString("userId");
 		String comment = rSet.getString("comment");
 		Calendar writeDate = Calendar.getInstance();
-		writeDate.setTime(rSet.getDate("writeDate"));
+		writeDate.setTime(rSet.getTimestamp("writeDate"));
 		
 		//Builder ����
 		PostPage.Builder builder = new PostPage.Builder(postIdx, userId, comment, writeDate);
@@ -387,7 +389,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		String userId = rSet.getString("userId");
 		String comment = rSet.getString("comment");
 		Calendar cal = Calendar.getInstance();
-		cal.setTime(rSet.getDate("writeDate"));
+		cal.setTime(rSet.getTimestamp("writeDate"));
 		
 		PostComment postComment =
 				new PostComment(commentIdx, postIdx, userId, comment, cal);

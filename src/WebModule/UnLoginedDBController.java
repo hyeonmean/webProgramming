@@ -11,21 +11,21 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-// ·Î±×ÀÎ ÇÏÁö ¾ÊÀº »óÅÂ¿¡¼­ Äõ¸®¹®À»
-// ¼öÇàÇÏ´Â Å¬·¡½º
-// ¿¹¸¦ µé¾î È¸¿ø°¡ÀÔÀÌ³ª, ·Î±×ÀÎÀÌ ÀÖ´Ù.
+// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½, ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½.
 @SuppressWarnings("unused")
 public class UnLoginedDBController extends DBController {
 	
-	// »ý¼ºÀÚ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public UnLoginedDBController(String host, String userId, String pswd, String dataBase) 
 			throws Exception {
 		super(host, userId, pswd, dataBase);
 	}
 	
-	// ·Î±×ÀÎÇÏ±â
-	// ¼º°ø ½Ã, ÇØ´ç À¯ÀúÀÇ Á¤º¸
-	// ½ÇÆÐ ½Ã null ¶Ç´Â SQLException
+	// ï¿½Î±ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ null ï¿½Ç´ï¿½ SQLException
 	public User signIn(String id, String pswd) throws SQLException {
 		
 		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.SIGN_IN);
@@ -38,17 +38,17 @@ public class UnLoginedDBController extends DBController {
 		if( result == 0)
 			return null;
 		else {
-			// À¯Àú µ¥ÀÌÅÍ °®°í ¿À±â
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			rSet.close();
 			pstmt.close();
 			pstmt = this.conn.prepareStatement("select * from User where id = ?");
 			pstmt.setString(1, id);
 			rSet = pstmt.executeQuery();
 			
-			//´ÙÀ½À¸·Î ³Ñ°Ü¾ß µ¥ÀÌÅÍ¸¦ ¹ÞÀ» ¼ö ÀÖÀ½
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°Ü¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			rSet.next();
 			
-			// User¸¦ ¸¸µé±â À§ÇÑ ºô´õ »ý¼º
+			// Userï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			User.Builder builder = new Builder(
 				rSet.getString("id"), rSet.getString("pswd"),
 				rSet.getString("name"), rSet.getString("phoneNumber"),
@@ -56,7 +56,7 @@ public class UnLoginedDBController extends DBController {
 			);
 			builder.age(rSet.getInt("age"));
 			
-			//³ªÀÌ
+			//ï¿½ï¿½ï¿½ï¿½
 			Gender gender = null;
 			if(rSet.getString("gender").equals("male") )
 				gender = Gender.Male;
@@ -66,38 +66,38 @@ public class UnLoginedDBController extends DBController {
 				gender = Gender.Unknown;
 			builder.gender(gender);
 			
-			//ÀÚ±â¼Ò°³
+			//ï¿½Ú±ï¿½Ò°ï¿½
 			builder.letter(rSet.getString("letter"));
-			//»çÁø ÁÖ¼Ò
+			//ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½
 			builder.profilePictureAddress(rSet.getString("profileAddress"));
 			
-			//»ýÀÏÀÎµ¥ Date°¡ ¸®ÅÏ°ªÀÌ¹Ç·Î Calendar·Î ÀüÈ¯
+			//ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ Dateï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ï¿½Ì¹Ç·ï¿½ Calendarï¿½ï¿½ ï¿½ï¿½È¯
 			Date tmpDate = rSet.getDate("birthday");
 			
 			
-			//null°ªÀÌ ¾Æ´Ï¸é Ã³¸®
+			//nullï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¸ï¿½ Ã³ï¿½ï¿½
 			if(tmpDate != null) {
 				Calendar cal = Calendar.getInstance();
 				
 				cal.setTime(tmpDate);
 				builder.date(cal);
 			}
-			else //null°ªÀÌ¸é null°ª Áý¾î³Ö±â
+			else //nullï¿½ï¿½ï¿½Ì¸ï¿½ nullï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
 			{
 				builder.date(null);
 			}
 			pstmt.close();
 			rSet.close();
 			
-			//ºôµå!
+			//ï¿½ï¿½ï¿½ï¿½!
 			return builder.build();
 		}
 	}
 	
-	// È¸¿ø °¡ÀÔ
+	// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public boolean signUp(User newUser) throws SQLException, NullPointerException {
 		
-		//°°Àº À¯ÀúÀÇ ÀÌ¸§ÀÌ ÀÖ´Â Áö È®ÀÎ
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ È®ï¿½ï¿½
 		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.HAVE_SAME_ID);
 		pstmt.setString(1, newUser.getId());
 		ResultSet rSet = pstmt.executeQuery();
@@ -107,16 +107,16 @@ public class UnLoginedDBController extends DBController {
 		if( result != 0)
 			return false;
 		
-		// À¯Àú µî·Ï ½ÃÀÛ
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		pstmt = this.conn.prepareStatement(QueryList.SIGN_UP);
 		
-		// ÇÊ¼ö ÀÔ·Â »çÇ× -> null ÇÏ³ª¶óµµ ÀÖÀ¸¸é NullPointException ¹ß»ý
+		// ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ -> null ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ NullPointException ï¿½ß»ï¿½
 		pstmt.setString(1, newUser.getId());
 		pstmt.setString(2, newUser.getPswd());
 		pstmt.setString(3, newUser.getName());
 		pstmt.setString(4, newUser.getPhoneNumber());
 		
-		//¿©±â¼­ºÎÅÍ ¼±ÅÃ»çÇ×
+		//ï¿½ï¿½ï¿½â¼­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½
 		Integer age = newUser.getAge();
 		if(age != 0)
 			pstmt.setInt(5, newUser.getAge());
@@ -139,11 +139,11 @@ public class UnLoginedDBController extends DBController {
 		else
 			pstmt.setNull(8, Types.VARCHAR);
 		
-		//»ýÀÏÀ» ±âÀçÇÑ °æ¿ì
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		if(newUser.getDate() != null) {
 			Calendar birthDay = newUser.getDate();
 			int year = birthDay.get(Calendar.YEAR);
-			int month = birthDay.get((Calendar.MONTH))+1; //1¿ùÀÌ 0À¸·Î µÇ¾î ÀÖÀ½
+			int month = birthDay.get((Calendar.MONTH))+1; //1ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½
 			int date = birthDay.get(Calendar.DAY_OF_MONTH);
 			String birthFormat = String.valueOf(year)+
 					"-"+

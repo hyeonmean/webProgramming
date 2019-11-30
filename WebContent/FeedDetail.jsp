@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ page import="java.util.*" %>
+<%@ page import="WebModule.*" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 
@@ -135,12 +136,23 @@ w
                 </div>
                 <div class="Date"><%= dateToStr %></div>
             </div>
-            <div class="ReplyLayout">
-                <div class="ReplyBox" >
-                    <input class="reply" type="text" name="comment" placeholder="댓글 달기"/>
-                    <button type="submit">게시</button>
-                </div>
-            </div>
+            <%
+            	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
+            	String realId = dbc.getUser().getId();
+            
+            	Cookie test = new Cookie("postIdx", String.valueOf(postIdx));
+            	Cookie test2 = new Cookie("userId", realId);
+            	response.addCookie(test);
+            	response.addCookie(test2);
+            %>
+            <form action="InputCommentProcess.jsp", method="get">
+            	<div class="ReplyLayout">
+                	<div class="ReplyBox" >
+                    	<input class="reply" type="text" name="comment" placeholder="댓글 달기"/>
+                    	<button type="submit">게시</button>
+                	</div>
+            	</div>
+            </form>
         </div>
     </div>
     </div>
