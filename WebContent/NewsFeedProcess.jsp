@@ -48,10 +48,6 @@
 	dbc.closeDataBase();
 	
 	//System.out.println(post.getComment());
-	
-	response.sendRedirect("NewsFeed.jsp");
 	%>
-	<--<p><%= feedList.get(1)%></p>-->
-
 </body>
 </html>
