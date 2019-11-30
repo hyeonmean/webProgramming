@@ -12,7 +12,7 @@
 	<%
 	String id=(String)session.getAttribute("userID");
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
-	User user=dbc.searchAboutUser("admin12");
+	User user=dbc.searchAboutUser("id");
 	boolean check=false;
 	
 	check=dbc.deletePostPage(21);

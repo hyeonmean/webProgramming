@@ -2,6 +2,7 @@
     pageEncoding="utf-8"%>
 <%@ page import="WebModule.*"%>
 <%@ page import="java.util.*"%>
+<%@ include file="global.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +11,10 @@
 </head>
 <body>
 	<%
-	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
+	g_user.setId("admin12");
+	UserDBController dbc=new UserDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02", g_user);
 	dbc.openDataBase();
-	//User user=dbc.searchAboutUser((String)session.getAttribute("userID"));
+	//g_user=dbc.searchAboutUser(g_user.getId());
 	
 	ArrayList<Integer> feedList=new ArrayList<Integer>();
 	feedList=dbc.getNewsFeed();
@@ -30,12 +32,12 @@
 	for(Integer i: feedList){
 		post=dbc.searchPostPageByPostIdx(i);
 		
-		postIdx.add(post.getPostIdx());//에러
+		postIdx.add(post.getPostIdx());
 		userId.add(post.getUserId());
 		comment.add(post.getComment());
 		
 		link=post.getPictureList();
-		pic=dbc.searchPictureDataByIdx(link.get(0));//에러
+		pic=dbc.searchPictureDataByIdx(link.get(0));
 		
 		picture.add(pic.getPictureAddress());
 	}
@@ -43,9 +45,6 @@
 	request.setAttribute("userId",userId);
 	request.setAttribute("comment",comment);
 	request.setAttribute("picture",picture);
-	
-	dbc.closeDataBase();
 	%>
-
 </body>
 </html>

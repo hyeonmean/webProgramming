@@ -52,16 +52,10 @@
 	g_user.setLetter(user_letter);
 	g_user.setProfilePictureAddress(user_pictureAddress);
 	
-	UserDBController dbc= new UserDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02", g_user);
-	
-	dbc.openDataBase();
-	
+	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
+		
 	check=dbc.editProfile();
-	
-	dbc.closeDataBase();
-	
-	
-	
+
 	
 	%>
 

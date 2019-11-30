@@ -12,9 +12,7 @@
 </head>
 <body>
 	<%
-	g_user.setId("admin12");
-	UserDBController dbc= new UserDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02", g_user);
-	dbc.openDataBase();
+	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	boolean check=false;
 	
 	check=dbc.deletePostPage(1);

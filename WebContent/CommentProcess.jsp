@@ -12,8 +12,7 @@
 </head>
 <body>
 	<%
-	UserDBController dbc= new UserDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02", g_user);
-	dbc.openDataBase();
+	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	String next_page;
 	boolean check=false;
 	
@@ -25,7 +24,6 @@
 	
 	check=dbc.writeComment(postIdx, comment);
 	
-	dbc.closeDataBase();
 	
 	if(check==true){
 		next_page="";

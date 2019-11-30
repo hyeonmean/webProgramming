@@ -43,11 +43,14 @@ fuction popup(){
 		//g_followList.setFollowID(dbc2.searchFollowingUser(g_user.getId()));
 		session.setAttribute("userID",user_id);
 		session.setAttribute("DBController", dbc2);
+		dbc.closeDataBase();
 		next_page="NewsFeed.jsp";
 		response.sendRedirect(next_page);
 	}
 	else{
-		
+		next_page="sign_in.jsp";
+		dbc.closeDataBase();
+		response.sendRedirect(next_page);
 	}
 	//dbc.closeDataBase();
 	%>

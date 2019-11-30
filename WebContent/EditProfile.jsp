@@ -97,7 +97,7 @@
 					<div class="Text">소개</div>
 				</div>
 				<div class="InputBox">
-					<form name="modify" method="POST" action="서버URL">
+					<form name="modify" method="POST" action="EditProfilePrecess.jsp">
 						<label><input class="TextEditBox" type="text" name="name" value="dongjun" /></label><br>
 						<div id="PhoneBox">
 							<label><input id = "PhoneNum"  type="text" name="phone1" value="010"/>-
