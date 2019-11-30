@@ -24,16 +24,9 @@
 	
 	//db에서 유저정보 받기
 	if(user!=null){
-		//session.setAttribute("userID", g_user.getId());
 		dbc.closeDataBase();
 		UserDBController dbc2= new UserDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02", user);
 		dbc2.openDataBase();
-		/*session.setAttribute("manage", g_user.getIsManager());
-		session.setAttribute("name",g_user.getName());
-		session.setAttribute("phone",g_user.getPhoneNumber());*/
-		//g_followList.setUserId(g_user.getId());
-		//g_followList.setFollowerList(dbc2.searchFollowerUser(g_user.getId()));
-		//g_followList.setFollowID(dbc2.searchFollowingUser(g_user.getId()));
 		session.setAttribute("userID",user_id);
 		session.setAttribute("DBController", dbc2);
 		dbc.closeDataBase();
@@ -45,9 +38,7 @@
 		dbc.closeDataBase();
 		response.sendRedirect(next_page);
 	}
-	//dbc.closeDataBase();
 	%>
-	<script type="text/javascript">alert("로그인실패")</script>
 
 
 </body>

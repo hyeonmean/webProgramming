@@ -13,28 +13,19 @@
 <body>
 	
 	<%;
-	g_user.setId("admin12");//임시
-	UserDBController dbc= new UserDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02", g_user);
+	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();
 	String next_page;
 	boolean check=false;
 	
-	String user_follow = request.getParameter("follow");
+	//String user_follow = request.getParameter("follow");
 	String user_following= request.getParameter("following");
-	User user=null;
-	String test="admin";//임시
+	//User user=null;
+	//String test="admin";//임시
 	
-	check=dbc.unFollow(test);
+	check=dbc.unFollow(user_following);
 	
-	//db에서 유저정보 받기
-	if(check==true){
-		//팔로윙성공
-		next_page="...jsp";
-	}
-	else{
-		next_page="...jsp";
-		//팔로윙 실패
-	}%>
+	%>
 
 </body>
 </html>

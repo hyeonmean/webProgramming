@@ -25,15 +25,10 @@
 	<%
 	request.setCharacterEncoding("utf-8");
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
-	//User user=dbc.searchAboutUser((String)session.getAttribute("userID"));
-	//g_user.setId("admin12");
 	dbc.openDataBase();
 	boolean check=false;
 	
 	String tag="";
-	
-	//PostPage post=new PostPage();
-	//String savePath=request.getServletContext().getRealPath("folder");
 	String savePath="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\postPictures";
 	int maxSize=1024*1024*10;
 	MultipartRequest multi =new MultipartRequest(request,savePath,maxSize,"utf-8",new DefaultFileRenamePolicy());
@@ -46,56 +41,21 @@
 	
 	for(int i=1; i<count; i++){
 		tag=comment_main[i];
-		//fulltag=tag.concat(comment_main[i]);
 		tagList.add(tag);
 	}
 	
 	int pictureidx;
-	//ArrayList<String> hashTagList=new ArrayList<String>();
+	
 	ArrayList<String> pictureList=new ArrayList<String>();
 	
-	//String comment=request.getParameter("name");
-	
-	//post.findHashTag(comment);
-	//본문에 해시태그 comment=comment_main[0];
 	String uploadname= null;
 	
-	//String savePath="C:\\Users\\HM\\Documents\\test\\";
-	
-	//String path="C:\\Users\\HM\\Documents\\test\\qqqqq.png";
-	//pictureList.add(path);
-	
-	//String savePath="C:\\Users\\HM\\Documents\\test\\qqqqq.png";
-	
-	
-	//String name="";
-	//String subject="";
 	String filename = "";
-    //String filename2 = "";
-	
-	
-
-        // request,파일저장경로,용량,인코딩타입,중복파일명에 대한 기본 정책
         
 	filename=multi.getFilesystemName("imgfile");
          
-        //name=multi.getParameter("name");
-        //subject=multi.getParameter("subject");
-    		
-        //Enumeration files = multi.getFileNames();
-        //String file1 = (String)files.nextElement();
-        //filename = multi.getFilesystemName(file1);
-        //uploadname=multi.getFilesystemName("file")+"<br>";
-        //String file2 = (String)files.nextElement();
-        //filename2=multi.getFilesystemName(file2);  
-	
-	//savePath="C:\\Users\\HM\\Documents\\test\\"+filename;
 	String fullPath=savePath+"\\"+filename;
 	pictureList.add(fullPath);
-
-
-	//picturename=postindx_num
-	//postindex=??
 	
 	check=dbc.writePostPage(comment, pictureList, tagList);
 	
