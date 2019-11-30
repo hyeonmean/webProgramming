@@ -1,14 +1,11 @@
-function searchListPrint(){
+function searchListPrint(post_array, picture_array){
 	//쿼리로 검색 단어에 맞는 사진만 가져와야할 것. 뽑아와서 경로를 리스트로 작성해 for문으로 print
 	//아래의 변수 초기화값은 나중에 삭제할 예정
-	var theNumberOfSearchResult = 30;
-	var locationList = new Array();
-
-	
+	var theNumberOfSearchResult = post_array.length;	
 	document.write(`<div class="columns">`);
 	
-	for(var i = 1; i < theNumberOfSearchResult; i++){
-		document.write(`<a href="FeedDetail.jsp"><figure><img src="./sample/ootd/rename${i%21}.jpg"/></figure></a>`);
+	for(var i = 0; i < theNumberOfSearchResult; i++){
+		document.write(`<a href="FeedDetail.jsp?${post_array[i]}"><figure><img src="${picture_array[i]}"/></figure></a>`);
 	}
 	
 	//document.write('</div>');
@@ -21,8 +18,8 @@ function searchListPrint(){
 	document.write(`</div>`);
 }
 
-function printKeyword(){
-	var keyword = 'Keyword';
+function printKeyword(searchKeyword){
+	var keyword = searchKeyword;
 	document.write(`<div class="keyword">#${keyword}</div>`);
 	
 }

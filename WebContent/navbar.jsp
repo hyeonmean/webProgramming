@@ -18,12 +18,22 @@
 <body>
 
     <script type="text/javascript" src="./writeBox.js"></script>
+    <script type="text/javascript">
+        function enterPressSearchEvent(){
+            var searchTag = event.keyCode;
+            var template = ``;
+            alert(searchTag);
+        }
+    </script>
         <div class="menu">
             <div id="u-mask"></div>
             <a class="logo" href="./NewsFeed.jsp"><img class="onion" src="onion.png"/></a>
-            <label class="searchBar" style="text-align: center";onkeypress="if(event.keyCode==13) {실행할 함수명(); return false;}">
-                <input type="text" name="searchKeyword" placeholder="검색"/>
-            </label>
+            <form action="./SearchProcess.jsp" method="get">
+                <label class="searchBar" style="text-align: center">
+                    <input type="text" name="searchKeyword" placeholder="검색"/>
+                </label>
+            </form>
+            
             <div class="icon_list">
                 <div style="padding-right:15px;"></div>
                 <a href="./search_result.jsp">               <!-- 나침반 아이콘, 클릭하면 둘러보기로 넘어감 -->
@@ -103,7 +113,6 @@
                             </div>
                         </div>
                         `;
-                        console.log(writeBoxTemplate);
                         return writeBoxTemplate;
                     }
 
