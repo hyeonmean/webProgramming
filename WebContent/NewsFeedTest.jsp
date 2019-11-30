@@ -46,5 +46,6 @@
 	request.setAttribute("comment",comment);
 	request.setAttribute("picture",picture);
 	%>
+	<p><%= feedList.get(0)%></p>
 </body>
 </html>

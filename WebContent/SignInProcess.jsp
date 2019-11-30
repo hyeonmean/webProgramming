@@ -44,7 +44,7 @@ fuction popup(){
 		session.setAttribute("userID",user_id);
 		session.setAttribute("DBController", dbc2);
 		dbc.closeDataBase();
-		next_page="NewsFeed.jsp";
+		next_page="NewsFeedProcess.jsp";
 		response.sendRedirect(next_page);
 	}
 	else{

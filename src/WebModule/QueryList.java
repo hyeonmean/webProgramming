@@ -99,8 +99,7 @@ public class QueryList {
 		public static String SEARCH_PICTURE_IDX_FROM_POST = "select pictureIdx from Picture where postIdx = ?";
 		
 		//게시글 인덱스로 좋아요 리스트 찾기
-		public static String SERACH_FAVORITE_USER_FROM_POST = 
-				"select userId from Picture where postIdx = ?";
+		public static String SERACH_FAVORITE_USER_FROM_POST = "select userId from Favorite where postIdx = ?";
 	}
 	
 	//그림 및 댓글 데이터 찾기
@@ -123,5 +122,10 @@ public class QueryList {
 	
 	//유저 삭제
 	public static String DELETE_USER = "call delete_user(?, @result)";
+	
+	//해시태그에 포함된 게시글 불러오기
+	public static String GET_POST_BY_HASHTAG = "select pp.postIdx from PostPage as pp " + 
+			"join HashTag as ht on ht.tagName = ? " + 
+			"where ht.postIdx = pp.postIdx";
 
 }
