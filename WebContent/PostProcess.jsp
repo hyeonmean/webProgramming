@@ -25,7 +25,7 @@
 	<%
 	request.setCharacterEncoding("utf-8");
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
-	User user=dbc.searchAboutUser((String)session.getAttribute("userID"));
+	//User user=dbc.searchAboutUser((String)session.getAttribute("userID"));
 	//g_user.setId("admin12");
 	dbc.openDataBase();
 	boolean check=false;
