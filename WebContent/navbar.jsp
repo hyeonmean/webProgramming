@@ -17,7 +17,6 @@
 
 <body>
 
-
     <script type="text/javascript" src="./writeBox.js"></script>
         <div class="menu">
             <div id="u-mask"></div>
@@ -64,42 +63,56 @@
                 <div id="mask"></div>
         <div class="window">
             <script type="text/javascript">
-                var userID ="what", locationOfProfileImg="./new.jpg";
-                var writeBoxTemplate = `
-                <div class="writeBox">
-                    <div class="MainLayout">
-                        <form action="PostProcess.jsp" method="post" enctype="multipart/form-data">
-                            <div class="NameBar">
-                                <a href="mypage.jsp">
-                                    <div id="ProfilePhoto"><img src=${locationOfProfileImg}/></div>
-                                    <button id="profile" type="button">${userID}</button>
-                                </a>
-                   
-                               </div>
-                               <div class="contentbox">
-                                    <div class="imagebox">
-                                        <img id="image"/>
-                                    </div>
-                                    <textarea class="textbox" name="comment" placeholder="내용을 입력하세요 :)"></textarea>
-                                </div>
-                                <div class="bottom">
-                                    <div class="filebox">
-                                        <label for="ex_file"><i class="fas fa-camera"></i></label>
-                                        <input type="file" id="ex_file" name="imgfile" accept=".jpg,.jpeg,.png,.gif" onchange="LoadImg(this);">
-                                        <script>
-                                            showImg();
-                                        <\/script>
-                                    </div>
-                                    <label id="btn"><button class="submitbox" type="submit">
-                                        <i class="fas fa-paper-plane"></i>
-                                    </button></label>
-                                </div>
-                        </form>
-                    </div>
-                </div>
-                `;
+                    fillTemplate = function(writerId, locationOfProfileImg){
+                        var writerId = writerId;
+                        var locationOfProfileImg=locationOfProfileImg;
+                        var writeBoxTemplate = `
+                        <div class="writeBox">
+                            <div class="MainLayout">
+                                <form action="PostProcess.jsp" method="post" enctype="multipart/form-data">
+                                    <div class="NameBar">
+                                        <a href="mypage.jsp">
+                                            <div id="ProfilePhoto">
+                                                <img src=${'${locationOfProfileImg}'}>
+                                            </div>
+                                            <button id="profile" type="button">
+                                                ${'${writerId}'}
+                                            </button>
+                                        </a>
+                           
+                                       </div>
+                                       <div class="contentbox">
+                                            <div class="imagebox">
+                                                <img id="image"/>
+                                            </div>
+                                            <textarea class="textbox" name="comment" placeholder="내용을 입력하세요 :)"></textarea>
+                                        </div>
+                                        <div class="bottom">
+                                            <div class="filebox">
+                                                <label for="ex_file"><i class="fas fa-camera"></i></label>
+                                                <input type="file" id="ex_file" name="imgfile" accept=".jpg,.jpeg,.png,.gif" onchange="LoadImg(this);">
+                                                <script>
+                                                    showImg();
+                                                <\/script>
+                                            </div>
+                                            <label id="btn"><button class="submitbox" type="submit">
+                                                <i class="fas fa-paper-plane"></i>
+                                            </button></label>
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+                        `;
+                        console.log(writeBoxTemplate);
+                        return writeBoxTemplate;
+                    }
 
-                document.write(writeBoxTemplate);
+
+                
+                
+                document.write(fillTemplate('<%=session.getAttribute("userID")%>', './new.jpg'));
+
+
             </script>
         </div>  
                 </div>
