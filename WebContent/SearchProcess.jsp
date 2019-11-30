@@ -17,13 +17,13 @@
 
 		ArrayList<Integer> postIdxList=new ArrayList<Integer>();
 		ArrayList<String> pictureList=new ArrayList<String>();
-		String pic;
+		Picture pic;
 
 		postIdxList=dbc.getPostPageIdxByHashTag(keyword);
 
 		for(Integer i : postIdxList){
 				pic=dbc.searchPictureDataByIdx(postIdxList.get(i));
-				pictureList.add(pic);
+				pictureList.add(pic.getPictureAddress());
 			}
 		//postPage=dbc.searchPostPageByPostIdx(postIdx);
 		dbc.closeDataBase();
