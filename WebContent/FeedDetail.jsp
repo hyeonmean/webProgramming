@@ -74,8 +74,6 @@
         
         }
     %>
-    
-w
 
     <%--<script type="text/javascript">
         alert(<%= request.getParameter("postIdx") %>);
