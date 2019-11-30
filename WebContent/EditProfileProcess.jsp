@@ -92,6 +92,7 @@
 	dbc2.closeDataBase();
 	
 
+	response.sendRedirect("mypage.jsp");
 	
 	%>
 

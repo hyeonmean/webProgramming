@@ -24,9 +24,5 @@
 	response.sendRedirect("NewsFeed.jsp");
 	
 	%>
-
-	<script type="text/javascript">
-		alert(<%=request.getParameter("postIdx")%>);
-	</script>
 </body>
 </html>

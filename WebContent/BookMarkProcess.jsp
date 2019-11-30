@@ -16,21 +16,14 @@
 	String next_page;
 	boolean check=false;
 	
-	//String postIdx = request.getParameter("postIdx");
-	int postIdx=10;//임시
+	String idx = request.getParameter("postIdx");
+	int postIdx=Integer.parseInt(idx);//임시
 	
 	//check=dbc.setBookMark(Integer.parseInt(postIdx));
 	check=dbc.setBookMark(postIdx);
 	
-	//db에서 유저정보 받기
-	if(check==true){
-		//팔로윙성공
-		next_page="...jsp";
-	}
-	else{
-		next_page="...jsp";
-		//팔로윙 실패
-	}%>
+	dbc.closeDataBase();
+	%>
 
 </body>
 </html>

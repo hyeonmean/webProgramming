@@ -18,6 +18,7 @@
 	int idx=Integer.parseInt(postIdx);
 		
 	//postPage=dbc.searchPostPageByPostIdx(postIdx);
+	dbc.closeDataBase();
 	%>
 </body>
 </html>

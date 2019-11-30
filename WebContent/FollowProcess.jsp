@@ -14,22 +14,16 @@
 	
 	<%
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
-	String next_page;
+	dbc.openDataBase();
+
 	boolean check=false;
 	
-	String user_following;
+	String user_following = request.getParameter("following");
 	
-	//check=dbc.follow(user_following);
+	check=dbc.follow(user_following);
 	
-	//db에서 유저정보 받기
-	if(check==true){
-		//팔로윙성공
-		//next_page="...jsp";
-	}
-	else{
-		//next_page="...jsp";
-		//팔로윙 실패
-	}%>
+	dbc.closeDataBase();
+	%>
 
 </body>
 </html>

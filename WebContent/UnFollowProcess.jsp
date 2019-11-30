@@ -15,13 +15,10 @@
 	<%;
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();
-	String next_page;
+
 	boolean check=false;
 	
-	//String user_follow = request.getParameter("follow");
 	String user_following= request.getParameter("following");
-	//User user=null;
-	//String test="admin";//임시
 	
 	check=dbc.unFollow(user_following);
 	

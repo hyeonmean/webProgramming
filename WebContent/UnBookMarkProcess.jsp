@@ -11,24 +11,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%;
+	<%
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();
-	String next_page;
+	
 	boolean check=false;
 	
-	String postIdx = request.getParameter("postIdx");
+	String idx=request.getParameter("postIdx");
+	int postIdx = Integer.parseInt(idx);
 	
-	check=dbc.unSetBookMark(Integer.parseInt(postIdx));
-	
-	if(check==true){
-		//팔로윙성공
-		next_page="...jsp";
-	}
-	else{
-		next_page="...jsp";
-		//팔로윙 실패
-	}%>
+	check=dbc.unSetBookMark(postIdx);
+	%>
 
 </body>
 </html>
