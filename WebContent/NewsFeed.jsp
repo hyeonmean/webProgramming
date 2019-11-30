@@ -19,8 +19,19 @@
     	<jsp:include page="navbar.jsp"/>
         <div style="padding-top: 110px;"></div>
 		<!-- 예제로 3개만 출력해봄 -->
+
+        <%@ include file="NewsFeedProcess.jsp" %>
 		<script type="text/javascript">
-			newsfeedPrint();
+            userId_array = new Array();
+            comment_array = new Array();
+            picture_array = new Array();
+           	
+            <%for(int i=0; i<userId.size(); i++){%>
+                userId_array.push('<%=(String)userId.get(i)%>');
+                comment_array.push('<%=(String)comment.get(i)%>');
+                picture_array.push('<%=(String)picture.get(i)%>');
+            <%}%>
+			newsfeedPrint(userId_array, comment_array, picture_array);
 		</script>
 		
 
