@@ -44,15 +44,17 @@
         %>
 
       <script type="text/javascript">
-            userId_array = new Array();
-            comment_array = new Array();
-            picture_array = new Array();
+            var empty = <%=(boolean)request.getAttribute("empty")%>;
+            var userId_array = new Array();
+            var comment_array = new Array();
+            var picture_array = new Array();
             <%for(int i=0; i<userId_temp.size(); i++){%>
                 userId_array.push('<%=(String)userId_temp.get(i)%>');
                 comment_array.push('<%=(String)comment_temp.get(i)%>');
                 picture_array.push('<%=(String)picture_temp.get(i)%>');
             <%}%>
-         newsfeedPrint(<%=(boolean)request.getAttribute("empty")%>,userId_array, comment_array, picture_array);
+            console.log(typeof empty);
+         newsfeedPrint(empty,userId_array, comment_array, picture_array);
       </script>
         
 

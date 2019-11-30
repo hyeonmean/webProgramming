@@ -40,7 +40,7 @@
 		pic=dbc.searchPictureDataByIdx(link.get(0));//에러
 		picture.add(pic.getPictureAddress());
 	}
-	
+
 	dbc.closeDataBase();
 	if(link.isEmpty()!=true){
 		request.setAttribute("empty", true);
@@ -51,7 +51,7 @@
 	}else {
 		request.setAttribute("empty", false);
 	}
-	
+
 	//response.sendRedirect("NewsFeed.jsp");
 	
 	//System.out.println(post.getComment());
