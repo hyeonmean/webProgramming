@@ -26,7 +26,7 @@
 	ArrayList<String> picture = new ArrayList<String>();
 	ArrayList<Integer> link = new ArrayList<Integer>();
 	Picture pic= new Picture();
-	
+	//
 	for(Integer i: feedList){
 		post=dbc.searchPostPageByPostIdx(i);
 		//System.out.println(post.getComment());
