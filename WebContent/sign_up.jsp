@@ -38,7 +38,7 @@
             <div class="gender">
                 <input  type="radio" name="gender" value="male" />남성
                 <input  type="radio" name="gender" value="female" />여성
-                <input  type="radio" name="gender" value="nochoice"/>선택하지 않음</label><br>
+                <input  type="radio" name="gender" value="nochoice" checked="checked"/>선택하지 않음</label><br>
             </div>
                     
                 <!-- <i class="fas fa-map-marker-alt"></i>     <label><input class="text_box" type= "text"  value="�ּ�" onclick="value=''" ></label><br> -->

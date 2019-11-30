@@ -90,9 +90,7 @@
 	check=dbc2.editProfile();
 	
 	dbc2.closeDataBase();
-	
-
-	
+	response.sendRedirect("./mypage.jsp");
 	%>
 
 </body>
