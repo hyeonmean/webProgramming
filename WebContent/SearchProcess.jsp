@@ -11,7 +11,7 @@
 </head>
 <body>
 	<%
-		UserDBController dbc= new UserDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02", g_user);
+	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 		dbc.openDataBase();
 		PostPage postPage=new PostPage();
 		String postIdx=request.getParameter("postIdx");
