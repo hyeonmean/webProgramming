@@ -31,7 +31,7 @@ input[type="file"]{
 }
 #file-label{
 	cursor: pointer;
-	color:rgb(110, 189, 190);
+	color:lightseagreen;
 	display:block;
 	margin-bottom:5px;
 }

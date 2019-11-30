@@ -1,8 +1,8 @@
 @charset "utf-8";
 
 .writeBox{
-    margin:0 auto;
-    
+	margin:0 auto;
+	
 }
 
 .writeBox .MainLayout{
@@ -127,7 +127,7 @@
     border: 0;
 }
 .submitbox{
-    outline: none;
+	outline: none;
     background: none;
     min-width:376px;
     padding: 0px;
@@ -185,10 +185,10 @@
 }
 
 .submitbox{
-    cursor:pointer;
+	cursor:pointer;
 }
 .fa-paper-plane{
-    color:white;
+	color:white;
 }
 /* 마스크 뛰우기 */
 #mask {  
@@ -198,8 +198,8 @@
     display:none;  
     left:0;
     top:0;
-    width:100%;
-    height: 100%;
+    width: 10000px;
+    height: 10000px;;
 } 
 /* 팝업으로 뜨는 윈도우 css  */ 
 .window{

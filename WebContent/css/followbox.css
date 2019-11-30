@@ -15,6 +15,7 @@
     
 }
 #HeadText{
+	text-align:center;
     flex-grow:1;
     padding-left:20px;
 }
@@ -26,11 +27,12 @@
     border-bottom:1px solid lightgray;
 }
 .ContentBox{
+	
     overflow:auto;
     height:350px;
 }
 
-.follower{
+.l-follower{
     
     margin-left:15px;
     margin-right:15px;
@@ -55,13 +57,18 @@
     margin-top:2px;
     flex-grow:1;
     text-align:center;
-    width:40px;
+    max-width:70px;
+    min-width:70px;
     height:22px;
     border-radius: 7px;
-    background:rgb(24, 135, 209);
-    font-weight: bold;
-    color:white;
+    background:lightseagreen;
     
+    color:white;
+    text-decoration:none
+    
+}
+a{
+	text-decoration:none;
 }
 
 #noFollow{
@@ -100,8 +107,8 @@
     display:none;  
     left:0;
     top:0;
-    width:100%;
-    height: 100%;
+    width: 10000px;
+    height: 10000px;
 } 
 /* 팝업으로 뜨는 윈도우 css  */ 
 .f2-followevent{

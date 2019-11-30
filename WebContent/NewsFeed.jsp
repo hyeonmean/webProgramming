@@ -17,7 +17,7 @@
     <body>
     	<script type="text/javascript" src="./dynamicFeed.js"></script>
     	<jsp:include page="navbar.jsp"/>
-        <div style="padding-top: 50px;"></div>
+        <div style="padding-top: 110px;"></div>
 		<!-- 예제로 3개만 출력해봄 -->
 		<script type="text/javascript">
 			newsfeedPrint();
