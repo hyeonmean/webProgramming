@@ -50,7 +50,7 @@
  
         $(document).ready(function() {
             $("#profile_file").on("change", handleImgFileSelect);
-        }); '
+        }); 
  
         function handleImgFileSelect(e) {
             var files = e.target.files;
@@ -82,7 +82,7 @@
 	<div style="padding-top: 50px;"></div>
 	
 	<div class="EditBox">
-		 <div class="BoxLayout" >            <!-- ������ ���� -->
+		 <div class="BoxLayout" >
 			<img id="ProfilePhoto" src="new.jpg">
 			<form name="modify" method="POST" action="EditProfileProcess.jsp" enctype="multipart/form-data">
 			<label id="file-label" for="profile_file">프로필 사진 편집</label>
@@ -100,7 +100,7 @@
 				</div>
 				<div class="InputBox">
 
-						<label><input class="TextEditBox" type="text" name="name" value="dongjun" /></label><br>
+						<label><input class="TextEditBox" type="text" name="name" value="" /></label><br>
 						<div id="PhoneBox">
 							<label><input id = "PhoneNum"  type="text" name="phone1" value="010"/>-
 								<input id = "PhoneNum"  type="text" name="phone2" value=""/>-
@@ -116,9 +116,9 @@
 						<div class="gender">
 							<label><input  type="radio" name="gender" value="man" />남성
 								<input  type="radio" name="gender" value="woman" />여성
-								 <input  type="radio" name="gender" value="nochoice"/>선택하지 않음</label><br>
+								 <input  type="radio" name="gender" value="nochoice" checked="checked"/>선택하지 않음</label><br>
 						</div>
-						<label><textarea type="text" name="letter" value="한국산업기술대학교 재학중" ></textarea></label><br>
+						<label><textarea type="text" name="letter" value="" ></textarea></label><br>
 						<input id="sbmt" type="submit"  value="프로필 수정"/>
 					</form>
 				</div>
