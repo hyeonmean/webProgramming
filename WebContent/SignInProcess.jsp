@@ -8,12 +8,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<script type="javascript">
-fuction popup(){
-	var f=document.fm;
-	var pop=window.open;
-	pop("","popup","toolbar='no'");
-}</script>
+
 </head>
 <body>
 	
