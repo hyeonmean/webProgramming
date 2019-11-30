@@ -13,9 +13,12 @@
 <body>
 	<%
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
+	dbc.openDataBase();
+	int postIdx;
 	boolean check=false;
-	
-	check=dbc.deletePostPage(1);
+	dbc.closeDataBase();
+	//postIdx=getAttribute("postIndex");
+	//check=dbc.deletePostPage(postIdx);
 	%>
 
 </body>

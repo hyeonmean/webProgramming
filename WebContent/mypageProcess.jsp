@@ -42,6 +42,7 @@
 	request.setAttribute("name", user_name);	//string
 	request.setAttribute("letter", user_letter);	//string
 	
+	dbc.closeDataBase();
 	%>
 
 </body>

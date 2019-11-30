@@ -4,6 +4,7 @@
 <%@ page import="WebModule.*" %>   
 <%@ page import="java.util.*"%>
 <%@ page import="java.lang.*"%>
+<%@ page import="java.io.*"%>
 
 
 <!DOCTYPE html>
@@ -38,20 +39,37 @@
 		boolean user_manage=false;
 		boolean lock=false;
 		
+		user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\"+user_id+".gif";
 		Gender u_gender;
+		
+		FileInputStream fis=null;
+		FileOutputStream fos=null;
+		int readcount=0;
+		byte[] buffer=new byte[1024];
 		
 		if(user_gender.equals("male")){
 			u_gender=Gender.Male;
-			user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\male.gif";
+			fis=new FileInputStream("C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\defualt\\male.gif");
+			fos=new FileOutputStream(user_pictureAddress);
+			//user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\male.gif";
 		}
 		else if(user_gender.equals("female")){
 			u_gender=Gender.Female;
-			user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\female.gif";
+			fis=new FileInputStream("C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\defualt\\female.gif");
+			fos=new FileOutputStream(user_pictureAddress);
+			//user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\female.gif";
 		}
 		else{
 			u_gender=Gender.Unknown;
-			user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\unknown.gif";
+			fis=new FileInputStream("C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\defualt\\unknown.gif");
+			fos=new FileOutputStream(user_pictureAddress);
+			//user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\unknown.gif";
 		}
+		while((readcount=fis.read(buffer))!=-1){
+			fos.write(buffer,0,readcount);
+		}
+		fis.close();
+		fos.close();
 		
 		
 		

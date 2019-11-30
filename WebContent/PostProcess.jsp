@@ -99,6 +99,8 @@
 	
 	check=dbc.writePostPage(comment, pictureList, tagList);
 	
+	dbc.closeDataBase();
+	
 	response.sendRedirect("NewsFeed.jsp");
 	%>
 </body>
