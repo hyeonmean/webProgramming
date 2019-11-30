@@ -8,22 +8,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<%= request.getParameter("postIdx") %>
+	<%= request.getParameter("userID") %>
 	<%
 		request.setCharacterEncoding("utf-8");
 		
 		String comment = request.getParameter("comment");
+		String userId = request.getParameter("userID");
+		int postIdx = Integer.valueOf(request.getParameter("postIdx"));
 		
-		Cookie[] cookies = request.getCookies();
-		
-		int postIdx = Integer.valueOf(cookies[1].getValue());
-		String userId = cookies[2].getValue();
-		
-		cookies[1].setMaxAge(0);
-		cookies[2].setMaxAge(0);
-		cookies[0].setMaxAge(0);
-		
-		//쿼리문 추가
+
 		UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 		dbc.openDataBase();
 		
@@ -32,6 +26,7 @@
 		request.setAttribute("postIdx", postIdx);
 		
 		String finalUrl = "FeedDetail.jsp?postIdx="+String.valueOf(postIdx);
+		
 		
 		response.sendRedirect(finalUrl);
 	%>

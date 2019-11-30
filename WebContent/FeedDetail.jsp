@@ -139,13 +139,9 @@ w
             <%
             	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
             	String realId = dbc.getUser().getId();
-            
-            	Cookie test = new Cookie("postIdx", String.valueOf(postIdx));
-            	Cookie test2 = new Cookie("userId", realId);
-            	response.addCookie(test);
-            	response.addCookie(test2);
+            	
             %>
-            <form action="InputCommentProcess.jsp", method="get">
+            <form action="InputCommentProcess.jsp?postIdx=<%=postIdx%>&userID=<%=realId%>" method="post">
             	<div class="ReplyLayout">
                 	<div class="ReplyBox" >
                     	<input class="reply" type="text" name="comment" placeholder="댓글 달기"/>
