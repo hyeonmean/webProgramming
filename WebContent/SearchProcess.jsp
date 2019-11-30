@@ -12,12 +12,12 @@
 <body>
 	<%
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
-		dbc.openDataBase();
-		PostPage postPage=new PostPage();
-		String postIdx=request.getParameter("postIdx");
-		int idx=Integer.parseInt(postIdx);
+	dbc.openDataBase();
+	PostPage postPage=new PostPage();
+	String postIdx=request.getParameter("postIdx");
+	int idx=Integer.parseInt(postIdx);
 		
-		//postPage=dbc.searchPostPageByPostIdx(postIdx);
+	//postPage=dbc.searchPostPageByPostIdx(postIdx);
 	%>
 </body>
 </html>
