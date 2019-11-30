@@ -59,6 +59,8 @@
 		request.setAttribute("empty", false);
 	}
 	
+	dbc.closeDataBase();
+	
 	//response.sendRedirect("NewsFeed.jsp");
 	
 	//System.out.println(post.getComment());
