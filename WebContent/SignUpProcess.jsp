@@ -42,6 +42,8 @@
 		user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\"+user_id+".gif";
 		Gender u_gender;
 		
+		String savePath="C:\\\\Users\\\\HM\\\\Documents\\\\GitHub\\\\webProgramming\\\\WebContent\\\\pictures\\\\profilePictures\\\\"+user_id+".gif";
+		
 		FileInputStream fis=null;
 		FileOutputStream fos=null;
 		int readcount=0;
@@ -75,7 +77,7 @@
 		
 		String next_page=null;
 		boolean check=false;
-		User user=new User.Builder(user_id, user_pw, user_name, user_phone, false, true).age(Integer.parseInt(user_age)).gender(u_gender).letter(user_letter).profilePictureAddress(user_pictureAddress).build();
+		User user=new User.Builder(user_id, user_pw, user_name, user_phone, false, true).age(Integer.parseInt(user_age)).gender(u_gender).letter(user_letter).profilePictureAddress(savePath).build();
 		
 		//유저정보 db에 저장
 		check=dbc.signUp(user);
