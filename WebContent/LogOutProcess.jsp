@@ -15,6 +15,5 @@
 		session.invalidate();
 		response.sendRedirect("sign_in.jsp");
 	%>
-
 </body>
 </html>

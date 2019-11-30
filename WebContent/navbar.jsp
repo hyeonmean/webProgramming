@@ -42,7 +42,7 @@
                             <button class="u-bookmark" onclick="location.href='BookMark.jsp'">
                                <i class="fas fa-bookmark"></i> 북마크</button>
          
-                            <button class="u-logout" onclick="location.href='logout.jsp'">
+                            <button class="u-logout" onclick="location.href='LogOutProcess.jsp'">
                                 <i class="fas fa-sign-out-alt"></i> 로그아웃</button>
                          </div>
                         <div class="triangle_up3"><a href="#"></a></div>
