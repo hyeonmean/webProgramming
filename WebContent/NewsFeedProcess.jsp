@@ -25,12 +25,18 @@
 	ArrayList<String> comment = new ArrayList<String>();
 	ArrayList<String> picture = new ArrayList<String>();
 	ArrayList<Integer> link = new ArrayList<Integer>();
+	
+	ArrayList<String> favoriteList=new ArrayList<String>();
+	ArrayList<Integer> favoriteNum=new ArrayList<Integer>();
+	
 	Picture pic= new Picture();
 	//
 	for(Integer i: feedList){
 		post=dbc.searchPostPageByPostIdx(i);
 		//System.out.println(post.getComment());
 		
+		favoriteList=post.getFavoriteList();
+		favoriteNum.add(favoriteList.size());
 		postIdx.add(post.getPostIdx());//에러
 		userId.add(post.getUserId());
 		comment.add(post.getComment());
@@ -40,7 +46,7 @@
 		pic=dbc.searchPictureDataByIdx(link.get(0));//에러
 		picture.add(pic.getPictureAddress());
 	}
-
+	
 	dbc.closeDataBase();
 	if(link.isEmpty()!=true){
 		request.setAttribute("empty", true);
@@ -48,10 +54,11 @@
 		request.setAttribute("userId",userId);
 		request.setAttribute("comment",comment);
 		request.setAttribute("picture",picture);
+		request.setAttribute("favoriteNum", favoriteNum);
 	}else {
 		request.setAttribute("empty", false);
 	}
-
+	
 	//response.sendRedirect("NewsFeed.jsp");
 	
 	//System.out.println(post.getComment());
