@@ -12,6 +12,7 @@
 </head>
 <body>
 	<%
+	/*
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();
 	int postIdx;
@@ -19,7 +20,11 @@
 	dbc.closeDataBase();
 	//postIdx=getAttribute("postIndex");
 	//check=dbc.deletePostPage(postIdx);
+	*/
 	%>
 
+	<script type="text/javascript">
+		alert(<%=request.getParameter("postIdx")%>);
+	</script>
 </body>
 </html>

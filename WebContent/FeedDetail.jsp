@@ -44,7 +44,9 @@
                             <button class="modify">
                                <i class="fas fa-pencil-alt"></i> 수정
                             </button>
-                            <button class="remove">
+                            <script type="text/javascript">
+                                document.write('<button class="remove" type="button" onclick="location.href=\'DeletePostProcess.jsp?postIdx=<%=request.getParameter("postIdx")%>\'"/>');
+                            </script>
                                <i class="far fa-trash-alt"></i> 삭제
                             </div>
                             <div class="triangle_up2"><a href="#"></a></div>
