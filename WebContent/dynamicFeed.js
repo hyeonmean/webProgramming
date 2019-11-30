@@ -1,4 +1,4 @@
-function newsfeedPrint(userId_array, comment_array, picture_array){
+function newsfeedPrint(isEmpty, userId_array, comment_array, picture_array){
 	//출력해야하는 피드의 양은 백엔드에서?
 	//사용하는 변수 : writerName, locationOfPhoto, theNumberOfGood, contentVariable, replyVariable
 	//아래의 변수 초기화값은 나중에 삭제할 예정
@@ -42,6 +42,9 @@ function newsfeedPrint(userId_array, comment_array, picture_array){
 	Nulla voluptatem vel deleniti tempore. Praesentium, inventore? Aspernatur, eum? 
 	Quasi distinctio impedit natus, odit eligendi itaque quos tenetur culpa velit!`;
 	var replyVariable = `it is good!`;
+
+	if (isEmpty == False)
+		return;
 
 	for(var i =0; i < theNumberOfFeed; i++){
 		//변수수정 코드 이부분에 삽입

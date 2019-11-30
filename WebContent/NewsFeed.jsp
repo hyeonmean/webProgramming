@@ -20,34 +20,40 @@
         <jsp:include page="navbar.jsp"/>
         <div style="padding-top: 110px;"></div>
         <!-- 예제로 3개만 출력해봄 -->
-        <%--<jsp:include page="NewsFeedProcess.jsp"/>--%>
+        <jsp:include page="NewsFeedProcess.jsp"/>
         <%
+            boolean empty = (boolean)request.getAttribute("empty");
             ArrayList<String> userId_temp = new ArrayList<String>();
             ArrayList<String> comment_temp = new ArrayList<String>();
             ArrayList<String> picture_temp = new ArrayList<String>();
-            //userId_temp = (ArrayList<String>)request.getAttribute("userId");
-            //comment_temp = (ArrayList<String>)request.getAttribute("comment");
-            //picture_temp = (ArrayList<String>)request.getAttribute("picture");
+            if(empty == true){
+                userId_temp = (ArrayList<String>)request.getAttribute("userId");
+                comment_temp = (ArrayList<String>)request.getAttribute("comment");
+                picture_temp = (ArrayList<String>)request.getAttribute("picture");
+            }
 
+            //나중에 request로 empty 잘 받았는지 체크하기 자바스크립트에 alert 코드 있으
+            /*
             userId_temp.add("testMan");
             comment_temp.add("testComment");
             picture_temp.add("./new.jpg");
             userId_temp.add("testMan2");
             comment_temp.add("testComment2");
             picture_temp.add("./sample/11.JPG");
+            */
         %>
 
       <script type="text/javascript">
             userId_array = new Array();
             comment_array = new Array();
             picture_array = new Array();
-              
+            alert(<%=empty%>)
             <%for(int i=0; i<userId_temp.size(); i++){%>
                 userId_array.push('<%=(String)userId_temp.get(i)%>');
                 comment_array.push('<%=(String)comment_temp.get(i)%>');
                 picture_array.push('<%=(String)picture_temp.get(i)%>');
             <%}%>
-         newsfeedPrint(userId_array, comment_array, picture_array);
+         newsfeedPrint(<%=(boolean)request.getAttribute("empty")%>,userId_array, comment_array, picture_array);
       </script>
         
 
