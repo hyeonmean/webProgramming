@@ -53,6 +53,8 @@
 		request.setAttribute("userId",userId);
 		request.setAttribute("comment",comment);
 		request.setAttribute("picture",picture);
+	} else {
+		request.setAttribute("empty", false);
 	}
 	
 	//response.sendRedirect("NewsFeed.jsp");
