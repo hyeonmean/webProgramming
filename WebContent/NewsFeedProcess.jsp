@@ -28,11 +28,14 @@
 	
 	for(Integer i: feedList){
 		post=dbc.searchPostPageByPostIdx(i);
+		
 		postIdx.add(post.getPostIdx());
 		userId.add(post.getUserId());
 		comment.add(post.getComment());
+		
 		link=post.getPictureList();
 		pic=dbc.searchPictureDataByIdx(link.get(0));
+		
 		picture.add(pic.getPictureAddress());
 	}
 	request.setAttribute("post",post);
