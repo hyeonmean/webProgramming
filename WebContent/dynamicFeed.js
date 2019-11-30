@@ -48,9 +48,9 @@ function newsfeedPrint(isEmpty, userId_array, comment_array, picture_array){
 
 	for(var i =0; i < theNumberOfFeed; i++){
 		//변수수정 코드 이부분에 삽입
-		writerId = userId_array[i];
-		locationOfPhoto = picture_array[i];
-		contentVariable = comment_array[i];
+		writerId = userId_array[theNumberOfFeed - 1 - i];
+		locationOfPhoto = picture_array[theNumberOfFeed - 1 - i];
+		contentVariable = comment_array[theNumberOfFeed - 1 - i]; //최신순
 		document.write(fillTemplate(writerId, locationOfPhoto, theNumberOfGood, contentVariable, replyVariable));
 	}
 	
