@@ -2,17 +2,8 @@ function newsfeedPrint(userId_array, comment_array, picture_array){
 	//출력해야하는 피드의 양은 백엔드에서?
 	//사용하는 변수 : writerName, locationOfPhoto, theNumberOfGood, contentVariable, replyVariable
 	//아래의 변수 초기화값은 나중에 삭제할 예정
-	var theNumberOfFeed = userId_array.length;
-	var writerId = 'dongjun', locationOfPhoto='./sample/4.JPG';
-	var theNumberOfGood = 10;
-	var contentVariable = `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, minima. 
-	Nulla voluptatem vel deleniti tempore. Praesentium, inventore? Aspernatur, eum? 
-	Quasi distinctio impedit natus, odit eligendi itaque quos tenetur culpa velit!`;
-	var replyVariable = `it is good!`;
-	
-	
-	
-	var feedTemplate =`
+	fillTemplate = function(writerId, locationOfPhoto, theNumberOfGood, contentVariable, replyVariable){
+		var feedTemplate =`
 		<div class="frame_box">
 	    	<div class="user_name_box">
 	    		<img id="newsFeed_profile_photo" src="./sample/ootd/rename2.jpg">
@@ -40,13 +31,24 @@ function newsfeedPrint(userId_array, comment_array, picture_array){
 		</div>
 	</div>
 	</div>`;
-	
+
+    	return feedTemplate;
+	}
+
+	var theNumberOfFeed = userId_array.length;
+	var writerId = 'dongjun', locationOfPhoto='./sample/4.JPG';
+	var theNumberOfGood = 10;
+	var contentVariable = `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, minima. 
+	Nulla voluptatem vel deleniti tempore. Praesentium, inventore? Aspernatur, eum? 
+	Quasi distinctio impedit natus, odit eligendi itaque quos tenetur culpa velit!`;
+	var replyVariable = `it is good!`;
+
 	for(var i =0; i < theNumberOfFeed; i++){
 		//변수수정 코드 이부분에 삽입
 		writerId = userId_array[i];
 		locationOfPhoto = picture_array[i];
 		contentVariable = comment_array[i];
-		document.write(feedTemplate);
+		document.write(fillTemplate(writerId, locationOfPhoto, theNumberOfGood, contentVariable, replyVariable));
 	}
 	
 	/* 

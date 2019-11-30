@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="./css/common.css" type="text/css" />
         <link rel="stylesheet" href="./css/search_result.css" type="text/css" />
         
-
 </head>
 <body>
 	<jsp:include page="sign_in.jsp"/>
