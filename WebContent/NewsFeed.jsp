@@ -47,7 +47,6 @@
             userId_array = new Array();
             comment_array = new Array();
             picture_array = new Array();
-            alert(<%=empty%>)
             <%for(int i=0; i<userId_temp.size(); i++){%>
                 userId_array.push('<%=(String)userId_temp.get(i)%>');
                 comment_array.push('<%=(String)comment_temp.get(i)%>');
