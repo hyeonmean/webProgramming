@@ -12,6 +12,7 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.0.min.js" ></script>
         <link rel="stylesheet" href="./css/common.css" type="text/css" />
         <link rel="stylesheet" href="./css/search_result.css" type="text/css" />
+        <script type="text/javascript" src="./setting.js"></script>
 
     </head>
     <body>

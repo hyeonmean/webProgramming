@@ -63,36 +63,42 @@ function newsfeedPrint(isEmpty, post_array, userId_array, comment_array, picture
 	*/
 }
 
-function myProfilePrint(sessionUserID){
+function myProfilePrint(userid_var, profilePath_var, name_var, letter_var, postNum_var, followerNum_var, followingNUm_var){
 	//아래의 변수 초기화값은 나중에 삭제할 예정
-	var userID = sessionUserID, locationOfProfile='profile.JPG', theNumberOfPost = 10, theNumberOfFollow = 15, theNumberOfFollower = 8;
-	var userName ="임동준";
-	var selfIntroductionVariable = "한국산업기술대학교 재학";
-	var profileTemplate =`
-    <div class="profile">
-        <div class="profile_photo" >           <!-- 프로필 사진 -->
-            <img id="pro" src="${locationOfProfile}">
-            
-        </div>
-        <div class="profile_text">
-            <div class="user_name">               <!-- 유저이름 표시하는 div -->
-                ${userID}
-            </div>
-            
-            <div class="modify">                  <!-- 프로필 편집창으로 넘어가는 버튼 -->
-                <input type="button" onclick="location.replace('./EditProfile.jsp')"  value="프로필 편집">
-                
-            </div>  
-            <div class="count">게시물 ${theNumberOfPost}   팔로우 ${theNumberOfFollow}   팔로워 ${theNumberOfFollower}</div>     <!-- 게시물, 팔로우, 팔로워 숫자표시 화면, -->
-            
-            <div class="content" style="margin-top:15px;">
-                <div style="font-weight: 650; margin-bottom: 4px;">${userName}</div>     <!-- 사용자가 설정한 이름 -->
-                <div>${selfIntroductionVariable}</div>                                    <!-- 사용자가 설정한 자기소개글 -->
-            </div>
-        </div>
-    </div>`;
+	fillTemplate = function(userid_var, profilePath_var, name_var, letter_var, postNum_var, followerNum_var, followingNUm_var){
+			var userID = userid_var, locationOfProfile = profilePath_var, theNumberOfPost = postNum_var, theNumberOfFollow = followingNUm_var, theNumberOfFollower = followerNum_var;
+			var userName =name_var;
+			var selfIntroductionVariable = letter_var;
+			var profileTemplate =`
+		    <div class="profile">
+		        <div class="profile_photo" >           <!-- 프로필 사진 -->
+		            <img id="pro" src="${locationOfProfile}">
+		            
+		        </div>
+		        <div class="profile_text">
+		            <div class="user_name">               <!-- 유저이름 표시하는 div -->
+		                ${userID}
+		            </div>
+		            
+		            <div class="modify">                  <!-- 프로필 편집창으로 넘어가는 버튼 -->
+		                <input type="button" onclick="location.replace('./EditProfile.jsp')"  value="프로필 편집">
+		                
+		            </div>  
+		            <div class="count">게시물 ${theNumberOfPost}   팔로우 ${theNumberOfFollow}   팔로워 ${theNumberOfFollower}</div>     <!-- 게시물, 팔로우, 팔로워 숫자표시 화면, -->
+		            
+		            <div class="content" style="margin-top:15px;">
+		                <div style="font-weight: 650; margin-bottom: 4px;">${userName}</div>     <!-- 사용자가 설정한 이름 -->
+		                <div>${selfIntroductionVariable}</div>                                    <!-- 사용자가 설정한 자기소개글 -->
+		            </div>
+		        </div>
+		    </div>`;
+		    return profileTemplate;
+	}
 
-	document.write(profileTemplate);
+
+
+
+	document.write(fillTemplate(userid_var, profilePath_var, name_var, letter_var, postNum_var, followerNum_var, followingNUm_var));
 }
 
 function myfeedPrint(){

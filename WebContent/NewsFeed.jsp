@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="./css/newsfeed.css" type="text/css" />
         <script type="text/javascript" src="./IconEvent.js"></script>
         <script type="text/javascript" src="./ScrollEvent.js"></script>
+        <script type="text/javascript" src="./setting.js"></script>
 
     </head>
     <body>

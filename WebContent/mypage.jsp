@@ -13,8 +13,34 @@
 <body>
 	<script type="text/javascript" src="./dynamicFeed.js"></script>
     <jsp:include page="navbar.jsp"/>
+    <jsp:include page="mypageProcess.jsp"/>
+
+    <%
+        String user_id=(String)session.getAttribute("userId");
+        String profilePath_temp = (String)request.getAttribute("profilePath");
+        String name_temp = (String)request.getAttribute("name");
+        String letter_temp = (String)request.getAttribute("letter");
+        int postNum_temp = (int)request.getAttribute("postNum");
+        int followerNum_temp = (int)request.getAttribute("followerNum");
+        int followingNUm_temp = (int)request.getAttribute("followingNUm");
+    %>
+
 
     <!-- 프로필 구성화면 -->
+    <script type="text/javascript">
+        var userid_var = '<%=user_id%>';
+        var profilePath_var = '<%=profilePath_temp%>';
+        var name_var = '<%=name_temp%>';
+        var letter_var = '<%=letter_temp%>';
+        var postNum_var = <%=postNum_temp%>;
+        var followerNum_var = <%=followerNum_temp%>;
+        var followingNUm_var = <%=followingNUm_temp%>;
+
+        myProfilePrint(userid_var, profilePath_var, name_var, letter_var, postNum_var, followerNum_var, followingNUm_var);
+    </script>
+
+
+
     <script type="text/javascript">
         var userid = "<%=(String)session.getAttribute("userID")%>"
     	myProfilePrint(userid);

@@ -11,6 +11,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript" src="./writeBox.js"></script>
+	<script type="text/javascript" src="./setting.js"></script>
     
 </head>
 

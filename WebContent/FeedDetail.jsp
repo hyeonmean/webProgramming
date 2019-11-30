@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./css/common.css" type="text/css" />
     <link rel="stylesheet" href="./css/FeedDetail.css" type="text/css" />
     <link rel="stylesheet" href="./css/search_result.css" type="text/css" />
+    <script type="text/javascript" src="./setting.js"></script>
     
 </head>
 <body>
