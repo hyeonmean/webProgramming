@@ -23,7 +23,7 @@
             <div id="u-mask"></div>
             <a class="logo" href="./NewsFeed.jsp"><img class="onion" src="onion.png"/></a>
             <label class="searchBar" style="text-align: center";onkeypress="if(event.keyCode==13) {실행할 함수명(); return false;}">
-                <input type="text"  placeholder="검색"/>
+                <input type="text" name="searchKeyword" placeholder="검색"/>
             </label>
             <div class="icon_list">
                 <div style="padding-right:15px;"></div>
