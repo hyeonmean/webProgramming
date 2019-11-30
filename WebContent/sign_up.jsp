@@ -15,7 +15,7 @@
     <div id="signUpFrame">
         <h1>Onion</h1>
         <h2>register</h2>
-        <form name="login" class="login" method="post" action="가입URL">
+        <form name="login" class="login" method="post" action="./SignUpProcess.jsp">
             <i class="fas fa-user"></i>     <label><input class="text_box" type= "text"  name="id" placeholder="아이디" ></label><br>
             <i class="fas fa-key"></i>     <label for "pass"><input class="text_box" name="pswd" type= 'password'  placeholder="비밀번호"></label><br>
             <i class="fas fa-key"></i>     <label for "pass"><input class="text_box" name="checkpswd" type= 'password' placeholder="비밀번호확인"></label><br>

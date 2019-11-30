@@ -39,7 +39,7 @@
 		if(link.isEmpty()==true){
 			request.setAttribute("empty", false);
 			//response.sendRedirect("NewsFeed.jsp");
-			
+			break;
 		}else{
 			pic=dbc.searchPictureDataByIdx(link.get(0));//에러
 		
