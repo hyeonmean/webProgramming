@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ page import="java.util.*" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 
 <html>
@@ -21,21 +23,74 @@
     <div class="back__arrow">
     <button class="back" onclick="history.go(-1);"></button>
     <div onclick="history.go(-1);" style="width:45px; text-align: center; height:45px;"><i class="fas fa-arrow-left"></i></div>
-	</div>
+    </div>
+
+    
+    <%
+        int postIdx = Integer.valueOf(request.getParameter("postIdx"));
+        request.setAttribute("postIdx", postIdx);
+    %>
+    
+    <jsp:include page="FeedDetailProcess.jsp"/>
+    <%
+        
+        ArrayList<String> userIdList = new ArrayList<String>();
+        
+        //댓글 인덱스 리스트
+        ArrayList<Integer> cmtIdxList = new ArrayList<Integer>();
+        
+        //댓글 리스트
+        ArrayList<String> cmtList = new ArrayList<String>();
+        
+        //댓글 단 날짜 리스트
+        ArrayList<String> dateList = new ArrayList<String>();
+        
+        //댓글 단 유저 사진 리스트
+        ArrayList<String> commentUserAddress = new ArrayList<String>();
+        
+        String userId = (String)request.getAttribute("userId");
+        String postComment = (String)request.getAttribute("letter");
+        String pictureAddress = (String)request.getAttribute("pictureAddress");
+        int numberOfFavorite = (int)request.getAttribute("numberOfFavorite");
+        String writeUserPicAddress = (String)request.getAttribute("writeUserPicAddress");
+        
+        Calendar cal = (Calendar)request.getAttribute("dateToStr");
+        String dateToStr = cal.get(Calendar.YEAR)+"-"
+                + (cal.get(Calendar.MONTH)+1)+"-"
+                + cal.get(Calendar.DAY_OF_MONTH)+" "
+                + cal.get(Calendar.HOUR)+":"
+                + cal.get(Calendar.MINUTE)+":"
+                + cal.get(Calendar.SECOND);
+        
+        boolean empty = (boolean)request.getAttribute("empty");
+        
+        if(empty != true) {
+            userIdList = (ArrayList<String>)request.getAttribute("userIdList");
+            cmtIdxList = (ArrayList<Integer>)request.getAttribute("cmtIdxList");
+            cmtList = (ArrayList<String>)request.getAttribute("cmtList");
+            dateList = (ArrayList<String>)request.getAttribute("dateList");
+            commentUserAddress = (ArrayList<String>)request.getAttribute("userPicAddressList");
+        
+        }
+    %>
+    
+w
 
     <%--<script type="text/javascript">
         alert(<%= request.getParameter("postIdx") %>);
     </script>--%>
-	<div class="l-out">
-	<div class="MainBox">
+
+    <div class="l-out">
+    <div class="MainBox">
         <div class="FeedPhoto">
-            <img src="new.jpg">
+            <img src=<%= pictureAddress %> />
         </div>
 
         <div class="contentLayout">
             <div class="NameBar">
-                <div id="ProfilePhoto"><img src="new.jpg"/></div>
-               <button class="profile">username</button>
+                <!-- 댓글올린 유저 그림 -->
+                <div id="ProfilePhoto"><img src=<%= writeUserPicAddress %>/></div>
+               <button class="profile"><%= userId %></button>
                <button class="follow">팔로우</button>
                <div class="setting"><i class="fas fa-ellipsis-h"></i>
                 <div class="setting-box">   
@@ -53,16 +108,18 @@
                </div>
             </div>
             <div class="TextLayout">
+            <% for(int i = 0; i<userIdList.size(); i++) { %>
                 <div class="Content">
-                    <div id="ProfilePhoto"><img src="new.jpg"/></div>
+                    <div id="ProfilePhoto"><img src=<%=commentUserAddress.get(i) %>/></div>
                     <div class="TextBox">
-                        <button class="profile">username</button>
-                        <div class="Text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequuntur, perferendis natus voluptat
+                        <button class="profile"><%= userIdList.get(i) %></button>
+                        <div class="Text"><%= cmtList.get(i) %>
                         </div>
-                        <div class="Date">1일전</div>
+                        <div class="Date"><%=dateList.get(i)%></div>
                     </div>
                    
                 </div>
+                <% } %>
                 
             </div>
             <div class="BottomLayout">
@@ -74,14 +131,14 @@
                     <i class="far fa-bookmark"></i> 
                 </div>
                 <div class="like">
-                    n명이 좋아합니다
+                    <%=numberOfFavorite%>명이 좋아합니다
                 </div>
-                <div class="Date">1일전</div>
+                <div class="Date"><%= dateToStr %></div>
             </div>
             <div class="ReplyLayout">
-                <div class="ReplyBox">
+                <div class="ReplyBox" >
                     <input class="reply" type="text" name="comment" placeholder="댓글 달기"/>
-                    <button>게시</button>
+                    <button type="submit">게시</button>
                 </div>
             </div>
         </div>
@@ -90,9 +147,9 @@
     <div style="padding-top:60px;"></div>
     <div style="text-align: center; font-size:1.6rem; font-weight: bold;">이런 스타일은 어떠세요?</div>
     <div class="SameLayout" style="margin-top: 25px; margin-left:35px; margin-right:35px;">
-    	<script type="text/javascript">
-			searchListPrint();
-		</script>
+        <script type="text/javascript">
+            searchListPrint();
+        </script>
     
     
     
