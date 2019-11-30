@@ -22,6 +22,10 @@
     <button class="back" onclick="history.go(-1);"></button>
     <div onclick="history.go(-1);" style="width:45px; text-align: center; height:45px;"><i class="fas fa-arrow-left"></i></div>
 	</div>
+
+    <%--<script type="text/javascript">
+        alert(<%= request.getParameter("postIdx") %>);
+    </script>--%>
 	<div class="l-out">
 	<div class="MainBox">
         <div class="FeedPhoto">
