@@ -38,7 +38,18 @@
                 <div id="ProfilePhoto"><img src="new.jpg"/></div>
                <button class="profile">username</button>
                <button class="follow">팔로우</button>
-               <div class="setting"><i class="fas fa-ellipsis-h"></i></div>
+               <div class="setting"><i class="fas fa-ellipsis-h"></i>
+                <div class="setting-box">   
+                        <div class="content">
+                            <button class="modify">
+                               <i class="fas fa-pencil-alt"></i> 수정
+                            </button>
+                            <button class="remove">
+                               <i class="far fa-trash-alt"></i> 삭제
+                            </div>
+                            <div class="triangle_up2"><a href="#"></a></div>
+                        </div>
+               </div>
             </div>
             <div class="TextLayout">
                 <div class="Content">

@@ -15,7 +15,7 @@
 	dbc.openDataBase();
 	//User user=dbc.searchAboutUser((String)session.getAttribute("userID"));
 	//프로필 사진은 editprofile만든 후에 작성
-	String user_id=(String)session.getAttribute("userId");
+	String user_id=(String)session.getAttribute("userID");
 	User user=dbc.searchAboutUser(user_id);
 	
 	String profilePath=null;

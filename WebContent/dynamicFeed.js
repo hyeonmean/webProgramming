@@ -80,7 +80,7 @@ function myProfilePrint(userid_var, profilePath_var, name_var, letter_var, postN
 		                ${userID}
 		            </div>
 		            
-		            <div class="modify">                  <!-- 프로필 편집창으로 넘어가는 버튼 -->
+		            <div class="p-modify">                  <!-- 프로필 편집창으로 넘어가는 버튼 -->
 		                <input type="button" onclick="location.replace('./EditProfile.jsp')"  value="프로필 편집">
 		                
 		            </div>  
