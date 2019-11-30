@@ -16,6 +16,7 @@ public class PostComment {
 		this.postIdx=postIdx;
 		this.comment=comment;
 		this.writeDate=writeDate;
+		this.userId = userId;
 	}
 	
 	//get ÇÔ¼ö
