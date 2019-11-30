@@ -43,7 +43,7 @@ function newsfeedPrint(isEmpty, userId_array, comment_array, picture_array){
 	Quasi distinctio impedit natus, odit eligendi itaque quos tenetur culpa velit!`;
 	var replyVariable = `it is good!`;
 
-	if (isEmpty == False)
+	if (isEmpty == false)
 		return;
 
 	for(var i =0; i < theNumberOfFeed; i++){
