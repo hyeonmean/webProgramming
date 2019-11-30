@@ -10,12 +10,15 @@
 </head>
 <body>
 	<%
-	String id=(String)session.getAttribute("userID");
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
-	User user=dbc.searchAboutUser("id");
+	
+	String postIdx = request.getParameter("postIdx");
+
 	boolean check=false;
 	
-	check=dbc.deletePostPage(21);
+	check=dbc.deleteComment(Integer.parseInt(postIdx));
+	
+	dbc.closeDataBase();
 	%>
 
 </body>
