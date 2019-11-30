@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ page import="WebModule.*"%>
+<%@ page import="java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +9,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%
+	String id=(String)session.getAttribute("userID");
+	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
+	User user=dbc.searchAboutUser("admin12");
+	boolean check=false;
+	
+	check=dbc.deletePostPage(21);
+	%>
 
 </body>
 </html>

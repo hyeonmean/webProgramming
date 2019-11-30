@@ -24,8 +24,9 @@
 	<script type="text/javascript">alert("check")</script>
 	<%
 	request.setCharacterEncoding("utf-8");
-	g_user.setId("admin12");
-	UserDBController dbc= new UserDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02", g_user);
+	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
+	User user=dbc.searchAboutUser((String)session.getAttribute("userID"));
+	//g_user.setId("admin12");
 	dbc.openDataBase();
 	boolean check=false;
 	
@@ -75,7 +76,7 @@
 
         // request,파일저장경로,용량,인코딩타입,중복파일명에 대한 기본 정책
         
-        filename=multi.getFilesystemName("imgfile");
+	filename=multi.getFilesystemName("imgfile");
          
         //name=multi.getParameter("name");
         //subject=multi.getParameter("subject");
@@ -96,7 +97,6 @@
 	//postindex=??
 	
 	check=dbc.writePostPage(comment, pictureList, tagList);
-	dbc.closeDataBase();
 	
 	response.sendRedirect("NewsFeed.jsp");
 	%>

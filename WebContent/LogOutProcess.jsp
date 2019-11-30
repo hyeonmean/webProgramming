@@ -10,6 +10,8 @@
 </head>
 <body>
 	<%
+		UserDBController dbc=(UserDBController)session.getAttribute("DBController");
+		dbc.closeDataBase();
 		session.invalidate();
 		response.sendRedirect("sign_in.jsp");
 	%>
