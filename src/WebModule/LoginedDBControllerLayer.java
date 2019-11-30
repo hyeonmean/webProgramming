@@ -1,8 +1,5 @@
 package WebModule;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
@@ -288,7 +285,8 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		String userId = rSet.getString("userId");
 		String comment = rSet.getString("comment");
 		Calendar writeDate = Calendar.getInstance();
-		writeDate.setTime(rSet.getDate("writeDate"));
+		
+		writeDate.setTimeInMillis(rSet.getTimestamp("writeDate").getTime());
 		
 		//Builder ����
 		PostPage.Builder builder = new PostPage.Builder(postIdx, userId, comment, writeDate);
@@ -386,7 +384,9 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		String userId = rSet.getString("userId");
 		String comment = rSet.getString("comment");
 		Calendar cal = Calendar.getInstance();
-		cal.setTime(rSet.getDate("writeDate"));
+		
+		Timestamp ts = rSet.getTimestamp("writeDate");
+		cal.setTimeInMillis(ts.getTime());
 		
 		PostComment postComment =
 				new PostComment(commentIdx, postIdx, userId, comment, cal);
@@ -496,22 +496,6 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		pstmt.close();
 		
 		return resultList;
-	}
-	
-	//유저 아이디에 대한 게시글 리스트 만들기
-	public ArrayList<Integer> getPostPageIdxByUserId(String userId) throws Exception {
-		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.GET_POST_PAGE_BY_ID);
-		pstmt.setString(1, userId);
-		ResultSet rSet = pstmt.executeQuery();
-		
-		ArrayList<Integer> postIdxList = new ArrayList<>();
-		
-		while(rSet.next())
-			postIdxList.add(rSet.getInt("postIdx"));
-		rSet.close();
-		pstmt.close();
-	
-		return postIdxList;
 	}
 	
 	//�����ǵ�
