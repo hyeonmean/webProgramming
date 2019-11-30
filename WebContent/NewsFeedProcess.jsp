@@ -36,16 +36,25 @@
 		comment.add(post.getComment());
 		
 		link=post.getPictureList();
+		if(link.isEmpty()==true){
+			request.setAttribute("empty", false);
+			dbc.closeDataBase();
+			response.sendRedirect("NewsFeed.jsp");
+			
+		}
 		pic=dbc.searchPictureDataByIdx(link.get(0));//에러
 		
 		picture.add(pic.getPictureAddress());
 	}
+	request.setAttribute("empty", true);
 	request.setAttribute("post",postIdx);
 	request.setAttribute("userId",userId);
 	request.setAttribute("comment",comment);
 	request.setAttribute("picture",picture);
 	
 	dbc.closeDataBase();
+	
+	response.sendRedirect("NewsFeed.jsp");
 	
 	//System.out.println(post.getComment());
 	%>

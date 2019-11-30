@@ -514,7 +514,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		rSet.close();
 		pstmt.close();
 		
-		pstmt = this.conn.prepareStatement("select postIdx from PostPage where id = ?");
+		pstmt = this.conn.prepareStatement("select postIdx from PostPage where userId = ?");
 		pstmt.setString(1, userInfo.getId());
 		rSet = pstmt.executeQuery();
 		
