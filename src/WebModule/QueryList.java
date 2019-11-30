@@ -13,8 +13,6 @@ public class QueryList {
 	public static String IS_POSTPAGE_EXIST = "select exists "
 			+ "(select * from PostPage where postIdx = ?) as success";
 	
-	public static String GET_POST_PAGE_BY_ID = "select * from PostPage where userId = ?";
-	
 	public static String SIGN_UP = "insert into User("
 			+ "id,"
 			+ "pswd,"
@@ -56,7 +54,8 @@ public class QueryList {
 			+ "phoneNumber = ?, "
 			+ "gender = ?, "
 			+ "letter = ?, "
-			+ "birthday = ? "
+			+ "birthday = ?, "
+			+ "profileAddress = ? "
 			+ "where id = ?";
 	
 	//Ʈ������ ���� ������

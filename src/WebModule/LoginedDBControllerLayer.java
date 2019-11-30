@@ -126,7 +126,8 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		} else {
 			pstmt.setNull(5, Types.DATE);
 		}
-		pstmt.setString(6, userInfo.getId());
+		pstmt.setString(6,  userInfo.getProfilePictureAddress());
+		pstmt.setString(7, userInfo.getId());
 		
 		//������ ����
 		pstmt.executeUpdate();

@@ -18,7 +18,7 @@ function settingByMask(){
 
 $(document).ready(function(){
     //검은 막 띄우기
-    $(".setting").click(function(e){
+    $(".fa-ellipsis-h").click(function(e){
         e.preventDefault();
         settingByMask();
     });

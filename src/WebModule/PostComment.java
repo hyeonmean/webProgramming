@@ -19,14 +19,14 @@ public class PostComment {
 		this.userId = userId;
 	}
 	
-	//get ÇÔ¼ö
+	//get ï¿½Ô¼ï¿½
 	public int getCommentIdx() {return commentIdx;}
 	public int getPostIdx() {return postIdx;}
 	public String getUserId() {return userId;}
 	public String getComment() {return comment;}
 	public Calendar getwriteDate() {return writeDate;}
 	
-	//set ÇÔ¼ö
+	//set ï¿½Ô¼ï¿½
 	public void setCommentIdx(int commentIdx) {this.commentIdx=commentIdx;}
 	public void setPostIdx(int postIdx) {this.postIdx=postIdx;}
 	public void setUserId(String userId) {this.userId=userId;}
