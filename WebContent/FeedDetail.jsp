@@ -84,13 +84,13 @@ w
     <div class="l-out">
     <div class="MainBox">
         <div class="FeedPhoto">
-            <img src=<%= pictureAddress %> />
+            <img src='<%= pictureAddress %>'>
         </div>
 
         <div class="contentLayout">
             <div class="NameBar">
                 <!-- 댓글올린 유저 그림 -->
-                <div id="ProfilePhoto"><img src=<%= writeUserPicAddress %>/></div>
+                <div id="ProfilePhoto"><img src='<%=writeUserPicAddress%>'></div>
                <button class="profile"><%= userId %></button>
                <button class="follow">팔로우</button>
                <div class="setting"><i class="fas fa-ellipsis-h"></i>
@@ -111,7 +111,7 @@ w
             <div class="TextLayout">
             <% for(int i = 0; i<userIdList.size(); i++) { %>
                 <div class="Content">
-                    <div id="ProfilePhoto"><img src=<%=commentUserAddress.get(i) %>/></div>
+                    <div id="ProfilePhoto"><img src='<%=commentUserAddress.get(i) %>'></div>
                     <div class="TextBox">
                         <button class="profile"><%= userIdList.get(i) %></button>
                         <div class="Text"><%= cmtList.get(i) %>
