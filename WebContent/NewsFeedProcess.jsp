@@ -36,16 +36,11 @@
 		comment.add(post.getComment());
 		
 		link=post.getPictureList();
-		if(link.isEmpty()==true){
-			request.setAttribute("empty", false);
-			//response.sendRedirect("NewsFeed.jsp");
-			break;
-		}else{
-			pic=dbc.searchPictureDataByIdx(link.get(0));//에러
-		
-			picture.add(pic.getPictureAddress());
-		}
+
+		pic=dbc.searchPictureDataByIdx(link.get(0));//에러
+		picture.add(pic.getPictureAddress());
 	}
+	
 	dbc.closeDataBase();
 	if(link.isEmpty()!=true){
 		request.setAttribute("empty", true);
@@ -53,7 +48,7 @@
 		request.setAttribute("userId",userId);
 		request.setAttribute("comment",comment);
 		request.setAttribute("picture",picture);
-	} else {
+	}else {
 		request.setAttribute("empty", false);
 	}
 	
