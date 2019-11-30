@@ -19,7 +19,7 @@
 	String userID = postPage.getUserId();
 	String letter = postPage.getComment();
 	
-	Picture picture = dbc.searchPictureDataByIdx(postPage.getPictureList().get(0).intValue());
+	Picture picture = dbc.searchPictureDataByIdx(postPage.getPictureList().get(0));
 	
 	//그림 주소
 	String pictureAddress = picture.getPictureAddress();
