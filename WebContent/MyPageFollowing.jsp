@@ -20,7 +20,7 @@
 	
 	User user=new User();
 	
-	for(int i=0; i<followingList.size();i++){
+	for(int i=0; i<followingList.size()-1;i++){
 		user=dbc.searchAboutUser(followingList.get(i));
 		profileList.add(user.getProfilePictureAddress());
 	}
