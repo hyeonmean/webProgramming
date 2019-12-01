@@ -39,6 +39,8 @@
 	dbc.editPostPageComment(letter, postIdx);
 	dbc.updateHastTagInPostPage(tagList, postIdx);
 	
+	
+	
 	/*
 	String tag="";
 	String savePath="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\postPictures";

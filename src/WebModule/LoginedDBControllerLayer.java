@@ -597,6 +597,8 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		pstmt.executeUpdate();
 		
 		return true;
+		
+		
 	}
 	
 	//SearchHashTag without overlap
