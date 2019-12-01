@@ -15,7 +15,7 @@
 		UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 		dbc.openDataBase();
 		String keyword=(String)request.getParameter("searchKeyword");
-
+		String next_page="NewsFeed.jsp";
 		ArrayList<Integer> postIdxList=new ArrayList<Integer>();
 		ArrayList<String> pictureList=new ArrayList<String>();
 		Picture pic;
@@ -32,8 +32,16 @@
 		request.setAttribute("keyword", keyword);
 		request.setAttribute("postList", postIdxList);
 		request.setAttribute("pictureList", pictureList);
+
+		if(pictureList.size() != 0){
+			next_page="search_result.jsp";
+			response.sendRedirect(next_page);
+		} else{
+			next_page="NoResult.jsp";
+			response.sendRedirect(next_page);
+		}
 	%>
 
-	<jsp:forward page="search_result.jsp"/>
+	<%--<jsp:forward page="search_result.jsp"/>--%>
 </body>
 </html>

@@ -22,7 +22,7 @@
             font-weight: 700;
             font-size:2rem;
             font-family: 'Gothic A1', sans-serif;
-
+            padding-top: 120px;
         }
         .no-follow-massage{
             margin-top:15px;   
@@ -37,6 +37,7 @@
     </style>
 </head>
 <body>
+    <jsp:include page="navbar.jsp"/>
     <div class="massage-box">
         <div class="no-follow-emoticon">
                 <i class="far fa-surprise"></i>

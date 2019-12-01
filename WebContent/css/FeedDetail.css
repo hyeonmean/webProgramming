@@ -123,8 +123,7 @@ i{
 }
 .setting{
     text-align: end;
-    
-    
+    display:none;
 }
 
 .fa-ellipsis-h{

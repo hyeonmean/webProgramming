@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="./css/FeedDetail.css" type="text/css" />
     <link rel="stylesheet" href="./css/search_result.css" type="text/css" />
     <script type="text/javascript" src="./setting.js"></script>
+
 </head>
 <body>
     <jsp:include page="navbar.jsp"/>
@@ -34,7 +35,6 @@
     
     <jsp:include page="FeedDetailProcess.jsp"/>
     <%
-        
         ArrayList<String> userIdList = new ArrayList<String>();
         
         //댓글 인덱스 리스트
@@ -143,6 +143,11 @@
             	String realId = dbc.getUser().getId();
             	
             %>
+            <script type="text/javascript">
+                if('<%=userId%>' == '<%=realId%>' || '<%=realId%>' =='admin1234'){
+                    $('.setting').css("display","block");
+                }
+            </script>
             <form action="InputCommentProcess.jsp?postIdx=<%=postIdx%>&userID=<%=realId%>" method="post">
             	<div class="ReplyLayout">
                 	<div class="ReplyBox" >

@@ -18,10 +18,11 @@
 	String next_page="NewsFeed.jsp";
 	
 	User user=null;
-	
+
+	PostPage post=new PostPage();
 	String user_id = request.getParameter("id");
 	String user_pw= request.getParameter("pswd");
-	
+	ArrayList<Integer> link = new ArrayList<Integer>();
 	user=dbc.signIn(user_id, user_pw);
 	
 	//db에서 유저정보 받기
@@ -31,10 +32,26 @@
 		dbc2.openDataBase();
 		session.setAttribute("userID",user_id);
 		session.setAttribute("DBController", dbc2);
+
+		ArrayList<Integer> feedList=new ArrayList<Integer>();
+		feedList=dbc2.getNewsFeed();//에러
+
+		for(Integer i: feedList){
+			post=dbc2.searchPostPageByPostIdx(i);
+			link=post.getPictureList();
+		}
 		dbc.closeDataBase();
 		dbc2.closeDataBase();
-		next_page="NewsFeed.jsp";
-		response.sendRedirect(next_page);
+		ArrayList<Integer> postIdx = new ArrayList<Integer>();
+
+
+		if(link.isEmpty()!=true){
+			next_page="NewsFeed.jsp";
+			response.sendRedirect(next_page);
+		} else{
+			next_page="NoFeed.jsp";
+			response.sendRedirect(next_page);
+		}
 	}
 	else{
 		next_page="sign_in.jsp";
