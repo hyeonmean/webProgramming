@@ -523,6 +523,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		
 		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.GET_NEWSFEED);
 		pstmt.setString(1, userInfo.getId());
+		pstmt.setString(2, userInfo.getId());
 		
 		ResultSet rSet = pstmt.executeQuery();
 		
@@ -530,15 +531,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		
 		while(rSet.next())
 			postIdxList.add(rSet.getInt("postIdx"));
-		rSet.close();
-		pstmt.close();
-		
-		pstmt = this.conn.prepareStatement("select postIdx from PostPage where userId = ?");
-		pstmt.setString(1, userInfo.getId());
-		rSet = pstmt.executeQuery();
-		
-		while(rSet.next())
-			postIdxList.add(rSet.getInt("postIdx"));
+
 		rSet.close();
 		pstmt.close();
 		return postIdxList;
@@ -574,9 +567,39 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		
 		return true;
 	}
+		
+	//update hash tag
+	public boolean updateHastTagInPostPage(ArrayList<String> tagList, int postIdx) throws Exception {
+		
+		
+		//set transaction
+		PreparedStatement pstmt = this.conn.prepareStatement("start transaction");
+		pstmt.executeUpdate();
+		
+		//delete data;
+		pstmt = this.conn.prepareStatement("delete from HashTag where postIdx = ?");
+		pstmt.setInt(1, postIdx);
+		pstmt.executeUpdate();
+		
+		pstmt.close();
+		
+		//insert Hash Tag
+		pstmt = this.conn.prepareStatement("insert into HashTag(tagName, postIdx) values(?, ?)");
+		for(int i = 0; i < tagList.size(); i++) {
+			pstmt.setString(1, tagList.get(i));
+			pstmt.setInt(postIdx, 1);
+			
+			pstmt.executeUpdate();
+		}
+		pstmt.close();
+		
+		pstmt = this.conn.prepareStatement("commit");
+		pstmt.executeUpdate();
+		
+		return true;
+	}
 	
 	//SearchHashTag without overlap
-	
 	public ArrayList<String> searchHashTagWithoutOverlap() throws Exception {
 		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.SEARCH_HASHTAG_WITHOUT_OVERLAP);
 		ResultSet rSet = pstmt.executeQuery();

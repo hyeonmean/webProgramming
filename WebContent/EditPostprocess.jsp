@@ -2,17 +2,12 @@
     pageEncoding="utf-8"%>
 <%@ page import="WebModule.*"%>
 <%@ page import="java.util.*"%>
-<%@ include file="global.jsp"%>
 <%@ page import="java.sql.*" %>
-<%@page import="java.io.File"%>
-<%@page import="java.util.Enumeration"%>
 <%@page import="com.oreilly.*"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@page import="com.oreilly.servlet.MultipartRequest" %>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 <%@page import="java.io.*" %>
-<%@page import="java.util.Date" %>
-<%@page import="java.text.SimpleDateFormat" %>
 
 <!DOCTYPE html>
 <html>
@@ -21,13 +16,30 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<script type="text/javascript">alert("check")</script>
 	<%
-	request.setCharacterEncoding("utf-8");
+	//request.setCharacterEncoding("utf-8");
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
-	dbc.openDataBase();
+	dbc.openDataBase();	
 	boolean check=false;
 	
+	String idx=request.getAttribute("postIdx");
+	int postIdx=Integer.parseInt(idx);
+	String letter =request.getAttribute("letter");
+	String tag="";
+	
+	String []full_Letter=letter.split("#");
+	int count=full_Letter.length;
+	ArrayList<String> tagList=new ArrayList<String>();
+	
+	for(int i=1; i<count; i++){
+		tag=full_Letter[i];
+		tagList.add(tag);
+	}
+	
+	dbc.editPostPageComment(letter, postIdx);
+	dbc.updateHastTagInPostPage(tagList, postIdx);
+	
+	/*
 	String tag="";
 	String savePath="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\postPictures";
 	String savePath2="pictures/postPictures";
@@ -60,25 +72,12 @@
 	pictureList.add(fullPath);
 	
 	check=dbc.writePostPage(comment, pictureList, tagList);
-
+	*/
 	
-	//피드 디테일로 가기 위한 포스트 인덱스 얻는 코드
-	ArrayList<Integer> feedList=new ArrayList<Integer>();
-	feedList=dbc.getNewsFeed();//에러
+	dbc.closeDataBase();
 	
-	ArrayList<PostPage> pageList=new ArrayList<PostPage>();
-	PostPage post=new PostPage();
-	
-	ArrayList<Integer> postIdx = new ArrayList<Integer>();
-	//int postIdx=dbc.g
-	
-	//dbc.closeDataBase();
-	
-	//request.setAttribute("postIdx", o)
-	
-	//response.sendRedirect("FeedDetail.jsp");
-	response.sendRedirect("NewsFeed.jsp");
+	//response.sendRedirect("NewsFeed.jsp");
 	%>
-	<script type="text/javascript"> </script>
+
 </body>
 </html>

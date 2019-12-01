@@ -124,7 +124,7 @@ public class QueryList {
 	
 	//�����ǵ� -> �Խñ� �ε�����
 	public static String GET_NEWSFEED = "select postIdx from PostPage where userId in "
-			+ "( select followingID from Follow where followerID = ?) "
+			+ "( select followingID from Follow where followerID = ? or userId = ?) "
 			+ "order by writeDate desc limit 10";
 	
 	//���� ����
@@ -139,8 +139,6 @@ public class QueryList {
 	static public class editPost {
 		public static String EDIT_POST_BASIC = "update PostPage "
 				+ "set comment = ? where pstIdx = ?";
-		public static String DELETE_IMG_IN_POST_PAGE = "call delete_picture(?, @result)";
-		public static String DELETE_HASH_TAG = "delete from HashTag where postIdx = ? and tagName = ?";
 	}
 	
 	

@@ -105,6 +105,7 @@
                             <div class="triangle_up2"><a href="#"></a></div>
                         </div>
                </div>
+
             </div>
             <div class="TextLayout">
             <% for(int i = 0; i<userIdList.size(); i++) { %>
@@ -132,6 +133,7 @@
                 <div class="like">
                     <%=numberOfFavorite%>명이 좋아합니다
                 </div>
+                <div class="profile"><%= postComment %></div>
                 <div class="Date"><%= dateToStr %></div>
             </div>
             <%
