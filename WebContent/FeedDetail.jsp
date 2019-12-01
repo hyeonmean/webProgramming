@@ -94,7 +94,9 @@
                <div class="setting"><i class="fas fa-ellipsis-h"></i>
                 <div class="setting-box">   
                         <div class="content">
-                            <button class="modify">
+                            <script type="text/javascript">
+                                document.write('<button class="modify" type="button" onclick="location.href=\'./modifyInFeedDetail.jsp?postIdx=<%=request.getParameter("postIdx")%>\'"/>');
+                            </script>
                                <i class="fas fa-pencil-alt"></i> 수정
                             </button>
                             <script type="text/javascript">
@@ -107,6 +109,7 @@
                </div>
 
             </div>
+            <div class="profile"><%= postComment %></div>
             <div class="TextLayout">
             <% for(int i = 0; i<userIdList.size(); i++) { %>
                 <div class="Content">
@@ -133,7 +136,6 @@
                 <div class="like">
                     <%=numberOfFavorite%>명이 좋아합니다
                 </div>
-                <div class="profile"><%= postComment %></div>
                 <div class="Date"><%= dateToStr %></div>
             </div>
             <%

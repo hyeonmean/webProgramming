@@ -41,46 +41,12 @@
     %>
     
     <jsp:include page="FeedDetailProcess.jsp"/>
-    <%
-        
-        ArrayList<String> userIdList = new ArrayList<String>();
-        
-        //댓글 인덱스 리스트
-        ArrayList<Integer> cmtIdxList = new ArrayList<Integer>();
-        
-        //댓글 리스트
-        ArrayList<String> cmtList = new ArrayList<String>();
-        
-        //댓글 단 날짜 리스트
-        ArrayList<String> dateList = new ArrayList<String>();
-        
-        //댓글 단 유저 사진 리스트
-        ArrayList<String> commentUserAddress = new ArrayList<String>();
-        
+    <%  
         String userId = (String)request.getAttribute("userId");
         String postComment = (String)request.getAttribute("letter");
         String pictureAddress = (String)request.getAttribute("pictureAddress");
         int numberOfFavorite = (int)request.getAttribute("numberOfFavorite");
         String writeUserPicAddress = (String)request.getAttribute("writeUserPicAddress");
-        
-        Calendar cal = (Calendar)request.getAttribute("dateToStr");
-        String dateToStr = cal.get(Calendar.YEAR)+"-"
-                + (cal.get(Calendar.MONTH)+1)+"-"
-                + cal.get(Calendar.DAY_OF_MONTH)+" "
-                + cal.get(Calendar.HOUR)+":"
-                + cal.get(Calendar.MINUTE)+":"
-                + cal.get(Calendar.SECOND);
-        
-        boolean empty = (boolean)request.getAttribute("empty");
-        
-        if(empty != true) {
-            userIdList = (ArrayList<String>)request.getAttribute("userIdList");
-            cmtIdxList = (ArrayList<Integer>)request.getAttribute("cmtIdxList");
-            cmtList = (ArrayList<String>)request.getAttribute("cmtList");
-            dateList = (ArrayList<String>)request.getAttribute("dateList");
-            commentUserAddress = (ArrayList<String>)request.getAttribute("userPicAddressList");
-        
-        }
     %>
 
     <%--<script type="text/javascript">
@@ -117,15 +83,13 @@
             <div class="TextLayout">
 
                 <div class="Content">
-                    <div id="ProfilePhoto"><img src='<%=commentUserAddress.get(i) %>'></div>
                     <div class="TextBox">
-                        <button class="profile"><%= userIdList.get(i) %></button>
                         <form name="modify" action="" method="POST" >
-                        <textarea name="modifyContent"class="TextEdit">dsflkjkl</textarea>
-                        <div class="sbmt" style="text-align:center";>
-                            <input class="modifysubmit-button" type="button" onclick="함수()" value="수정">
-
-                        </div>
+                            <textarea name="modifyContent"class="TextEdit"><%= postComment %></textarea>
+                            <div class="sbmt" style="text-align:center";>
+                            <input class="modifysubmit-button" type="button" onclick='location.href="./EditPostprocess.jsp?postIdx=<%=request.getParameter("postIdx")%>"' value="수정">
+                            </div>
+                        </form>
                     </div>
                 </div>
                 
@@ -141,7 +105,6 @@
                 <div class="like">
                     <%=numberOfFavorite%>명이 좋아합니다
                 </div>
-                <div class="Date"><%= dateToStr %></div>
             </div>
             <%
                 UserDBController dbc=(UserDBController)session.getAttribute("DBController");
