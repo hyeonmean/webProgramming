@@ -84,8 +84,9 @@ function myProfilePrint(userid_var, profilePath_var, name_var, letter_var, postN
 		                <input type="button" onclick="location.replace('./EditProfile.jsp')"  value="프로필 편집">
 		                
 		            </div>  
-		            <div class="count">게시물 ${theNumberOfPost}   팔로우 ${theNumberOfFollow}   팔로워 ${theNumberOfFollower}</div>     <!-- 게시물, 팔로우, 팔로워 숫자표시 화면, -->
-		            
+		            <div class="count">게시물 ${theNumberOfPost}   <a href="#" class="m-follow" style="display:inline-block;"><div class="follow-count">팔로우 ${theNumberOfFollow}</div></a>
+		            <a href="#" class="m-follower" style="display:inline-block;"><div class="follower-count">팔로워 ${theNumberOfFollower}</div></a></div>     <!-- 게시물, 팔로우, 팔로워 숫자표시 화면, -->
+
 		            <div class="content" style="margin-top:15px;">
 		                <div style="font-weight: 650; margin-bottom: 4px;">${userName}</div>     <!-- 사용자가 설정한 이름 -->
 		                <div>${selfIntroductionVariable}</div>                                    <!-- 사용자가 설정한 자기소개글 -->
