@@ -141,6 +141,21 @@ i{
 .Text{
     display:inline;
 }
+.TextEdit {
+    margin: 0px;
+    width: 392px;
+    height: 292px;
+    border: 0;
+    border: 1px solid lightgray;
+    /* border-bottom: 1px solid lightgray; */
+    /* border-left: 1px solid lightgray; */
+    /* border-radius: 10px; */
+    background: rgb(250,250,250);
+    resize: none;
+    margin-top: 30px;
+    margin-left: -72px;
+}
+
 .NameBar .profile{
     
     position:absolute;
@@ -153,7 +168,7 @@ i{
     
     
 }
-.follow{
+.follow-status{
     position:absolute;
     display:inline-block;
     cursor:pointer;
@@ -167,6 +182,16 @@ i{
     top:50%;
     transform:translateY(-50%);
     margin-left:155px;
+    text-align: center;
+    max-width: 70px;
+    min-width: 70px;
+    height: 22px;
+    border-radius: 7px;
+    background: rgb(250,250,250);
+    border: 1px solid orangered;
+    color: orangered;
+    cursor: pointer;
+    text-decoration: none;
     
 }
 .TextLayout{
@@ -184,21 +209,6 @@ i{
     display:inline;
     position:absolute;
     margin-left:-9px;
-}
-
-.TextEdit {
-    margin: 0px;
-    width: 392px;
-    height: 292px;
-    border: 0;
-    border: 1px solid lightgray;
-    /* border-bottom: 1px solid lightgray; */
-    /* border-left: 1px solid lightgray; */
-    /* border-radius: 10px; */
-    background: rgb(250,250,250);
-    resize: none;
-    margin-top: 30px;
-    margin-left: -72px;
 }
 .Date{  
     margin-top:5px;

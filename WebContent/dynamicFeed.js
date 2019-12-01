@@ -49,11 +49,11 @@ function newsfeedPrint(isEmpty, post_array, userId_array, comment_array, picture
 
 	for(var i =0; i < theNumberOfFeed; i++){
 		//변수수정 코드 이부분에 삽입
-		postIdx = post_array[0];
-		writerId = userId_array[0];
-		locationOfPhoto = picture_array[0];
-		contentVariable = comment_array[0];
-		theNumberOfGood = favoriteNum_array[0];
+		postIdx = post_array[i];
+		writerId = userId_array[i];
+		locationOfPhoto = picture_array[i];
+		contentVariable = comment_array[i];
+		theNumberOfGood = favoriteNum_array[i];
 		document.write(fillTemplate(writerId, locationOfPhoto, theNumberOfGood, contentVariable, replyVariable));
 	}
 	
