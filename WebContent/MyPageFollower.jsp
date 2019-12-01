@@ -20,12 +20,12 @@
 	
 	User user=new User();
 	
+	followerList=dbc.searchFollowerUser(userId);
+	
 	for(int i=0; i<followerList.size();i++){
 		user=dbc.searchAboutUser(followerList.get(i));
 		profileList.add(user.getProfilePictureAddress());
 	}
-	
-	followerList=dbc.searchFollowerUser(userId);
 	
 	out.println(followerList);
 
