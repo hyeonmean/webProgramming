@@ -27,6 +27,12 @@
 		profileList.add(user.getProfilePictureAddress());
 	}
 	
+	if(followingList.isEmpty()!=true){
+		request.setAttribute("empty", true);
+	}else {
+		request.setAttribute("empty", false);
+	}
+	
 	out.println(followingList);
 
 	request.setAttribute("followingList", followingList);
