@@ -20,7 +20,7 @@
 	
 	User user=new User();
 	
-	followingList=dbc.searchFollowerUser(userId);
+	followingList=dbc.searchFollowingUser(userId);
 	
 	for(int i=0; i<followingList.size()-1;i++){
 		user=dbc.searchAboutUser(followingList.get(i));
