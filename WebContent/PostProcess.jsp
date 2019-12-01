@@ -60,7 +60,16 @@
 	pictureList.add(fullPath);
 	
 	check=dbc.writePostPage(comment, pictureList, tagList);
+
 	
+	//피드 디테일로 가기 위한 포스트 인덱스 얻는 코드
+	ArrayList<Integer> feedList=new ArrayList<Integer>();
+	feedList=dbc.getNewsFeed();//에러
+	
+	ArrayList<PostPage> pageList=new ArrayList<PostPage>();
+	PostPage post=new PostPage();
+	
+	ArrayList<Integer> postIdx = new ArrayList<Integer>();
 	//int postIdx=dbc.g
 	
 	//dbc.closeDataBase();

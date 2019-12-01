@@ -19,9 +19,27 @@
 	<%
 	//request.setCharacterEncoding("utf-8");
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
-	dbc.openDataBase();
+	dbc.openDataBase();	
 	boolean check=false;
 	
+	String idx=request.getAttribute("postIdx");
+	int postIdx=Integer.parseInt(idx);
+	String letter =request.getAttribute("letter");
+	String tag="";
+	
+	String []full_Letter=letter.split("#");
+	int count=full_Letter.length;
+	ArrayList<String> tagList=new ArrayList<String>();
+	
+	for(int i=1; i<count; i++){
+		tag=full_Letter[i];
+		tagList.add(tag);
+	}
+	
+	dbc.editPostPageComment(letter, postIdx);
+	dbc.updateHastTagInPostPage(tagList, postIdx);
+	
+	/*
 	String tag="";
 	String savePath="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\postPictures";
 	String savePath2="pictures/postPictures";
@@ -54,6 +72,7 @@
 	pictureList.add(fullPath);
 	
 	check=dbc.writePostPage(comment, pictureList, tagList);
+	*/
 	
 	dbc.closeDataBase();
 	
