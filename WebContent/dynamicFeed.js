@@ -49,11 +49,11 @@ function newsfeedPrint(isEmpty, post_array, userId_array, comment_array, picture
 
 	for(var i =0; i < theNumberOfFeed; i++){
 		//변수수정 코드 이부분에 삽입
-		postIdx = post_array[theNumberOfFeed - 1 - i];
-		writerId = userId_array[theNumberOfFeed - 1 - i];
-		locationOfPhoto = picture_array[theNumberOfFeed - 1 - i];
-		contentVariable = comment_array[theNumberOfFeed - 1 - i]; //최신순
-		theNumberOfGood = favoriteNum_array[theNumberOfFeed - 1 - i];
+		postIdx = post_array[0];
+		writerId = userId_array[0];
+		locationOfPhoto = picture_array[0];
+		contentVariable = comment_array[0];
+		theNumberOfGood = favoriteNum_array[0];
 		document.write(fillTemplate(writerId, locationOfPhoto, theNumberOfGood, contentVariable, replyVariable));
 	}
 	
