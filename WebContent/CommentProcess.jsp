@@ -12,6 +12,8 @@
 </head>
 <body>
 	<%
+	
+	request.setCharacterEncoding("utf-8");
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	String userId=session.getId();
 	User user=dbc.searchAboutUser(userId);
