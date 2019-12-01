@@ -14,22 +14,27 @@
     <link rel="stylesheet" href="./css/common.css" type="text/css" />
 </head>
 <body>
-	<script type="text/javascript" src="./dynamicFeed.js"></script>
     <script type="text/javascript" src="./dynamicFollowering.js"></script>
+	<script type="text/javascript" src="./dynamicFeed.js"></script>
     <jsp:include page="navbar.jsp"/>
-    <jsp:include page="mypageProcess.jsp"/>
     <jsp:include page="MyPageFollower.jsp"/>
     <jsp:include page="MyPageFollowing.jsp"/>
 
     <%
+        boolean emptying = (boolean)request.getAttribute("emptying");
+        boolean emptyer = (boolean)request.getAttribute("emptyer");
         ArrayList<String> follower_temp = new ArrayList<String>();
         ArrayList<String> followerProfileList_temp = new ArrayList<String>();
         ArrayList<String> following_temp = new ArrayList<String>();
         ArrayList<String> followingProfileList_temp = new ArrayList<String>();
-        follower_temp = (ArrayList<String>)request.getAttribute("followerList");
-        following_temp = (ArrayList<String>)request.getAttribute("followingList");
-        followerProfileList_temp = (ArrayList<String>)request.getAttribute("followerProfileList");
-        followingProfileList_temp = (ArrayList<String>)request.getAttribute("followingProfileList_temp");
+        if (emptyer == true){
+            follower_temp = (ArrayList<String>)request.getAttribute("followerList");
+            followerProfileList_temp = (ArrayList<String>)request.getAttribute("followerProfileList");
+        }
+        if (emptying == true){
+            following_temp = (ArrayList<String>)request.getAttribute("followingList");
+            followingProfileList_temp = (ArrayList<String>)request.getAttribute("followingProfileList");
+        }
     %>
 
 
@@ -44,15 +49,15 @@
                         
                 <div class="ContentBox">
                     <script type="text/javascript">
-                        var following_array = new Array();
-                        var followingProfileList_array = new Array();
-                        <%for(int i=0; i<following_temp.size(); i++){%>
-                            following_array.push('<%=(String)following_temp.get(i)%>');
-                            alert('<%=(String)following_temp.get(i)%>');
-                            followingProfileList_array.push('<%=(String)followingProfileList_temp.get(i)%>');
-                        <%}%>
+                            var emptying = <%=(boolean)request.getAttribute("emptying")%>;
+                            var following_array = new Array();
+                            var followingProfileList_array = new Array();
+                            <%for(int i=0; i<following_temp.size(); i++){%>
+                                following_array.push('<%=(String)following_temp.get(i)%>');
+                                followingProfileList_array.push('<%=(String)followingProfileList_temp.get(i)%>');
+                            <%}%>
 
-                        followingPrint(following_array, followingProfileList_array);
+                        followingPrint(emptying, following_array, followingProfileList_array);
                     </script>
                 </div>
             </div>
@@ -67,15 +72,15 @@
                         
                     <div class="ContentBox">
                         <script type="text/javascript">
-                            var follower_array = new Array();
-                            var followerProfileList_array = new Array();
-                            <%for(int i=0; i<follower_temp.size(); i++){%>
-                                follower_array.push('<%=(String)follower_temp.get(i)%>');
-                                alert((String)follower_array[i]);
-                                followerProfileList_array.push('<%=(String)followerProfileList_temp.get(i)%>');
-                            <%}%>
+                                var emptyer = <%=(boolean)request.getAttribute("emptyer")%>;
+                                var follower_array = new Array();
+                                var followerProfileList_array = new Array();
+                                <%for(int i=0; i<follower_temp.size(); i++){%>
+                                    follower_array.push('<%=(String)follower_temp.get(i)%>');
+                                    followerProfileList_array.push('<%=(String)followerProfileList_temp.get(i)%>');
+                                <%}%>
 
-                            followingPrint(follower_array, followerProfileList_array);
+                            followerPrint(emptyer, follower_array, followerProfileList_array);
                         </script>
              
             </div>
@@ -83,7 +88,7 @@
         </div>
 
 <%--팔로우 클릭 이벤트 끝--%>
-
+<jsp:include page="mypageProcess.jsp"/>
     <%
         String profilePath_temp = (String)request.getAttribute("profilePath");
         String name_temp = (String)request.getAttribute("name");

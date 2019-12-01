@@ -1,18 +1,22 @@
-function followerPrint(follower_array, followerProfileList_array){
+function followerPrint(isEmpty, follower_array, followerProfileList_array){
 
     fillTemplate = function(follower_name, follwerProfileLocation){
-		var template =`	<div class="l-follower">
-                        <div class="userPhoto">
-                            <img src= "profile.jpg"/>
-                        </div>
-                        <div class="username">${follower_name}</div>
-                        <div class="follow-status">${follwerProfileLocation}</div>
-                    </div>`;
+		var followtemplate =`
+		<div class="l-follower">
+            <div class="userPhoto">
+                <img src= "${follwerProfileLocation}"/>
+            </div>
+            <div class="username">${follower_name}</div>
+            <div class="follow-status">팔로우</div>
+        </div>`;
 		
     	return template;
 	}
 
-	var follower_name, follwerProfileLocation;
+	var follower_name='followername', follwerProfileLocation='followerloc';
+
+	if (isEmpty == false)
+		return;
 
 	for(var i =0; i < follower_array.length; i++){
 		//변수수정 코드 이부분에 삽입
@@ -22,21 +26,25 @@ function followerPrint(follower_array, followerProfileList_array){
 	}
 }
 
-function followingPrint(following_array, followingProfileList_array){
+function followingPrint(isEmpty, following_array, followingProfileList_array){
 
     fillTemplate = function(following_name, followingProfileLocation){
-		var template =`	<div class="l-following">
-                        <div class="userPhoto">
-                            <img src= "profile.jpg"/>
-                        </div>
-                        <div class="username">${following_name}</div>
-                        <div class="follow-status">${followingProfileLocation}</div>
-                    </div>`;
+		var followtemplate =`
+		<div class="l-following">
+            <div class="userPhoto">
+                <img src= "${followingProfileLocation}"/>
+            </div>
+            <div class="username">${following_name}</div>
+            <div class="follow-status">팔로우</div>
+        </div>`;
 		
-    	return template;
+    	return followtemplate;
 	}
 
-	var following_name, followingProfileLocation;
+	var following_name='followingname', followingProfileLocation='followingloc';
+
+	if (isEmpty == false)
+		return;
 
 	for(var i =0; i < following_array.length; i++){
 		//변수수정 코드 이부분에 삽입

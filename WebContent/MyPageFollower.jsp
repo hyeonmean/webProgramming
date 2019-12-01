@@ -28,12 +28,10 @@
 	}
 	
 	if(followerList.isEmpty()!=true){
-		request.setAttribute("empty", true);
+		request.setAttribute("emptyer", true);
 	}else {
-		request.setAttribute("empty", false);
+		request.setAttribute("emptyer", false);
 	}
-	
-	out.println(followerList);
 
 	request.setAttribute("followerList", followerList);
 	request.setAttribute("followerProfileList", profileList);

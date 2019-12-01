@@ -28,12 +28,10 @@
 	}
 	
 	if(followingList.isEmpty()!=true){
-		request.setAttribute("empty", true);
+		request.setAttribute("emptying", true);
 	}else {
-		request.setAttribute("empty", false);
+		request.setAttribute("emptying", false);
 	}
-	
-	out.println(followingList);
 
 	request.setAttribute("followingList", followingList);
 	request.setAttribute("followingProfileList", profileList);
