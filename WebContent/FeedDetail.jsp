@@ -107,6 +107,15 @@
                </div>
             </div>
             <div class="TextLayout">
+                <div class="Content">
+                    <div id="ProfilePhoto"><img src='<%=pictureAddress %>'></div>
+                    <div class="TextBox">
+                        <button class="profile"><%= userId %></button>
+                        <div class="Text"><%= postComment %>
+                        </div>
+                        <div class="Date"><%=dateToStr %></div>
+                    </div>
+                 </div>
             <% for(int i = 0; i<userIdList.size(); i++) { %>
                 <div class="Content">
                     <div id="ProfilePhoto"><img src='<%=commentUserAddress.get(i) %>'></div>
