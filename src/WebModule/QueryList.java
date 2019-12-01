@@ -138,7 +138,7 @@ public class QueryList {
 	//게시글 작성
 	static public class editPost {
 		public static String EDIT_POST_BASIC = "update PostPage "
-				+ "set comment = ? where pstIdx = ?";
+				+ "set comment = ? where postIdx = ?";
 	}
 	
 	
