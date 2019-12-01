@@ -562,6 +562,33 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		return postIdxList;
 	}
 	
+	//Only edit comment
+	public boolean editPostPageComment(String reComment, int postIdx) throws Exception {
+		
+		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.editPost.EDIT_POST_BASIC);
+		pstmt.setString(1, reComment);
+		pstmt.setInt(2, postIdx);
+		pstmt.executeUpdate();
+		
+		pstmt.close();
+		
+		return true;
+	}
+	
+	//SearchHashTag without overlap
+	
+	public ArrayList<String> searchHashTagWithoutOverlap() throws Exception {
+		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.SEARCH_HASHTAG_WITHOUT_OVERLAP);
+		ResultSet rSet = pstmt.executeQuery();
+		
+		ArrayList<String> resultTagList = new ArrayList<String>();
+		
+		while(rSet.next())
+			resultTagList.add(rSet.getString("tagName"));
+		
+		return resultTagList;
+	}
+	
 	//�������� ����� ���ѿ� ���� �ٸ�
 	public abstract boolean deletePostPage(int postIdx) throws Exception;
 	public abstract boolean deleteComment(int cmtIdx) throws Exception;

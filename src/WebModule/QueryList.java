@@ -74,7 +74,11 @@ public class QueryList {
 	public static class MakePostPage {
 		public static String MAKE_POST_PAGE = "call make_PostPage(?,?,@result)";
 		public static String GET_POST_IDX = "select @result";
+		
+		//그림 업로드
 		public static String UPLOAD_PICTURE = "call insert_picture(?,?,@result)";
+		
+		//해시태그 업로드
 		public static String UPLOAD_HASHTAG = "insert into HashTag(tagName, postIdx) values(?,?)";
 	}
 	//�Խù� ����
@@ -130,5 +134,17 @@ public class QueryList {
 	public static String GET_POST_BY_HASHTAG = "select pp.postIdx from PostPage as pp " + 
 			"join HashTag as ht on ht.tagName = ? " + 
 			"where ht.postIdx = pp.postIdx";
+	
+	//게시글 작성
+	static public class editPost {
+		public static String EDIT_POST_BASIC = "update PostPage "
+				+ "set comment = ? where pstIdx = ?";
+		public static String DELETE_IMG_IN_POST_PAGE = "call delete_picture(?, @result)";
+		public static String DELETE_HASH_TAG = "delete from HashTag where postIdx = ? and tagName = ?";
+	}
+	
+	
+	//search hash tag by one
+	public static String SEARCH_HASHTAG_WITHOUT_OVERLAP="select tagName from HashTag group by tagName";
 
 }
