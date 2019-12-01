@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <%@ page import="WebModule.*"%>
 <%@ page import="java.util.*"%>
 <%@ include file="global.jsp"%>
-<%@ page import="java.sql.*" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,16 +15,16 @@
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();
 	
-	String idx=request.getParameter("postIdx");
+	int postIdx=request.getAttribute("postIndex");
+	
+	String idx = request.getParameter("postIdx");
 	int postIdx=Integer.parseInt(idx);
 	boolean check=false;
-	
-	check=dbc.deletePostPage(postIdx);
-	
+		
+	check=dbc.disFavofite(postIdx);
+		
 	dbc.closeDataBase();
-	
-	response.sendRedirect("NewsFeed.jsp");
-	
 	%>
+
 </body>
 </html>

@@ -11,15 +11,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%;
+	<%
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
-	String next_page;
-	boolean check=false;
+	dbc.openDataBase();
+	
+	int postIdx=request.getAttribute("postIndex");
 	
 	String idx = request.getParameter("postIdx");
-	int postIdx=Integer.parseInt(idx);//임시
+	int postIdx=Integer.parseInt(idx);
+	boolean check=false;
 	
-	//check=dbc.setBookMark(Integer.parseInt(postIdx));
 	check=dbc.setBookMark(postIdx);
 	
 	dbc.closeDataBase();

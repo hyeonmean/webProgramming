@@ -2,8 +2,7 @@
     pageEncoding="utf-8"%>
 <%@ page import="WebModule.*"%>
 <%@ page import="java.util.*"%>
-<%@ include file="global.jsp"%>
-<%@ page import="java.sql.*" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,16 +14,15 @@
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();
 	
-	String idx=request.getParameter("postIdx");
+	int postIdx=getAttribute("postIdx");
+	
+	String idx = request.getParameter("postIdx");
 	int postIdx=Integer.parseInt(idx);
 	boolean check=false;
 	
-	check=dbc.deletePostPage(postIdx);
+	check=dbc.setBookMark(postIdx);
 	
 	dbc.closeDataBase();
-	
-	response.sendRedirect("NewsFeed.jsp");
-	
 	%>
 </body>
 </html>

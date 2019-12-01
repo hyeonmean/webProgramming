@@ -15,12 +15,15 @@
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();
 	
+	int postIdx=request.getAttribute("postIndex");
+	
+	String idx = request.getParameter("postIdx");
+	int postIdx=Integer.parseInt(idx);
 	boolean check=false;
-	
-	String idx=request.getParameter("postIdx");
-	int postIdx = Integer.parseInt(idx);
-	
+		
 	check=dbc.unSetBookMark(postIdx);
+		
+	dbc.closeDataBase();
 	%>
 
 </body>

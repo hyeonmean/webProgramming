@@ -2,17 +2,12 @@
     pageEncoding="utf-8"%>
 <%@ page import="WebModule.*"%>
 <%@ page import="java.util.*"%>
-<%@ include file="global.jsp"%>
 <%@ page import="java.sql.*" %>
-<%@page import="java.io.File"%>
-<%@page import="java.util.Enumeration"%>
 <%@page import="com.oreilly.*"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@page import="com.oreilly.servlet.MultipartRequest" %>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 <%@page import="java.io.*" %>
-<%@page import="java.util.Date" %>
-<%@page import="java.text.SimpleDateFormat" %>
 
 <!DOCTYPE html>
 <html>
@@ -21,9 +16,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<script type="text/javascript">alert("check")</script>
 	<%
-	request.setCharacterEncoding("utf-8");
+	//request.setCharacterEncoding("utf-8");
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();
 	boolean check=false;
@@ -61,15 +55,10 @@
 	
 	check=dbc.writePostPage(comment, pictureList, tagList);
 	
-	//int postIdx=dbc.g
+	dbc.closeDataBase();
 	
-	//dbc.closeDataBase();
-	
-	//request.setAttribute("postIdx", o)
-	
-	//response.sendRedirect("FeedDetail.jsp");
-	response.sendRedirect("NewsFeed.jsp");
+	//response.sendRedirect("NewsFeed.jsp");
 	%>
-	<script type="text/javascript"> </script>
+
 </body>
 </html>
