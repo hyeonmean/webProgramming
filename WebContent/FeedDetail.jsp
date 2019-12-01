@@ -133,7 +133,7 @@
                 <div class="like">
                     <%=numberOfFavorite%>명이 좋아합니다
                 </div>
-                <div class="profile"><%= postComment %></div>
+                <div class=""><%= postComment %></div>
                 <div class="Date"><%= dateToStr %></div>
             </div>
             <%
