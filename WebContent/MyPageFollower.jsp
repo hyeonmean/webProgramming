@@ -16,10 +16,19 @@
 	String userId=(String)session.getAttribute("UserID");
 	
 	ArrayList<String> followerList=new ArrayList<String>();
+	ArrayList<String> profileList=new ArrayList<String>();
+	
+	User user=new User();
+	
+	for(int i=0; i<followerList.size();i++){
+		user=dbc.searchAboutUser(followerList.get(i));
+		profileList.add(user.getProfilePictureAddress());
+	}
 	
 	followerList=dbc.searchFollowerUser(userId);
 	
 	request.setAttribute("followerList", followerList);
+	request.setAttribute("profileList", profileList);
 	
 	dbc.closeDataBase();
 	%>
