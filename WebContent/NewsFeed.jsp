@@ -66,7 +66,7 @@
          newsfeedPrint(empty, post_array, userId_array, comment_array, picture_array, favoriteNum_array);
       </script>
         
-
+	
 
 
     </body>

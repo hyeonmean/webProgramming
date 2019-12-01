@@ -587,7 +587,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		pstmt = this.conn.prepareStatement("insert into HashTag(tagName, postIdx) values(?, ?)");
 		for(int i = 0; i < tagList.size(); i++) {
 			pstmt.setString(1, tagList.get(i));
-			pstmt.setInt(postIdx, 1);
+			pstmt.setInt(2, postIdx);
 			
 			pstmt.executeUpdate();
 		}
@@ -597,6 +597,8 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		pstmt.executeUpdate();
 		
 		return true;
+		
+		
 	}
 	
 	//SearchHashTag without overlap

@@ -17,14 +17,15 @@
 </head>
 <body>
 	<%
-	//request.setCharacterEncoding("utf-8");
+	request.setCharacterEncoding("utf-8");
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();	
 	boolean check=false;
 	
 	String idx=(String)request.getParameter("postIdx");
 	int postIdx=Integer.parseInt(idx);
-	String letter =(String)request.getAttribute("modifyContent");
+	//int postIdx=(int)request.getParameter("postIdx");
+	String letter =(String)request.getParameter("modifyContent");
 	String tag="";
 	
 	String []full_Letter=letter.split("#");
@@ -38,6 +39,8 @@
 	
 	dbc.editPostPageComment(letter, postIdx);
 	dbc.updateHastTagInPostPage(tagList, postIdx);
+	
+	
 	
 	/*
 	String tag="";
@@ -73,9 +76,10 @@
 	
 	check=dbc.writePostPage(comment, pictureList, tagList);
 	*/
-	
+	String next_page="FeedDetail.jsp?postIdx="+idx;
 	dbc.closeDataBase();
 	
+	response.sendRedirect(next_page);
 	//response.sendRedirect("NewsFeed.jsp");
 	%>
 
