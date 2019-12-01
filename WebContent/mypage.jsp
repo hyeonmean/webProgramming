@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ page import="java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,38 +15,48 @@
 </head>
 <body>
 	<script type="text/javascript" src="./dynamicFeed.js"></script>
-
+    <script type="text/javascript" src="./dynamicFollowering.js"></script>
     <jsp:include page="navbar.jsp"/>
     <jsp:include page="mypageProcess.jsp"/>
+    <jsp:include page="MyPageFollower.jsp"/>
+    <jsp:include page="MyPageFollowing.jsp"/>
+
+    <%
+        ArrayList<String> follower_temp = new ArrayList<String>();
+        ArrayList<String> followerProfileList_temp = new ArrayList<String>();
+        ArrayList<String> following_temp = new ArrayList<String>();
+        ArrayList<String> followingProfileList_temp = new ArrayList<String>();
+        follower_temp = (ArrayList<String>)request.getAttribute("followerList");
+        following_temp = (ArrayList<String>)request.getAttribute("followingList");
+        followerProfileList_temp = (ArrayList<String>)request.getAttribute("followerProfileList");
+        followingProfileList_temp = (ArrayList<String>)request.getAttribute("followingProfileList_temp");
+    %>
+
 
     <%--팔로우 클릭 이벤트--%>
     <div id="f-mask"></div>
     <div class="f-followevent">
         <script type="text/javascript" src="./IconEvent.js"></script>
             <div class="main_box">
-                    <div class="title">
-                        <div id="HeadText">
-                            팔로우</div><!-- <i class="fas fa-times"></i> --></div>
+                <div class="title">
+                    <div id="HeadText">
+                        팔로우</div><!-- <i class="fas fa-times"></i> --></div>
                         
-                    <div class="ContentBox">
-                    <div class="l-follower">
-                        <div class="userPhoto">
-                            <img src= "profile.jpg"/>
-                        </div>
-                        <div class="username">유저이름</div>
-                        <div class="follow-status">팔로우</div>
-                    </div>
-                    <div class="l-follower">
-                        <div class="userPhoto">
-                            <img src= "profile.jpg"/>
-                        </div>
-                        <div class="username">유저이름</div>
-                        <div class="follow-status">팔로우</div>
-                    </div>
-             
+                <div class="ContentBox">
+                    <script type="text/javascript">
+                        var following_array = new Array();
+                        var followingProfileList_array = new Array();
+                        <%for(int i=0; i<following_temp.size(); i++){%>
+                            following_array.push('<%=(String)following_temp.get(i)%>');
+                            alert('<%=(String)following_temp.get(i)%>');
+                            followingProfileList_array.push('<%=(String)followingProfileList_temp.get(i)%>');
+                        <%}%>
+
+                        followingPrint(following_array, followingProfileList_array);
+                    </script>
+                </div>
             </div>
-            </div>
-        </div>
+    </div>
         
     <div id="f2-mask"></div>
     <div class="f2-followevent">
@@ -55,20 +66,17 @@
                             팔로워</div><!-- <i class="fas fa-times"></i> --></div>
                         
                     <div class="ContentBox">
-                    <div class="l-follower">
-                        <div class="userPhoto">
-                            <img src= "profile.jpg"/>
-                        </div>
-                        <div class="username">유저이름</div>
-                        <div class="follow-status">팔로우</div>
-                    </div>
-                    <div class="l-follower">
-                        <div class="userPhoto">
-                            <img src= "profile.jpg"/>
-                        </div>
-                        <div class="username">유저이름</div>
-                        <div class="follow-status">팔로우</div>
-                    </div>
+                        <script type="text/javascript">
+                            var follower_array = new Array();
+                            var followerProfileList_array = new Array();
+                            <%for(int i=0; i<follower_temp.size(); i++){%>
+                                follower_array.push('<%=(String)follower_temp.get(i)%>');
+                                alert((String)follower_array[i]);
+                                followerProfileList_array.push('<%=(String)followerProfileList_temp.get(i)%>');
+                            <%}%>
+
+                            followingPrint(follower_array, followerProfileList_array);
+                        </script>
              
             </div>
             </div>

@@ -13,7 +13,7 @@
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();
 	
-	String userId=(String)session.getAttribute("UserID");
+	String userId=(String)session.getAttribute("userID");
 	
 	ArrayList<String> followingList=new ArrayList<String>();
 	ArrayList<String> profileList=new ArrayList<String>();
@@ -27,8 +27,10 @@
 	
 	followingList=dbc.searchFollowerUser(userId);
 	
+	out.println(followingList);
+
 	request.setAttribute("followingList", followingList);
-	request.setAttribute("profileList", profileList);
+	request.setAttribute("followingProfileList", profileList);
 	
 	dbc.closeDataBase();
 	%>
