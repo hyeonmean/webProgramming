@@ -66,18 +66,16 @@
 	ArrayList<Integer> feedList=new ArrayList<Integer>();
 	feedList=dbc.getNewsFeed();//에러
 	
-	ArrayList<PostPage> pageList=new ArrayList<PostPage>();
-	PostPage post=new PostPage();
+	int idx=feedList.get(0);
 	
-	ArrayList<Integer> postIdx = new ArrayList<Integer>();
 	//int postIdx=dbc.g
 	
-	//dbc.closeDataBase();
+	dbc.closeDataBase();
 	
-	//request.setAttribute("postIdx", o)
+	//request.setAttribute("postIdx", idx);
 	
-	//response.sendRedirect("FeedDetail.jsp");
-	response.sendRedirect("NewsFeed.jsp");
+	response.sendRedirect("FeedDetail.jsp?postIdx="+idx);
+	//response.sendRedirect("NewsFeed.jsp");
 	%>
 	<script type="text/javascript"> </script>
 </body>

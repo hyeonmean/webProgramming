@@ -24,7 +24,8 @@
 	
 	String idx=(String)request.getParameter("postIdx");
 	int postIdx=Integer.parseInt(idx);
-	String letter =(String)request.getAttribute("modifyContent");
+	//int postIdx=(int)request.getParameter("postIdx");
+	String letter =(String)request.getParameter("modifyContent");
 	String tag="";
 	
 	String []full_Letter=letter.split("#");

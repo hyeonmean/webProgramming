@@ -15,7 +15,7 @@
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();
 	
-	int postIdx=request.getAttribute("postIndex");
+	//int postIdx=(int)request.getAttribute("postIndex");
 	
 	String idx = request.getParameter("postIdx");
 	int postIdx=Integer.parseInt(idx);

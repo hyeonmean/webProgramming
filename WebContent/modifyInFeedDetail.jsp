@@ -84,12 +84,12 @@
 
                 <div class="Content">
                     <div class="TextBox">
-                        <form name="modify" action="" method="POST" >
+                        <form name="modify" action="./EditPostprocess.jsp?postIdx=<%=request.getParameter("postIdx") %>" method="POST" >
                             <textarea name="modifyContent"class="TextEdit"><%= postComment %></textarea>
                             <div class="sbmt" style="text-align:center";>
-                            <input class="modifysubmit-button" type="button" onclick='location.href="./EditPostprocess.jsp?postIdx=<%=request.getParameter("postIdx")%>"' value="수정">
+                            <input class="modifysubmit-button" type="submit" value="수정">
                             </div>
-                        </form>
+                        </form> 
                     </div>
                 </div>
                 
