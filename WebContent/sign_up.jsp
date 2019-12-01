@@ -13,6 +13,7 @@
 </head>
 <body>
 	<script type="text/javascript" src="./datePrint.js"></script>
+    <script type="text/javascript" src="./validityCheck.js"></script>
     <div class="back-design">
         <img src="./red.jpeg">
     </div>
@@ -46,7 +47,7 @@
             </div>
                     
                 <!-- <i class="fas fa-map-marker-alt"></i>     <label><input class="text_box" type= "text"  value="�ּ�" onclick="value=''" ></label><br> -->
-            <button>회원가입</button>
+            <button type="button" onclick="signUpValidityCheck();">회원가입</button>
         </form>
         <div id="forgetPasswordText" >계정이 있으신가요? <div style="display:inline-block; color:dodgerblue" onclick="location.replace('./sign_in.html')">로그인</div></div>
     </div>

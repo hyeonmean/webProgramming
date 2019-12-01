@@ -119,7 +119,7 @@
 								 <input  type="radio" name="gender" value="nochoice" checked="checked"/>선택하지 않음</label><br>
 						</div>
 						<label><textarea type="text" name="letter" value="" ></textarea></label><br>
-						<input id="sbmt" type="submit"  value="프로필 수정"/>
+						<input id="sbmt" type="button"  value="프로필 수정" onclick="EditProfileCheck();" />
 					</form>
 				</div>
 
