@@ -6,7 +6,7 @@
 <%@ page import="java.sql.*" %>
 <%@page import="java.io.File"%>
 <%@page import="java.util.Enumeration"%>
-<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.*"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@page import="com.oreilly.servlet.MultipartRequest" %>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
@@ -30,7 +30,7 @@
 	
 	String tag="";
 	String savePath="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\postPictures";
-	String savePath2="C:\\\\Users\\\\HM\\\\Documents\\\\GitHub\\\\webProgramming\\\\WebContent\\\\pictures\\\\postPictures";
+	String savePath2="pictures/postPictures";
 	
 	int maxSize=1024*1024*10;
 	MultipartRequest multi =new MultipartRequest(request,savePath,maxSize,"utf-8",new DefaultFileRenamePolicy());
@@ -56,7 +56,7 @@
         
 	filename=multi.getFilesystemName("imgfile");
          
-	String fullPath=savePath2+"\\\\"+filename;
+	String fullPath=savePath2+"/"+filename;
 	pictureList.add(fullPath);
 	
 	check=dbc.writePostPage(comment, pictureList, tagList);

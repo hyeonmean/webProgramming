@@ -30,6 +30,7 @@
 		session.setAttribute("userID",user_id);
 		session.setAttribute("DBController", dbc2);
 		dbc.closeDataBase();
+		dbc2.closeDataBase();
 		next_page="NewsFeed.jsp";
 		response.sendRedirect(next_page);
 	}

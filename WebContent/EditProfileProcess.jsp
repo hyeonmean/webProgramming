@@ -26,7 +26,7 @@
 	String profilePath=user.getProfilePictureAddress();
 	
 	String savePath="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures";
-	String savePath2="C:\\\\Users\\\\HM\\\\Documents\\\\GitHub\\\\webProgramming\\\\WebContent\\\\pictures\\\\profilePictures";
+	String savePath2="pictures/profilePictures";
 	
 	int maxSize=1024*1024*10;
 	
@@ -36,7 +36,7 @@
     
 	filename=multi.getFilesystemName("img_file");
 	
-	String fullPath=savePath2+"\\\\"+filename;
+	String fullPath=savePath2+"/"+filename;
 	
 	String user_name=multi.getParameter("name");
 	
