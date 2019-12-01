@@ -15,7 +15,7 @@
 	dbc.openDataBase();
 	//User user=dbc.searchAboutUser((String)session.getAttribute("userID"));
 	//프로필 사진은 editprofile만든 후에 작성
-	String idx=getAttribute("postIdx");
+	String idx=(String)request.getAttribute("postIdx");
 	int postIdx=Integer.parseInt(idx);
 	
 	PostPage post=dbc.searchPostPageByPostIdx(postIdx);

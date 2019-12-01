@@ -24,6 +24,7 @@
 	
 	String idx=(String)request.getParameter("postIdx");
 	int postIdx=Integer.parseInt(idx);
+	//int postIdx=(int)request.getParameter("postIdx");
 	String letter =(String)request.getParameter("modifyContent");
 	String tag="";
 	
@@ -79,8 +80,6 @@
 	dbc.closeDataBase();
 	
 	//response.sendRedirect("NewsFeed.jsp");
-	String url = "FeedDetail.jsp?postIdx="+postIdx;
-	response.sendRedirect(url);
 	%>
 
 </body>

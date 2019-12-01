@@ -2,8 +2,8 @@
     pageEncoding="utf-8"%>
 <%@ page import="WebModule.*"%>
 <%@ include file="global.jsp"%>
-<%@page import="java.lang.*" %>
-<%@page import="java.util.*" %>
+
+
 
 <!DOCTYPE html>
 <html>
