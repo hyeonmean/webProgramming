@@ -17,6 +17,8 @@
 </head>
 <body>
 	<%
+		request.setCharacterEncoding("utf-8");
+	
 	//request.setCharacterEncoding("utf-8");
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();	
@@ -79,7 +81,8 @@
 	
 	dbc.closeDataBase();
 	
-	//response.sendRedirect("NewsFeed.jsp");
+	String url = "FeedDetail.jsp?postIdx="+postIdx;
+	response.sendRedirect(url);
 	%>
 
 </body>
