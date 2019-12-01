@@ -17,6 +17,14 @@
     <link rel="stylesheet" href="./css/FeedDetail.css" type="text/css" />
     <link rel="stylesheet" href="./css/search_result.css" type="text/css" />
     <script type="text/javascript" src="./setting.js"></script>
+    <style>
+        .modifysubmit-button{
+            background-color: rgb(248, 248, 248);
+            border: 1px solid lightgray;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+    </style>
 </head>
 <body>
     <jsp:include page="navbar.jsp"/>
@@ -33,46 +41,12 @@
     %>
     
     <jsp:include page="FeedDetailProcess.jsp"/>
-    <%
-        
-        ArrayList<String> userIdList = new ArrayList<String>();
-        
-        //댓글 인덱스 리스트
-        ArrayList<Integer> cmtIdxList = new ArrayList<Integer>();
-        
-        //댓글 리스트
-        ArrayList<String> cmtList = new ArrayList<String>();
-        
-        //댓글 단 날짜 리스트
-        ArrayList<String> dateList = new ArrayList<String>();
-        
-        //댓글 단 유저 사진 리스트
-        ArrayList<String> commentUserAddress = new ArrayList<String>();
-        
+    <%  
         String userId = (String)request.getAttribute("userId");
         String postComment = (String)request.getAttribute("letter");
         String pictureAddress = (String)request.getAttribute("pictureAddress");
         int numberOfFavorite = (int)request.getAttribute("numberOfFavorite");
         String writeUserPicAddress = (String)request.getAttribute("writeUserPicAddress");
-        
-        Calendar cal = (Calendar)request.getAttribute("dateToStr");
-        String dateToStr = cal.get(Calendar.YEAR)+"-"
-                + (cal.get(Calendar.MONTH)+1)+"-"
-                + cal.get(Calendar.DAY_OF_MONTH)+" "
-                + cal.get(Calendar.HOUR)+":"
-                + cal.get(Calendar.MINUTE)+":"
-                + cal.get(Calendar.SECOND);
-        
-        boolean empty = (boolean)request.getAttribute("empty");
-        
-        if(empty != true) {
-            userIdList = (ArrayList<String>)request.getAttribute("userIdList");
-            cmtIdxList = (ArrayList<Integer>)request.getAttribute("cmtIdxList");
-            cmtList = (ArrayList<String>)request.getAttribute("cmtList");
-            dateList = (ArrayList<String>)request.getAttribute("dateList");
-            commentUserAddress = (ArrayList<String>)request.getAttribute("userPicAddressList");
-        
-        }
     %>
 
     <%--<script type="text/javascript">
@@ -94,9 +68,7 @@
                <div class="setting"><i class="fas fa-ellipsis-h"></i>
                 <div class="setting-box">   
                         <div class="content">
-                            <script type="text/javascript">
-                                document.write('<button class="modify" type="button" onclick="location.href=\'./modifyInFeedDetail.jsp?postIdx=<%=request.getParameter("postIdx")%>\'"/>');
-                            </script>
+                            <button class="modify">
                                <i class="fas fa-pencil-alt"></i> 수정
                             </button>
                             <script type="text/javascript">
@@ -107,22 +79,19 @@
                             <div class="triangle_up2"><a href="#"></a></div>
                         </div>
                </div>
-
             </div>
-            <div class="profile"><%= postComment %></div>
             <div class="TextLayout">
-            <% for(int i = 0; i<userIdList.size(); i++) { %>
+
                 <div class="Content">
-                    <div id="ProfilePhoto"><img src='<%=commentUserAddress.get(i) %>'></div>
                     <div class="TextBox">
-                        <button class="profile"><%= userIdList.get(i) %></button>
-                        <div class="Text"><%= cmtList.get(i) %>
-                        </div>
-                        <div class="Date"><%=dateList.get(i)%></div>
+                        <form name="modify" action="" method="POST" >
+                            <textarea name="modifyContent"class="TextEdit"><%= postComment %></textarea>
+                            <div class="sbmt" style="text-align:center";>
+                            <input class="modifysubmit-button" type="button" onclick='location.href="./EditPostprocess.jsp?postIdx=<%=request.getParameter("postIdx")%>"' value="수정">
+                            </div>
+                        </form>
                     </div>
-                   
                 </div>
-                <% } %>
                 
             </div>
             <div class="BottomLayout">
@@ -136,34 +105,22 @@
                 <div class="like">
                     <%=numberOfFavorite%>명이 좋아합니다
                 </div>
-                <div class="Date"><%= dateToStr %></div>
             </div>
             <%
-            	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
-            	String realId = dbc.getUser().getId();
-            	
+                UserDBController dbc=(UserDBController)session.getAttribute("DBController");
+                String realId = dbc.getUser().getId();
+                
             %>
             <form action="InputCommentProcess.jsp?postIdx=<%=postIdx%>&userID=<%=realId%>" method="post">
-            	<div class="ReplyLayout">
-                	<div class="ReplyBox" >
-                    	<input class="reply" type="text" name="comment" placeholder="댓글 달기"/>
-                    	<button type="submit">게시</button>
-                	</div>
-            	</div>
+                <div class="ReplyLayout">
+                    <div class="ReplyBox" >
+                        <input class="reply" type="text" name="comment" placeholder="댓글 달기"/>
+                        <button type="submit">게시</button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
-    </div>
-    <div style="padding-top:60px;"></div>
-    <div style="text-align: center; font-size:1.6rem; font-weight: bold;">이런 스타일은 어떠세요?</div>
-    <div class="SameLayout" style="margin-top: 25px; margin-left:35px; margin-right:35px;">
-        <script type="text/javascript">
-            searchListPrint();
-        </script>
-    
-    
-    
-    
     </div>
 </body>
 </html>

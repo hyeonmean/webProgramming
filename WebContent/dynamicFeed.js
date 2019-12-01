@@ -20,7 +20,7 @@ function newsfeedPrint(isEmpty, post_array, userId_array, comment_array, picture
 	    	<i class="far fa-bookmark"></i>
 	    	<br>좋아요 ${theNumberOfGood}개
 		</div>
-		<div class="bottom_box" style="padding:13px;">
+		<div class="bottom_box">
 	     
 		<div class="content_box">
 			${contentVariable}

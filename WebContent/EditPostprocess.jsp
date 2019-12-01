@@ -22,9 +22,9 @@
 	dbc.openDataBase();	
 	boolean check=false;
 	
-	String idx=request.getAttribute("postIdx");
+	String idx=(String)request.getParameter("postIdx");
 	int postIdx=Integer.parseInt(idx);
-	String letter =request.getAttribute("letter");
+	String letter =(String)request.getAttribute("modifyContent");
 	String tag="";
 	
 	String []full_Letter=letter.split("#");
