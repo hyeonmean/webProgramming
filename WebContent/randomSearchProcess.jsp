@@ -14,11 +14,19 @@
 	<%
 		UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 		dbc.openDataBase();
-		String keyword=(String)request.getParameter("searchKeyword");
+		String keyword;
+
+		ArrayList<String> allHashTags = new ArrayList<String>();
+		Random random = new Random();
 
 		ArrayList<Integer> postIdxList=new ArrayList<Integer>();
 		ArrayList<String> pictureList=new ArrayList<String>();
 		Picture pic;
+
+		//여기에 모든 해시태그 받는 함수 작동
+		allHashTags = dbc.searchHashTagWithoutOverlap();
+
+		keyword = allHashTags.get(random.nextInt(allHashTags.size()));
 
 		postIdxList=dbc.getPostPageIdxByHashTag(keyword);
 

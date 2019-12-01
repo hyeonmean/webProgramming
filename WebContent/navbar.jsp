@@ -28,7 +28,7 @@
         <div class="menu">
             <div id="u-mask"></div>
             <a class="logo" href="./NewsFeed.jsp"><img class="onion" src="onion.png"/></a>
-            <form action="./search_result.jsp" method="get">
+            <form action="./SearchProcess.jsp" method="get">
                 <label class="searchBar" style="text-align: center">
                     <input type="text" name="searchKeyword" placeholder="검색"/>
                 </label>
@@ -36,7 +36,7 @@
             
             <div class="icon_list">
                 <div style="padding-right:15px;"></div>
-                <a href="./search_result.jsp">               <!-- 나침반 아이콘, 클릭하면 둘러보기로 넘어감 -->
+                <a href="./randomSearchProcess.jsp">               <!-- 나침반 아이콘, 클릭하면 둘러보기로 넘어감 -->
                     <i class="far fa-compass" ></i>
                 </a>
 
