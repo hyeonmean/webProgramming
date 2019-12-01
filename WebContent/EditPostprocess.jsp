@@ -17,7 +17,7 @@
 </head>
 <body>
 	<%
-	//request.setCharacterEncoding("utf-8");
+	request.setCharacterEncoding("utf-8");
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();	
 	boolean check=false;
@@ -76,9 +76,10 @@
 	
 	check=dbc.writePostPage(comment, pictureList, tagList);
 	*/
-	
+	String next_page="FeedDetail.jsp?postIdx="+idx;
 	dbc.closeDataBase();
 	
+	response.sendRedirect(next_page);
 	//response.sendRedirect("NewsFeed.jsp");
 	%>
 
