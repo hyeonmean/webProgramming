@@ -26,7 +26,7 @@
                     <div><button type="button" onclick="loginValidityCheck();">로그인</button></div>
             </form>
             <div><button onclick="location.href='sign_up.jsp'">회원가입</button></div>
-            <div id="forgetPasswordText" >비밀번호를 잊으셨나요?<div style="display:inline-block; color:dodgerblue" onclick="location.replace('./sign_up.html')">비밀번호 찾기</div></div>
+            
         </div>
 </body>
 </html>
