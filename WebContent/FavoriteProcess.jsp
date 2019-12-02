@@ -20,7 +20,7 @@
 	int postIdx=Integer.parseInt(idx);
 	boolean check=false;
 	
-	check=dbc.setBookMark(postIdx);
+	check=dbc.favorite(postIdx);
 	
 	dbc.closeDataBase();
 	%>

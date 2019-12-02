@@ -13,7 +13,7 @@
 <body>
 	
 	<%;
-	UnLoginedDBController dbc=new UnLoginedDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02");
+	UnLoginedDBController dbc=new UnLoginedDBController("websns-db-server.mysql.database.azure.com", "onion@websns-db-server", "dongjun9120!", "Onion");
 	dbc.openDataBase();
 	String next_page="NewsFeed.jsp";
 	
@@ -28,7 +28,7 @@
 	//db에서 유저정보 받기
 	if(user!=null){
 		dbc.closeDataBase();
-		UserDBController dbc2= new UserDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02", user);
+		UserDBController dbc2= new UserDBController("websns-db-server.mysql.database.azure.com", "onion@websns-db-server", "dongjun9120!", "Onion", user);
 		dbc2.openDataBase();
 		session.setAttribute("userID",user_id);
 		session.setAttribute("DBController", dbc2);
