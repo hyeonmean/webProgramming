@@ -24,8 +24,7 @@ function newsfeedPrint(isEmpty, post_array, userId_array, comment_array, picture
 	var contentVariable = `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, minima. 
 	Nulla voluptatem vel deleniti tempore. Praesentium, inventore? Aspernatur, eum? 
 	Quasi distinctio impedit natus, odit eligendi itaque quos tenetur culpa velit!`;
-	var replyVariable = `it is good!`;
-
+	var replyVariable = "Hi";
 	if (isEmpty == false)
 		return;
 

@@ -29,11 +29,11 @@
 	boolean check=false;
 	
 	String tag="";
-	String savePath="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\postPictures";
-	String savePath2="pictures/postPictures";
+	String savePath="/home/DongjunLim/web/onion/pictures/postPictures";
+	String savePath2="./pictures/postPictures";
 	
 	int maxSize=1024*1024*10;
-	String strRealPath = getServletContext().getRealPath("/pictures/postPictures");
+	String strRealPath = getServletContext().getRealPath("./pictures/postPictures");
 	MultipartRequest multi =new MultipartRequest(request,strRealPath,maxSize,"utf-8",new DefaultFileRenamePolicy());
 	
 	String comment=multi.getParameter("comment");

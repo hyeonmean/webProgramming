@@ -25,8 +25,8 @@
 	
 	String profilePath=user.getProfilePictureAddress();
 	
-	String savePath="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures";
-	String savePath2="pictures/profilePictures";
+	String savePath="./pictures/profilePictures";
+	String savePath2="./pictures/profilePictures";
 	
 	int maxSize=1024*1024*10;
 	

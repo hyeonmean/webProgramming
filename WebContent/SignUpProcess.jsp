@@ -39,10 +39,10 @@
 		boolean user_manage=false;
 		boolean lock=false;
 		
-		user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\"+user_id+".gif";
+		user_pictureAddress="/home/DongjunLim/web/onion/pictures/profilePictures/"+user_id+".gif";
 		Gender u_gender;
 		
-		String savePath="pictures/profilePictures/"+user_id+".gif";
+		String savePath="/home/DongjunLim/web/onion/pictures/profilePictures/"+user_id+".gif";
 		
 		FileInputStream fis=null;
 		FileOutputStream fos=null;
@@ -51,19 +51,19 @@
 		
 		if(user_gender.equals("male")){
 			u_gender=Gender.Male;
-			fis=new FileInputStream("C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\male.gif");
+			fis=new FileInputStream("/home/DongjunLim/web/onion/pictures/male.gif");
 			fos=new FileOutputStream(user_pictureAddress);
 			//user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\male.gif";
 		}
 		else if(user_gender.equals("female")){
 			u_gender=Gender.Female;
-			fis=new FileInputStream("C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\female.gif");
+			fis=new FileInputStream("/home/DongjunLim/web/onion/pictures/female.gif");
 			fos=new FileOutputStream(user_pictureAddress);
 			//user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\female.gif";
 		}
 		else{
 			u_gender=Gender.Unknown;
-			fis=new FileInputStream("C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\unknown.gif");
+			fis=new FileInputStream("/home/DongjunLim/web/onion/pictures/unknown.gif");
 			fos=new FileOutputStream(user_pictureAddress);
 			//user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\unknown.gif";
 		}
