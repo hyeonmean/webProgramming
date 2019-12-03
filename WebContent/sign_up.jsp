@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/background.css" type="text/css" />
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <title>onion</title>
 
 </head>
 <body>
@@ -18,7 +19,7 @@
         <img src="./red.jpeg">
     </div>
     <div id="signUpFrame">
-        <h1>Onion</h1>
+        <h1>onion</h1>
         <h2>register</h2>
         <form name="login" class="login" method="post" action="./SignUpProcess.jsp">
             <i class="fas fa-user"></i>     <label><input class="text_box" type= "text"  name="id" placeholder="아이디" ></label><br>

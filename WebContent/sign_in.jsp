@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>onion</title>
 	<!-- 로그인화면, 폼태그는 작성했으니 이후에 서버에서 데이터 받아온 후 사용자 데이터를 바탕으로 뉴스피드 페이지와 연결해야함 -->
     <link rel="stylesheet" href="./css/sign_in.css" type="text/css" />
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Slab&display=swap" rel="stylesheet">

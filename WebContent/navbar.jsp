@@ -12,6 +12,7 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript" src="./writeBox.js"></script>
 	<script type="text/javascript" src="./setting.js"></script>
+	<title>onion</title>
     
 </head>
 

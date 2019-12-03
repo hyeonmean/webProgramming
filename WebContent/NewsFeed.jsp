@@ -14,7 +14,7 @@
         <script type="text/javascript" src="./IconEvent.js"></script>
         <script type="text/javascript" src="./ScrollEvent.js"></script>
         <script type="text/javascript" src="./setting.js"></script>
-
+		<title>onion</title>
     </head>
     <body>
         <script type="text/javascript" src="./dynamicFeed.js"></script>

@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="./css/FeedDetail.css" type="text/css" />
         <link rel="stylesheet" href="./css/search_result.css" type="text/css" />
         <link rel="stylesheet" href="./css/setting.css" type="text/css" />
+        <title>onion</title>
     <style>
         .massage-box{
             

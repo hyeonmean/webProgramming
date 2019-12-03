@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/followbox.css" type="text/css" />
     <link rel="stylesheet" href="./css/mypage.css" type="text/css" />
     <link rel="stylesheet" href="./css/common.css" type="text/css" />
+    <title>onion</title>
 </head>
 <body>
     <script type="text/javascript" src="./dynamicFollowering.js"></script>

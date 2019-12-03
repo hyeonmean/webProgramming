@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="./css/mypage.css" type="text/css" />
 	<link rel="stylesheet" href="./css/common.css" type="text/css" />
 	<link rel="stylesheet" href="./css/EditProfile.css" type="text/css" />
+	<title>onion</title>
 	<!-- <script type="text/javascript">
         function showImg(){                        
             document.getElementById("ex_file").onchange = function () {
