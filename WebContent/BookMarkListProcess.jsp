@@ -32,7 +32,7 @@
 		postPicturePathList.add(pic.getPictureAddress());	//해당 사진인덱스의 경로 저장
 	}
 	
-	if(postPicturePathList.size()==1)
+	if(postPicturePathList.size()>0)
 		empty=false;
 	else
 		empty=true;
