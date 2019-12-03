@@ -12,25 +12,7 @@ function newsfeedPrint(isEmpty, post_array, userId_array, comment_array, picture
 		<div class="photo_box">
 	    	<a href="#" onclick="location.href='FeedDetail.jsp?postIdx=${postIdx}'"><img src="${locationOfPhoto}"></a>
 		</div>
-		<!-- 사진 바로 밑에 하트, 말풍선, 공유, 북마크 아이콘 -->
-		<div class="button_box">
-	    	<i class="far fa-heart"></i> 
-	    	<i class="far fa-comment-dots"></i>
-	    	<i class="far fa-share-square"></i>
-	    	<i class="far fa-bookmark"></i>
-	    	<br>좋아요 ${theNumberOfGood}개
-		</div>
-		<div class="bottom_box">
-	     
-		<div class="content_box">
-			${contentVariable}
-	    </div>
-
-	    <div class="reply_box">
-			${replyVariable}
-		</div>
-	</div>
-	</div>`;
+			</div>`;
 		
     	return feedTemplate;
 	}
