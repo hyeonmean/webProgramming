@@ -32,7 +32,7 @@ function Request(){
 
 
 $(function(){
-	$('.follow-status').click(function(){
+	$('follow-status').click(function(){
 		  var temp = "rgb(255, 69, 0)";
 		  var request = new Request();
 		  var location = "FollowProcess.jsp?postIdx=";
@@ -46,8 +46,9 @@ $(function(){
 	        $(this).css("color","white");
 	        $(this).css("font-weight","bol d");
 	        $(this).css("transition","300ms ease all");
-	        
-	        location.href=realUrl;
+	        alert(realUrl);
+	        window.location.href=realUrl;
+	        alert(realUrl);
 	      }
 	      else{
 		    $(this).css("background","rgb(250,250,250)");
@@ -58,6 +59,7 @@ $(function(){
 
 
 	        location.href=realUrl2;
+	        alert(realUrl2);
 	     }
 	  });
 });
