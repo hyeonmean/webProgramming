@@ -20,6 +20,7 @@
 
 </head>
 <body>
+	<div id="s-mask"></div>
     <jsp:include page="navbar.jsp"/>
     <div style="padding-top:60px;">
     <div class="back__arrow">
@@ -110,8 +111,16 @@
                </div>
 
             </div>
-            <div class="profile"><%= postComment %></div>
+
             <div class="TextLayout">
+                        
+            	<div class="Content" style="padding-top:10px;">
+            	<div id="ProfilePhoto"><img src='<%=writeUserPicAddress%>'></div>
+            	<div class="TextBox">
+                        <button class="profile"><%= userId %></button>
+                        <div class="Text"><%= postComment %></div>
+                    </div>
+            </div>
             <% for(int i = 0; i<userIdList.size(); i++) { %>
                 <div class="Content">
                     <div id="ProfilePhoto"><img src='<%=commentUserAddress.get(i) %>'></div>

@@ -60,6 +60,7 @@ h1{
     outline:none;
     background:none;
     
+    
 }
 .Login label input::placeholder{
     color:lightgray;
@@ -98,12 +99,14 @@ i{
     margin-top:7px;
     margin-bottom:15px;
     margin-left:-2px;
+    background:none;
 }
 
 select{
     width: 62px;
     border:0px;
     border-bottom:1px solid lightgray;
+    background:none;
 }
 .gender{
     display: inline-block;
@@ -113,13 +116,14 @@ select{
 #PhoneBox{
     margin-top:5px;
     display:inline-block;
-    
+    background:none;
 }
 #PhoneNum{
     width:76px;
     margin-bottom:23px;
     border:0px;
     border-bottom:1px solid lightgray;
+    background:none;
 }
 
 

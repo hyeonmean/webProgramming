@@ -32,7 +32,7 @@ function Request(){
 
 
 $(function(){
-	$('follow-status').click(function(){
+	$('.follow-status').click(function(){
 		  var temp = "rgb(255, 69, 0)";
 		  var request = new Request();
 		  var location = "FollowProcess.jsp?postIdx=";
