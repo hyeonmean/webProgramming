@@ -17,7 +17,8 @@
 	//프로필 사진은 editprofile만든 후에 작성
 	String user_id=(String)session.getAttribute("userID");
 	User user=dbc.searchAboutUser(user_id);
-	
+	Picture pic= new Picture();
+
 	String profilePath=null;
 	String user_name=null;
 	String user_letter=null;
@@ -26,7 +27,8 @@
 	ArrayList<String> followingList= new ArrayList<String>();
 	ArrayList<String> followerList=new ArrayList<String>();
 	ArrayList<Integer> postIdxList=new ArrayList<Integer>();
-	
+	ArrayList<String> postPictureLocationList = new ArrayList<String>();
+
 	postIdxList=dbc.getPostPageIdxByUserId(user_id);
 	
 	followingList=dbc.searchFollowingUser(user_id);
@@ -35,8 +37,21 @@
 	user_name=user.getName();
 	user_letter=user.getLetter();
 	
+	for(Integer i; postIdxList){
+		post=dbc.searchPostPageByPostIdx(i);
+		link=post.getPictureList();
+
+		pic=dbc.searchPictureDataByIdx(link.get(0));//에러
+		postPictureLocationList.add(pic.getPictureAddress());
+	}
+
+
+
+
 	request.setAttribute("profilePath", profilePath); //string
 	request.setAttribute("postNum", postIdxList.size());	//integer
+	request.setAttribute("posts", postIdxList);
+	request.setAttribute("postPictureLocationList", postPictureLocationList);
 	request.setAttribute("followerNum",followerList.size());	//integer
 	request.setAttribute("followingNUm",followingList.size());	//intefer
 	request.setAttribute("name", user_name);	//string
