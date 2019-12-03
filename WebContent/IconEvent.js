@@ -3,6 +3,7 @@ var likeState=0;
 var bookMarkState=0;
 var followState=0;
 
+/*
 $(function(){
 	$('.follow-status').click(function(){
 		  var temp = "rgb(255, 69, 0)";
@@ -22,7 +23,7 @@ $(function(){
 		    location.href="UnFollowProcess.jsp?<%=postIdx%>";
 	     }
 	  });
-});
+});*/
 
 $(function(){
   $('.fa-heart').click(function(){

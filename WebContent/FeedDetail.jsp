@@ -33,6 +33,30 @@
         request.setAttribute("postIdx", postIdx);
     %>
     
+	<script type="text/javascript">
+		$(function(){
+			$('.follow-status').click(function(){
+				  var temp = "rgb(255, 69, 0)";
+			      if($(this).css("color") == temp){
+			        $(this).css("background","orangered");
+			        $(this).css("color","white");
+			        $(this).css("font-weight","bol d");
+			        $(this).css("transition","300ms ease all");
+			        location.href="FollowProcess.jsp?<%=postIdx%>";
+			      }
+			      else{
+				    $(this).css("background","rgb(250,250,250)");
+				    $(this).css("border","1px solid orangered;");
+				    $(this).css("font-weight","300");
+				    $(this).css("color","orangered");
+				    $(this).css("transition","300ms ease all");
+				    location.href="UnFollowProcess.jsp?<%=postIdx%>";
+			     }
+			  });
+		});
+	</script>
+    
+    
     <jsp:include page="FeedDetailProcess.jsp"/>
     <%
         ArrayList<String> userIdList = new ArrayList<String>();
