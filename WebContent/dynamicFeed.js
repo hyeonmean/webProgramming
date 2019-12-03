@@ -102,21 +102,22 @@ function myProfilePrint(userid_var, profilePath_var, name_var, letter_var, postN
 	document.write(fillTemplate(userid_var, profilePath_var, name_var, letter_var, postNum_var, followerNum_var, followingNUm_var));
 }
 
-function myfeedPrint(){
+function myfeedPrint(post_array, picture_array){
 	//쿼리로 자기가 작성한 글의 사진만 뽑아와야 할것. 뽑아와서 경로를 리스트로 작성해 for문으로 print
 	//아래의 변수 초기화값은 나중에 삭제할 예정
-	var theNumberOfFeed = 10;
-	var locationList = new Array();
+	var theNumberOfSearchResult = post_array.length;	
+	document.write(`<div class="columns">`);
 	
-	for(var i = 0; i < theNumberOfFeed; i++){
-		//변수수정 코드 이부분에 삽입
-		document.write(`<figure><img src="./sample/${i + 1}.JPG"/></figure>`);
+	for(var i = 0; i < theNumberOfSearchResult; i++){
+		document.write(`<a href="FeedDetail.jsp?postIdx=${post_array[i]}"><figure><img src="${picture_array[i]}"/></figure></a>`);
 	}
 	
+	//document.write('</div>');
 	/* 나중에 db해결되면 이곳 함수를 사용
-	for(var i = 0; i < theNumberOfFeed; i++){
+	for(var i = 0; i < theNumberOfSearchResult; i++){
 		//변수수정 코드 이부분에 삽입
 		document.write(`<figure><img src="${locationList[i]}"/></figure>`);
 	}
 	*/
+	document.write(`</div>`);
 }

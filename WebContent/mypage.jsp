@@ -47,6 +47,10 @@
         int postNum_temp = (int)request.getAttribute("postNum");
         int followerNum_temp = (int)request.getAttribute("followerNum");
         int followingNUm_temp = (int)request.getAttribute("followingNUm");
+        ArrayList<Integer> posts_temp = new ArrayList<Integer>();
+        ArrayList<String> postPictureLocationList_temp = new ArrayList<String>();
+        postPictureLocationList_temp = (ArrayList<String>)request.getAttribute("postPictureLocationList");
+        posts_temp = (ArrayList<Integer>)request.getAttribute("posts");
     %>
 
 
@@ -64,11 +68,15 @@
 
     <!-- 이용자가 올린 피드 사진목록 -->
     <div class="photo_list">
-        <div class="columns">
-            <script type="text/javascript">
-                myfeedPrint();
-            </script>
-        </div>
+    <script type="text/javascript">
+        var posts_array = new Array();
+        var picture_array = new Array();
+        <%for(int i=0; i<posts_temp.size(); i++){%>
+            posts_array.push(<%=(Integer)posts_temp.get(i)%>);
+            picture_array.push('<%=(String)postPictureLocationList_temp.get(i)%>');
+        <%}%>
+        myfeedPrint(post_array, picture_array);
+    </script>
     </div>
 
     <%--팔로우 클릭 이벤트--%>
