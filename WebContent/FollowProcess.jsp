@@ -30,6 +30,7 @@
 	dbc.follow(user_following);
 	
 	dbc.closeDataBase();
+	response.sendRedirect("FeedDetail.jsp?postIdx="+postIdx);
 	%>
 
 </body>
