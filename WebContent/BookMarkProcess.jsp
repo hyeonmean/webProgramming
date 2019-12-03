@@ -24,6 +24,7 @@
 	check=dbc.setBookMark(postIdx);
 	
 	dbc.closeDataBase();
+	response.sendRedirect("FeedDetail.jsp?postIdx="+postIdx);
 	%>
 
 </body>
