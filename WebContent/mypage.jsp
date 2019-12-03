@@ -75,54 +75,8 @@
             posts_array.push(<%=(Integer)posts_temp.get(i)%>);
             picture_array.push('<%=(String)postPictureLocationList_temp.get(i)%>');
         <%}%>
-        myfeedPrint(post_array, picture_array);
+        myfeedPrint(posts_array, picture_array);
     </script>
     </div>
-
-    <%--팔로우 클릭 이벤트--%>
-    <div id="f-mask"></div>
-    <div class="f-followevent">
-        <script type="text/javascript" src="./IconEvent.js"></script>
-            <div class="main_box">
-                <div class="title">
-                    <div id="HeadText">
-                        팔로우</div><!-- <i class="fas fa-times"></i> --></div>
-                        
-                <div class="ContentBox">
-                    <% for(int i = 0; i<following_temp.size(); i++) { %>
-                        <div class="l-following">
-                            <div class="userPhoto">
-                                <img src= "<%=(String)followingProfileList_temp.get(i)%>"/>
-                            </div>
-                            <div class="username"><%=(String)following_temp.get(i)%></div>
-                            <div class="follow-status">팔로우</div>
-                        </div>
-                    <% } %>
-                </div>
-            </div>
-    </div>
-        
-    <div id="f2-mask"></div>
-    <div class="f2-followevent">
-            <div class="main_box">
-                    <div class="title">
-                        <div id="HeadText">
-                            팔로워</div><!-- <i class="fas fa-times"></i> --></div>
-                        
-                    <div class="ContentBox">
-                        <% for(int i = 0; i<following_temp.size(); i++) { %>
-                            <div class="l-following">
-                                <div class="userPhoto">
-                                    <img src= "<%=(String)followerProfileList_temp.get(i)%>"/>
-                                </div>
-                                <div class="username"><%=(String)follower_temp.get(i)%></div>
-                                <div class="follow-status">팔로우</div>
-                            </div>
-                        <% } %>             
-            </div>
-            </div>
-        </div>
-
-<%--팔로우 클릭 이벤트 끝--%>
 </body>
 </html>
