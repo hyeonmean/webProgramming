@@ -25,7 +25,7 @@
 	
 	String profilePath=user.getProfilePictureAddress();
 	
-	String savePath="/home/DongjunLim/web/onion/pictures/profilePictures";
+	String savePath="/home/DongjunLim/web/web/pictures/profilePictures";
 	String savePath2="./pictures/profilePictures";
 	
 	int maxSize=1024*1024*10;

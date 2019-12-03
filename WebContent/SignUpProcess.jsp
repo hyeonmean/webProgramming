@@ -39,10 +39,10 @@
 		boolean user_manage=false;
 		boolean lock=false;
 		
-		user_pictureAddress="/home/DongjunLim/web/onion/pictures/profilePictures/"+user_id+".gif";
+		user_pictureAddress="/home/DongjunLim/web/web/pictures/profilePictures/"+user_id+".gif";
 		Gender u_gender;
 		
-		String savePath="/home/DongjunLim/web/onion/pictures/profilePictures/"+user_id+".gif";
+		String savePath="/home/DongjunLim/web/web/pictures/profilePictures/"+user_id+".gif";
 		
 		FileInputStream fis=null;
 		FileOutputStream fos=null;

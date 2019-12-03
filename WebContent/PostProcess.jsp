@@ -29,7 +29,7 @@
 	boolean check=false;
 	
 	String tag="";
-	String savePath="/home/DongjunLim/web/onion/pictures/postPictures";
+	String savePath="/home/DongjunLim/web/web/pictures/postPictures";
 	String savePath2="./pictures/postPictures";
 	
 	int maxSize=1024*1024*10;
