@@ -78,6 +78,7 @@
 </head>
 <body>
 	<script type="text/javascript" src="./datePrint.js"></script>
+	<script type="text/javascript" src="./validityCheck.js"></script>
 	<jsp:include page="navbar.jsp"/>
 	<div style="padding-top: 50px;"></div>
 	
