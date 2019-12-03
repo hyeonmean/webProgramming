@@ -51,19 +51,19 @@
 		
 		if(user_gender.equals("male")){
 			u_gender=Gender.Male;
-			fis=new FileInputStream("test.png");
+			fis=new FileInputStream("C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\male.gif");
 			fos=new FileOutputStream(user_pictureAddress);
 			//user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\male.gif";
 		}
 		else if(user_gender.equals("female")){
 			u_gender=Gender.Female;
-			fis=new FileInputStream("test.jpg");
+			fis=new FileInputStream("C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\female.gif");
 			fos=new FileOutputStream(user_pictureAddress);
 			//user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\female.gif";
 		}
 		else{
 			u_gender=Gender.Unknown;
-			fis=new FileInputStream("./test.jpg");
+			fis=new FileInputStream("C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\unknown.gif");
 			fos=new FileOutputStream(user_pictureAddress);
 			//user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\unknown.gif";
 		}
