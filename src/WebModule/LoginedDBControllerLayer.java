@@ -614,6 +614,18 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		return resultTagList;
 	}
 	
+	public ArrayList<Integer> searchPostIdxByBookMark(String userId) throws Exception {
+		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.SEARCH_POST_IDX_BY_BOOKMARK);
+		pstmt.setString(1, userId);
+		ResultSet rSet = pstmt.executeQuery();
+		
+		ArrayList<Integer> postIdxList = new ArrayList<>();
+		
+		while(rSet.next())
+			postIdxList.add(rSet.getInt("postIdx"));
+		return postIdxList;
+	}
+	
 	//�������� ����� ���ѿ� ���� �ٸ�
 	public abstract boolean deletePostPage(int postIdx) throws Exception;
 	public abstract boolean deleteComment(int cmtIdx) throws Exception;
