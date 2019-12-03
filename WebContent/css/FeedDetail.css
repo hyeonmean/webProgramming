@@ -113,7 +113,7 @@ i{
     margin-right:20px;
 }
 .profile{
-    cursor:pointer;
+    cursor:default;
     background:white;
     display:inline-block;
     border:0px;
@@ -152,7 +152,7 @@ i{
 .NameBar .profile{
     
     position:absolute;
-    
+    background:none;
     
     top:50%;
     transform:translateY(-50%);
@@ -249,6 +249,7 @@ i{
     border:0px;
     color:black;
     outline:none;
+    background:none;
     
 }
 .ReplyBox button{
@@ -256,7 +257,7 @@ i{
     width:50px;
     color:dodgerblue;
     border:0px;
-    background:white;
+    background:none;
     outline:none;
     cursor:pointer;
     font-size:0.9rem;
