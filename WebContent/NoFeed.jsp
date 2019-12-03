@@ -51,7 +51,7 @@
     </div>
 
     <div style="padding-top:150px;"></div>
-    <div style="text-align: center; font-size:1.6rem; font-weight: bold;">이런 스타일은 어떠세요?</div>
+    <!-- <div style="text-align: center; font-size:1.6rem; font-weight: bold;">이런 스타일은 어떠세요?</div>-->
     <div class="SameLayout" style="margin-top: 25px; margin-left:35px; margin-right:35px;">
     	<script type="text/javascript">
 			searchListPrint();

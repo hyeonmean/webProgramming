@@ -77,7 +77,32 @@
         
         }
     %>
+	<scirpt type="text/javascript">
+	$(document).ready(function(){
+    //스크롤 발생 이벤트 처리
+    $(window).scroll(function(){
+        var scrollT = $(this).scrollTop(); //스크롤바의 상단위치
+        var scrollH = $(this).height(); //스크롤바를 갖는 div의 높이
+        var contentH = $('body').height(); //문서 전체 내용을 갖는 div의 높이
+        if(scrollT + scrollH  >= contentH) { // 스크롤바가 아래 쪽에 위치할 때
+        	
+        	var theNumberOfSearchResult = 30;
+        	var locationList = new Array();
+        	
+        	
+        	
+        	for(var j = 0; j < 21; j++){
+        		imgs += `<figure><img src="./sample/ootd/rename${j%21}.jpg"/></figure>`;
+        	}
+        	
+            //여기에 div태그 동적으로 생성해 imgs에 저장하면 됨
 
+            $('.columns').append(imgs);
+            
+        }
+    });
+});
+</scirpt>
     <%--<script type="text/javascript">
         alert(<%= request.getParameter("postIdx") %>);
     </script>--%>
@@ -175,9 +200,20 @@
     </div>
     <div style="padding-top:60px;"></div>
     <div style="text-align: center; font-size:1.6rem; font-weight: bold;">이런 스타일은 어떠세요?</div>
+    <div class="columns"></div>
+    
     <div class="SameLayout" style="margin-top: 25px; margin-left:35px; margin-right:35px;">
         <script type="text/javascript">
-            searchListPrint();
+        	searchListPrint();
+        	var imgs = "";
+    		for(var j = 0; j < 21; j++){
+    			imgs += `<a href="FeedDetail.jsp"><figure><img src="./sample/ootd/rename${j%21}.jpg"/></figure></a>`;
+    		}
+    	
+        //여기에 div태그 동적으로 생성해 imgs에 저장하면 됨
+
+	        $('.columns').append(imgs);
+            
         </script>
     
     

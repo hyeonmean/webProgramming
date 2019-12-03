@@ -17,6 +17,7 @@
 }
 .frame_box{
 	width: 320px;
+	height:525px;
     margin-left: 30px;
     border: 1px solid lightgray;
     border-radius: 20px;

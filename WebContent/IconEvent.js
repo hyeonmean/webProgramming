@@ -46,9 +46,9 @@ $(function(){
 	        $(this).css("color","white");
 	        $(this).css("font-weight","bol d");
 	        $(this).css("transition","300ms ease all");
-	        alert(realUrl);
+	        
 	        window.location.href=realUrl;
-	        alert(realUrl);
+	        
 	      }
 	      else{
 		    $(this).css("background","rgb(250,250,250)");
@@ -59,7 +59,7 @@ $(function(){
 
 
 	        location.href=realUrl2;
-	        alert(realUrl2);
+	        
 	     }
 	  });
 });
@@ -105,14 +105,14 @@ $(function(){
     if($(this).css("font-weight") == temp3){
         $(this).css("font-weight","900");
         $(this).css("transition","300ms ease all");
-        alert(realUrl);
+        
         location.href=realUrl;
         
       }
       else{
         $(this).css("font-weight","400");
         $(this).css("transition","350ms ease all");
-        alert(realUrl2);
+        
         location.href=realUrl2;
         
       }

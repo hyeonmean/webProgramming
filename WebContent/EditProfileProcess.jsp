@@ -82,7 +82,7 @@
 	
 	session.removeAttribute("DBController");
 	
-	UserDBController dbc2= new UserDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02", user);
+	UserDBController dbc2= new UserDBController("websns-db-server.mysql.database.azure.com", "onion@websns-db-server", "dongjun9120!", "Onion", user);
 	dbc2.openDataBase();
 	
 	session.setAttribute("DBController", dbc2);
