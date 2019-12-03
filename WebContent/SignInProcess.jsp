@@ -16,7 +16,7 @@
 	UnLoginedDBController dbc=new UnLoginedDBController("websns-db-server.mysql.database.azure.com", "onion@websns-db-server", "dongjun9120!", "Onion");
 	dbc.openDataBase();
 	String next_page="NewsFeed.jsp";
-	
+	String profilePath=null;
 	User user=null;
 
 	PostPage post=new PostPage();
@@ -30,8 +30,12 @@
 		dbc.closeDataBase();
 		UserDBController dbc2= new UserDBController("websns-db-server.mysql.database.azure.com", "onion@websns-db-server", "dongjun9120!", "Onion", user);
 		dbc2.openDataBase();
+		
+		profilePath=user.getProfilePictureAddress();
+
 		session.setAttribute("userID",user_id);
 		session.setAttribute("DBController", dbc2);
+		session.setAttribute("loginedUserProfilePath", profilePath);
 		session.setMaxInactiveInterval(60*60);
 
 		ArrayList<Integer> feedList=new ArrayList<Integer>();

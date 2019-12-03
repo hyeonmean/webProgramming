@@ -119,7 +119,7 @@
 
                 
                 
-                document.write(fillTemplate('<%=session.getAttribute("userID")%>', './new.jpg'));
+                document.write(fillTemplate('<%=session.getAttribute("userID")%>', '<%=session.getAttribute("loginedUserProfilePath")%>'));
 
 
             </script>
