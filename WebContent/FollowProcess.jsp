@@ -17,7 +17,7 @@
 	dbc.openDataBase();
 
 	boolean check=false;
-	
+	//int idx=(int)request.getAttribute("postIdx");
 	String idx=(String)request.getParameter("postIdx");
 	int postIdx=Integer.parseInt(idx);
 	
@@ -25,10 +25,9 @@
 	
 	post=dbc.searchPostPageByPostIdx(postIdx);
 	
-	
 	String user_following = post.getUserId();
 	
-	check=dbc.follow(user_following);
+	dbc.follow(user_following);
 	
 	dbc.closeDataBase();
 	%>

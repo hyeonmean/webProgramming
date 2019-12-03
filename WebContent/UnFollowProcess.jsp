@@ -12,16 +12,24 @@
 </head>
 <body>
 	
-	<%;
+	<%
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();
 
 	boolean check=false;
+	//int idx=(int)request.getAttribute("postIdx");
+	String idx=(String)request.getParameter("postIdx");
+	int postIdx=Integer.parseInt(idx);
 	
-	String user_following= request.getParameter("following");
+	PostPage post=new PostPage();
 	
+	post=dbc.searchPostPageByPostIdx(postIdx);
+	
+	
+	String user_following = post.getUserId();
 	check=dbc.unFollow(user_following);
 	
+	dbc.closeDataBase();
 	%>
 
 </body>

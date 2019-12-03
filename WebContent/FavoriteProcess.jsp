@@ -13,12 +13,18 @@
 	<%
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();
-	
-	//int postIdx=(int)request.getAttribute("postIdx");
-	
-	String idx = (String) request.getParameter("postIdx");
-	int postIdx=Integer.parseInt(idx);
+
 	boolean check=false;
+	System.out.println("ccc");
+	//int idx=(int)request.getAttribute("postIdx");
+	String idx=(String)request.getParameter("postIdx");
+	int postIdx=Integer.parseInt(idx);
+	
+	PostPage post=new PostPage();
+	
+	post=dbc.searchPostPageByPostIdx(postIdx);
+	
+	String user_following = post.getUserId();
 	
 	check=dbc.favorite(postIdx);
 	
