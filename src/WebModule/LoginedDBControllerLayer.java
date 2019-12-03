@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
+
 import java.util.Date;
 
 import java.sql.*;
@@ -35,11 +36,14 @@ public abstract class LoginedDBControllerLayer extends DBController {
 	//parameter -> �Խñ� �ε���
 	//���ƿ�
 	//@param -> int postIdx -> �Խñ� ��ȣ
+	
+
 	public boolean favorite(int postIdx) throws SQLException {
 		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.FAVORITE);
 		pstmt.setInt(1, postIdx);
 		pstmt.setString(2,  this.userInfo.getId());
 		pstmt.executeUpdate();
+
 		return true;
 	}
 	
@@ -600,6 +604,21 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		
 		
 	}
+	
+	public int getPicIdxFromPostPage( int postIdx) throws Exception {
+		PreparedStatement pstmt = 
+				this.conn.prepareStatement(QueryList.SearchPostPageByIndex.SEARCH_PICTURE_IDX_FROM_POST);
+		
+		pstmt.setInt(1, postIdx);
+		ResultSet rSet = pstmt.executeQuery();
+		
+		//if false -> return -1;
+		if(rSet.next() == false)
+			return -1;
+		else
+			return rSet.getInt("pictureIdx");
+	}
+	
 	
 	//SearchHashTag without overlap
 	public ArrayList<String> searchHashTagWithoutOverlap() throws Exception {
