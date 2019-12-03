@@ -21,7 +21,11 @@
 
 		ArrayList<Integer> postIdxList=new ArrayList<Integer>();
 		ArrayList<String> pictureList=new ArrayList<String>();
-		Picture pic;
+		ArrayList<Integer> link=new ArrayList<Integer>();
+		int picIdx;
+		
+		Picture pic=new Picture();
+		PostPage post=new PostPage();
 
 		//여기에 모든 해시태그 받는 함수 작동
 		allHashTags = dbc.searchHashTagWithoutOverlap();
@@ -30,9 +34,11 @@
 
 		postIdxList=dbc.getPostPageIdxByHashTag(keyword);
 
-		for(int i=0; i<postIdxList.size();i++){
-				pic=dbc.searchPictureDataByIdx(postIdxList.get(i));
-				pictureList.add(pic.getPictureAddress());
+		for(/*int i=0; i<postIdxList.size();i++*/Integer i:postIdxList){
+			post=dbc.searchPostPageByPostIdx(i);
+			link=post.getPictureList();
+			pic=dbc.searchPictureDataByIdx(link.get(0));
+			pictureList.add(pic.getPictureAddress());
 			}
 		//postPage=dbc.searchPostPageByPostIdx(postIdx);
 		dbc.closeDataBase();

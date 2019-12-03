@@ -18,7 +18,14 @@
 
 	boolean check=false;
 	
-	String user_following = request.getParameter("following");
+	PostPage post=new PostPage();
+	
+	String idx=request.getParameter("postIdx");
+	int postIdx=Integer.parseInt(idx);
+	 
+	post= dbc.searchPostPageByPostIdx(postIdx);
+	
+	String user_following=post.getUserId();
 	
 	check=dbc.follow(user_following);
 	

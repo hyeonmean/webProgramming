@@ -32,6 +32,7 @@
 		dbc2.openDataBase();
 		session.setAttribute("userID",user_id);
 		session.setAttribute("DBController", dbc2);
+		session.setMaxInactiveInterval(60*60);
 
 		ArrayList<Integer> feedList=new ArrayList<Integer>();
 		feedList=dbc2.getNewsFeed();//에러
