@@ -18,6 +18,7 @@
 	String user_id=(String)session.getAttribute("userID");
 	User user=dbc.searchAboutUser(user_id);
 	Picture pic= new Picture();
+	PostPage post=new PostPage();
 
 	String profilePath=null;
 	String user_name=null;
@@ -28,6 +29,7 @@
 	ArrayList<String> followerList=new ArrayList<String>();
 	ArrayList<Integer> postIdxList=new ArrayList<Integer>();
 	ArrayList<String> postPictureLocationList = new ArrayList<String>();
+	ArrayList<Integer> link = new ArrayList<Integer>();
 
 	postIdxList=dbc.getPostPageIdxByUserId(user_id);
 	
@@ -37,7 +39,7 @@
 	user_name=user.getName();
 	user_letter=user.getLetter();
 	
-	for(Integer i; postIdxList){
+	for(Integer i: postIdxList){
 		post=dbc.searchPostPageByPostIdx(i);
 		link=post.getPictureList();
 

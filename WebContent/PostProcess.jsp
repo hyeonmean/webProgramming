@@ -64,9 +64,14 @@
 	
 	//피드 디테일로 가기 위한 포스트 인덱스 얻는 코드
 	ArrayList<Integer> feedList=new ArrayList<Integer>();
-	feedList=dbc.getNewsFeed();//에러
+	String user_id=(String)session.getAttribute("userID");
+	//while(true){
+	feedList=dbc.getPostPageIdxByUserId(user_id);	//에러
+	//if(feedList.size()!=0)
+	//	break;
+	//}
 	
-	int idx=feedList.get(0);
+	int idx=feedList.get(feedList.size()-1);
 	
 	//int postIdx=dbc.g
 	
