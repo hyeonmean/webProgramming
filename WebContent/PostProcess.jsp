@@ -33,7 +33,7 @@
 	String savePath2="pictures/postPictures";
 	
 	int maxSize=1024*1024*10;
-	MultipartRequest multi =new MultipartRequest(request,savePath,maxSize,"utf-8",new DefaultFileRenamePolicy());
+	MultipartRequest multi =new MultipartRequest(request,savePath2,maxSize,"utf-8",new DefaultFileRenamePolicy());
 	
 	String comment=multi.getParameter("comment");
 	String file=request.getParameter("imgfile");
