@@ -11,7 +11,7 @@ $(function(){
 	        $(this).css("color","white");
 	        $(this).css("font-weight","bol d");
 	        $(this).css("transition","300ms ease all");
-	        
+	        location.href="FollowProcess.jsp?<%=postIdx%>";
 	      }
 	      else{
 		    $(this).css("background","rgb(250,250,250)");
@@ -19,6 +19,7 @@ $(function(){
 		    $(this).css("font-weight","300");
 		    $(this).css("color","orangered");
 		    $(this).css("transition","300ms ease all");
+		    location.href="UnFollowProcess.jsp?<%=postIdx%>";
 	     }
 	  });
 });
@@ -30,13 +31,14 @@ $(function(){
         $(this).css("color","rgb(255, 78, 78)");
         $(this).css("font-weight","900");
         $(this).css("transition","500ms ease all");
-        likeState=1;
+        location.href="favoriteProcess.jsp?<%=postIdx%>";
+
       }
       else{
         $(this).css("color","black");
         $(this).css("font-weight","100");
         $(this).css("transition","650ms ease all");
-        likeState=0;
+        location.href="UnfavoriteProcess.jsp?<%=postIdx%>";
       }
       
   });
@@ -50,12 +52,14 @@ $(function(){
       if($(this).css("font-weight") == temp3){
         $(this).css("font-weight","900");
         $(this).css("transition","300ms ease all");
-        bookMarkState=1;
+        location.href="BookMark.jsp?<%=postIdx%>";
+        
       }
       else{
         $(this).css("font-weight","400");
         $(this).css("transition","350ms ease all");
-        bookMarkState=0;
+        location.href="UnBookMark.jsp?<%=postIdx%>";
+        
       }
   });
 });

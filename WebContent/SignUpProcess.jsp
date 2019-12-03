@@ -17,7 +17,7 @@
 	
 	<%
 	request.setCharacterEncoding("utf-8");
-		UnLoginedDBController dbc=new UnLoginedDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02");
+		UnLoginedDBController dbc=new UnLoginedDBController("websns-db-server.mysql.database.azure.com", "onion@websns-db-server", "dongjun9120!", "Onion");
 		dbc.openDataBase();	
 	//전해받은 유저 정보
 		String user_id = request.getParameter("id");
@@ -51,19 +51,19 @@
 		
 		if(user_gender.equals("male")){
 			u_gender=Gender.Male;
-			fis=new FileInputStream("C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\male.gif");
+			fis=new FileInputStream("test.png");
 			fos=new FileOutputStream(user_pictureAddress);
 			//user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\male.gif";
 		}
 		else if(user_gender.equals("female")){
 			u_gender=Gender.Female;
-			fis=new FileInputStream("C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\female.gif");
+			fis=new FileInputStream("test.jpg");
 			fos=new FileOutputStream(user_pictureAddress);
 			//user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\female.gif";
 		}
 		else{
 			u_gender=Gender.Unknown;
-			fis=new FileInputStream("C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\unknown.gif");
+			fis=new FileInputStream("./test.jpg");
 			fos=new FileOutputStream(user_pictureAddress);
 			//user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\unknown.gif";
 		}

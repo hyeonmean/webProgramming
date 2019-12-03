@@ -127,11 +127,14 @@
             </div>
             <div class="BottomLayout">
                 <div class="icon">
-
+					
                     <i class="far fa-heart" ></i>
+                    
                     <i class="far fa-comment-dots"></i>
                     <i class="far fa-share-square"></i>
-                    <i class="far fa-bookmark"></i> 
+                    
+                    <i class="far fa-bookmark"></i>
+                    
                 </div>
                 <div class="like">
                     <%=numberOfFavorite%>명이 좋아합니다

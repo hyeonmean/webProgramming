@@ -144,5 +144,7 @@ public class QueryList {
 	
 	//search hash tag by one
 	public static String SEARCH_HASHTAG_WITHOUT_OVERLAP="select tagName from HashTag group by tagName";
+	
+	public static String SEARCH_POST_IDX_BY_BOOKMARK="select postIdx from BookMark where userId = ?";
 
 }

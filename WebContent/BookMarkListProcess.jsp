@@ -14,15 +14,16 @@
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();
 	
-	//int postIdx=(int)request.getAttribute("postIdx");
+	ArrayList<Integer> bookMarkList =new ArrayList<Integer>();
 	
-	String idx = (String) request.getParameter("postIdx");
+	String idx = request.getParameter("postIdx");
 	int postIdx=Integer.parseInt(idx);
 	boolean check=false;
 	
-	check=dbc.favorite(postIdx);
+	check=dbc.setBookMark(postIdx);
 	
 	dbc.closeDataBase();
 	%>
+
 </body>
 </html>
