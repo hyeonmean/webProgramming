@@ -14,13 +14,14 @@
         <script type="text/javascript" src="./IconEvent.js"></script>
         <script type="text/javascript" src="./ScrollEvent.js"></script>
         <script type="text/javascript" src="./setting.js"></script>
-
+		<title>onion</title>
     </head>
     <body>
         <script type="text/javascript" src="./dynamicFeed.js"></script>
         <jsp:include page="navbar.jsp"/>
         <div style="padding-top: 110px;"></div>
         <!-- 예제로 3개만 출력해봄 -->
+        
         <jsp:include page="NewsFeedProcess.jsp"/>
         <%
             boolean empty = (boolean)request.getAttribute("empty");
@@ -66,7 +67,7 @@
          newsfeedPrint(empty, post_array, userId_array, comment_array, picture_array, favoriteNum_array);
       </script>
         
-
+	
 
 
     </body>

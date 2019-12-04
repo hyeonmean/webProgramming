@@ -15,12 +15,16 @@
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();
 	
+	//int postIdx=(int)request.getAttribute("postIndex");
+	
+	String idx = (String)request.getParameter("postIdx");
+	int postIdx=Integer.parseInt(idx);
 	boolean check=false;
-	
-	String idx=request.getParameter("postIdx");
-	int postIdx = Integer.parseInt(idx);
-	
+		
 	check=dbc.unSetBookMark(postIdx);
+		
+	dbc.closeDataBase();
+	response.sendRedirect("FeedDetail.jsp?postIdx="+postIdx);
 	%>
 
 </body>

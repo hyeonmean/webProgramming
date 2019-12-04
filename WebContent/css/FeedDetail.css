@@ -113,8 +113,8 @@ i{
     margin-right:20px;
 }
 .profile{
-    cursor:pointer;
-    background:white;
+    cursor:default;
+    background:none;
     display:inline-block;
     border:0px;
     font-size:1rem;
@@ -123,8 +123,7 @@ i{
 }
 .setting{
     text-align: end;
-    
-    
+    display:none;
 }
 
 .fa-ellipsis-h{
@@ -141,10 +140,19 @@ i{
 .Text{
     display:inline;
 }
+.TextEdit {
+    margin: 0px;
+    width: 392px;
+    height: 292px;
+    border: 0;
+    background: rgb(250,250,250);
+    resize: none;
+}
+
 .NameBar .profile{
     
     position:absolute;
-    
+    background:none;
     
     top:50%;
     transform:translateY(-50%);
@@ -153,7 +161,7 @@ i{
     
     
 }
-.follow{
+.follow-status{
     position:absolute;
     display:inline-block;
     cursor:pointer;
@@ -162,19 +170,29 @@ i{
     outline:0px;
     background:0;
     border-radius: 5px;
-    color:lightseagreen;
+    color:orangered;
     
     top:50%;
     transform:translateY(-50%);
     margin-left:155px;
+    text-align: center;
+    max-width: 70px;
+    min-width: 70px;
+    height: 22px;
+    border-radius: 7px;
+    background: rgb(250,250,250);
+    border: 1px solid orangered;
+    color: orangered;
+    cursor: pointer;
+    text-decoration: none;
     
 }
 .TextLayout{
-    flex-grow:1;
-    margin-top:10px;
-    border-bottom:1px solid lightgray;
-    overflow:auto;
-    flex-shrink:0;
+    flex-grow: 1;
+    margin-top: 0px;
+    border-bottom: 1px solid lightgray;
+    overflow: auto;
+    flex-shrink: 0;
     
 }
 .Content{
@@ -199,7 +217,7 @@ i{
 .BottomLayout i{
     font-size:1.35rem;
     padding-right:7px;
-    color:rgb(29, 30, 46);
+    color:black;
     -webkit-text-stroke: 0.5px white;
     cursor:pointer; 
 }
@@ -231,6 +249,7 @@ i{
     border:0px;
     color:black;
     outline:none;
+    background:none;
     
 }
 .ReplyBox button{
@@ -238,7 +257,7 @@ i{
     width:50px;
     color:dodgerblue;
     border:0px;
-    background:white;
+    background:none;
     outline:none;
     cursor:pointer;
     font-size:0.9rem;

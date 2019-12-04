@@ -14,9 +14,11 @@
 	<%
 	UserDBController dbc=(UserDBController)session.getAttribute("DBController");
 	dbc.openDataBase();
+	
 	String idx=request.getParameter("postIdx");
 	int postIdx=Integer.parseInt(idx);
 	boolean check=false;
+	
 	check=dbc.deletePostPage(postIdx);
 	
 	dbc.closeDataBase();

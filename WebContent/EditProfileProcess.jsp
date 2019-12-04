@@ -25,8 +25,8 @@
 	
 	String profilePath=user.getProfilePictureAddress();
 	
-	String savePath="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures";
-	String savePath2="C:\\\\Users\\\\HM\\\\Documents\\\\GitHub\\\\webProgramming\\\\WebContent\\\\pictures\\\\profilePictures";
+	String savePath="/home/DongjunLim/web/web/pictures/profilePictures";
+	String savePath2="./pictures/profilePictures";
 	
 	int maxSize=1024*1024*10;
 	
@@ -36,7 +36,7 @@
     
 	filename=multi.getFilesystemName("img_file");
 	
-	String fullPath=savePath2+"\\\\"+filename;
+	String fullPath=savePath2+"/"+filename;
 	
 	String user_name=multi.getParameter("name");
 	
@@ -82,7 +82,7 @@
 	
 	session.removeAttribute("DBController");
 	
-	UserDBController dbc2= new UserDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02", user);
+	UserDBController dbc2= new UserDBController("websns-db-server.mysql.database.azure.com", "onion@websns-db-server", "dongjun9120!", "Onion", user);
 	dbc2.openDataBase();
 	
 	session.setAttribute("DBController", dbc2);

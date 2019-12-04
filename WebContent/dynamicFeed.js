@@ -12,25 +12,7 @@ function newsfeedPrint(isEmpty, post_array, userId_array, comment_array, picture
 		<div class="photo_box">
 	    	<a href="#" onclick="location.href='FeedDetail.jsp?postIdx=${postIdx}'"><img src="${locationOfPhoto}"></a>
 		</div>
-		<!-- 사진 바로 밑에 하트, 말풍선, 공유, 북마크 아이콘 -->
-		<div class="button_box">
-	    	<i class="far fa-heart"></i> 
-	    	<i class="far fa-comment-dots"></i>
-	    	<i class="far fa-share-square"></i>
-	    	<i class="far fa-bookmark"></i>
-	    	<br>좋아요 ${theNumberOfGood}개
-		</div>
-		<div class="bottom_box" style="padding:13px;">
-	     
-		<div class="content_box">
-			${contentVariable}
-	    </div>
-
-	    <div class="reply_box">
-			${replyVariable}
-		</div>
-	</div>
-	</div>`;
+			</div>`;
 		
     	return feedTemplate;
 	}
@@ -42,18 +24,17 @@ function newsfeedPrint(isEmpty, post_array, userId_array, comment_array, picture
 	var contentVariable = `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, minima. 
 	Nulla voluptatem vel deleniti tempore. Praesentium, inventore? Aspernatur, eum? 
 	Quasi distinctio impedit natus, odit eligendi itaque quos tenetur culpa velit!`;
-	var replyVariable = `it is good!`;
-
+	var replyVariable = "Hi";
 	if (isEmpty == false)
 		return;
 
 	for(var i =0; i < theNumberOfFeed; i++){
 		//변수수정 코드 이부분에 삽입
-		postIdx = post_array[theNumberOfFeed - 1 - i];
-		writerId = userId_array[theNumberOfFeed - 1 - i];
-		locationOfPhoto = picture_array[theNumberOfFeed - 1 - i];
-		contentVariable = comment_array[theNumberOfFeed - 1 - i]; //최신순
-		theNumberOfGood = favoriteNum_array[theNumberOfFeed - 1 - i];
+		postIdx = post_array[i];
+		writerId = userId_array[i];
+		locationOfPhoto = picture_array[i];
+		contentVariable = comment_array[i];
+		theNumberOfGood = favoriteNum_array[i];
 		document.write(fillTemplate(writerId, locationOfPhoto, theNumberOfGood, contentVariable, replyVariable));
 	}
 	
@@ -84,8 +65,9 @@ function myProfilePrint(userid_var, profilePath_var, name_var, letter_var, postN
 		                <input type="button" onclick="location.replace('./EditProfile.jsp')"  value="프로필 편집">
 		                
 		            </div>  
-		            <div class="count">게시물 ${theNumberOfPost}   팔로우 ${theNumberOfFollow}   팔로워 ${theNumberOfFollower}</div>     <!-- 게시물, 팔로우, 팔로워 숫자표시 화면, -->
-		            
+		            <div class="count">게시물 ${theNumberOfPost}   <a href="#" class="m-follow" style="display:inline-block;"><div class="follow-count">팔로우 ${theNumberOfFollow}</div></a>
+		            <a href="#" class="m-follower" style="display:inline-block;"><div class="follower-count">팔로워 ${theNumberOfFollower}</div></a></div>     <!-- 게시물, 팔로우, 팔로워 숫자표시 화면, -->
+
 		            <div class="content" style="margin-top:15px;">
 		                <div style="font-weight: 650; margin-bottom: 4px;">${userName}</div>     <!-- 사용자가 설정한 이름 -->
 		                <div>${selfIntroductionVariable}</div>                                    <!-- 사용자가 설정한 자기소개글 -->
@@ -101,21 +83,22 @@ function myProfilePrint(userid_var, profilePath_var, name_var, letter_var, postN
 	document.write(fillTemplate(userid_var, profilePath_var, name_var, letter_var, postNum_var, followerNum_var, followingNUm_var));
 }
 
-function myfeedPrint(){
+function myfeedPrint(post_array, picture_array){
 	//쿼리로 자기가 작성한 글의 사진만 뽑아와야 할것. 뽑아와서 경로를 리스트로 작성해 for문으로 print
 	//아래의 변수 초기화값은 나중에 삭제할 예정
-	var theNumberOfFeed = 10;
-	var locationList = new Array();
+	var theNumberOfSearchResult = post_array.length;	
+	document.write(`<div class="columns">`);
 	
-	for(var i = 0; i < theNumberOfFeed; i++){
-		//변수수정 코드 이부분에 삽입
-		document.write(`<figure><img src="./sample/${i + 1}.JPG"/></figure>`);
+	for(var i = 0; i < theNumberOfSearchResult; i++){
+		document.write(`<a href="FeedDetail.jsp?postIdx=${post_array[i]}"><figure><img src="${picture_array[i]}"/></figure></a>`);
 	}
 	
+	//document.write('</div>');
 	/* 나중에 db해결되면 이곳 함수를 사용
-	for(var i = 0; i < theNumberOfFeed; i++){
+	for(var i = 0; i < theNumberOfSearchResult; i++){
 		//변수수정 코드 이부분에 삽입
 		document.write(`<figure><img src="${locationList[i]}"/></figure>`);
 	}
 	*/
+	document.write(`</div>`);
 }

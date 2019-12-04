@@ -19,15 +19,15 @@
     <jsp:include page="navbar.jsp"/>
 	
 	<div style="margin-bottom:100px; border-bottom:1px solid lightgray;"></div>
-	<div class="line"></div>
+	<div class="line">저장한 게시물</div>
 
 
     <!-- 이용자가 올린 피드 사진목록 -->
     <div class="photo_list">
         <div class="columns">
-		    <script type="text/javascript">
-		    	myfeedPrint();
-		    </script>
+            <script type="text/javascript">
+            	searchListPrint(post_array, picture_array) //mypageProcess로부터 게시글 리스트랑 사진리스트 받아와야함
+            </script>
         </div>
     </div>
 </body>

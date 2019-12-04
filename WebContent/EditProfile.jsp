@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="./css/mypage.css" type="text/css" />
 	<link rel="stylesheet" href="./css/common.css" type="text/css" />
 	<link rel="stylesheet" href="./css/EditProfile.css" type="text/css" />
+	<title>onion</title>
 	<!-- <script type="text/javascript">
         function showImg(){                        
             document.getElementById("ex_file").onchange = function () {
@@ -78,12 +79,13 @@
 </head>
 <body>
 	<script type="text/javascript" src="./datePrint.js"></script>
+	<script type="text/javascript" src="./validityCheck.js"></script>
 	<jsp:include page="navbar.jsp"/>
 	<div style="padding-top: 50px;"></div>
 	
 	<div class="EditBox">
 		 <div class="BoxLayout" >
-			<img id="ProfilePhoto" src="new.jpg">
+			<img id="ProfilePhoto" src='<%=session.getAttribute("loginedUserProfilePath")%>'>
 			<form name="modify" method="POST" action="EditProfileProcess.jsp" enctype="multipart/form-data">
 			<label id="file-label" for="profile_file">프로필 사진 편집</label>
 
@@ -119,7 +121,7 @@
 								 <input  type="radio" name="gender" value="nochoice" checked="checked"/>선택하지 않음</label><br>
 						</div>
 						<label><textarea type="text" name="letter" value="" ></textarea></label><br>
-						<input id="sbmt" type="submit"  value="프로필 수정"/>
+						<input id="sbmt" type="button"  value="프로필 수정" onclick="EditProfileCheck();" />
 					</form>
 				</div>
 

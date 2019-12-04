@@ -14,7 +14,7 @@ $(document).ready(function(){
         	
         	
         	
-        	for(var j = 1; j < theNumberOfSearchResult; j++){
+        	for(var j = 0; j < 21; j++){
         		imgs += `<a href="FeedDetail.jsp"><figure><img src="./sample/ootd/rename${j%21}.jpg"/></figure></a>`;
         	}
         	

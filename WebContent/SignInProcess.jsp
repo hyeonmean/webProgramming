@@ -3,6 +3,8 @@
 <%@ page import="WebModule.*"%>
 <%@ include file="global.jsp"%>
 
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,27 +13,50 @@
 <body>
 	
 	<%;
-	UnLoginedDBController dbc=new UnLoginedDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02");
+	UnLoginedDBController dbc=new UnLoginedDBController("websns-db-server.mysql.database.azure.com", "onion@websns-db-server", "dongjun9120!", "Onion");
 	dbc.openDataBase();
 	String next_page="NewsFeed.jsp";
-	
+	String profilePath=null;
 	User user=null;
-	
+
+	PostPage post=new PostPage();
 	String user_id = request.getParameter("id");
 	String user_pw= request.getParameter("pswd");
-	
+	ArrayList<Integer> link = new ArrayList<Integer>();
 	user=dbc.signIn(user_id, user_pw);
 	
 	//db에서 유저정보 받기
 	if(user!=null){
 		dbc.closeDataBase();
-		UserDBController dbc2= new UserDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02", user);
+		UserDBController dbc2= new UserDBController("websns-db-server.mysql.database.azure.com", "onion@websns-db-server", "dongjun9120!", "Onion", user);
 		dbc2.openDataBase();
+		
+		profilePath=user.getProfilePictureAddress();
+
 		session.setAttribute("userID",user_id);
 		session.setAttribute("DBController", dbc2);
+		session.setAttribute("loginedUserProfilePath", profilePath);
+		session.setMaxInactiveInterval(60*60);
+
+		ArrayList<Integer> feedList=new ArrayList<Integer>();
+		feedList=dbc2.getNewsFeed();//에러
+
+		for(Integer i: feedList){
+			post=dbc2.searchPostPageByPostIdx(i);
+			link=post.getPictureList();
+		}
 		dbc.closeDataBase();
-		next_page="NewsFeed.jsp";
-		response.sendRedirect(next_page);
+		dbc2.closeDataBase();
+		ArrayList<Integer> postIdx = new ArrayList<Integer>();
+
+
+		if(link.isEmpty()!=true){
+			next_page="NewsFeed.jsp";
+			response.sendRedirect(next_page);
+		} else{
+			next_page="NoFeed.jsp";
+			response.sendRedirect(next_page);
+		}
 	}
 	else{
 		next_page="sign_in.jsp";

@@ -17,8 +17,11 @@
     <link rel="stylesheet" href="./css/FeedDetail.css" type="text/css" />
     <link rel="stylesheet" href="./css/search_result.css" type="text/css" />
     <script type="text/javascript" src="./setting.js"></script>
+    <title>onion</title>
+
 </head>
 <body>
+	<div id="s-mask"></div>
     <jsp:include page="navbar.jsp"/>
     <div style="padding-top:60px;">
     <div class="back__arrow">
@@ -32,9 +35,9 @@
         request.setAttribute("postIdx", postIdx);
     %>
     
+    
     <jsp:include page="FeedDetailProcess.jsp"/>
     <%
-        
         ArrayList<String> userIdList = new ArrayList<String>();
         
         //댓글 인덱스 리스트
@@ -74,7 +77,32 @@
         
         }
     %>
+	<scirpt type="text/javascript">
+	$(document).ready(function(){
+    //스크롤 발생 이벤트 처리
+    $(window).scroll(function(){
+        var scrollT = $(this).scrollTop(); //스크롤바의 상단위치
+        var scrollH = $(this).height(); //스크롤바를 갖는 div의 높이
+        var contentH = $('body').height(); //문서 전체 내용을 갖는 div의 높이
+        if(scrollT + scrollH  >= contentH) { // 스크롤바가 아래 쪽에 위치할 때
+        	
+        	var theNumberOfSearchResult = 30;
+        	var locationList = new Array();
+        	
+        	
+        	
+        	for(var j = 0; j < 21; j++){
+        		imgs += `<figure><img src="./sample/ootd/rename${j%21}.jpg"/></figure>`;
+        	}
+        	
+            //여기에 div태그 동적으로 생성해 imgs에 저장하면 됨
 
+            $('.columns').append(imgs);
+            
+        }
+    });
+});
+</scirpt>
     <%--<script type="text/javascript">
         alert(<%= request.getParameter("postIdx") %>);
     </script>--%>
@@ -90,13 +118,19 @@
                 <!-- 댓글올린 유저 그림 -->
                 <div id="ProfilePhoto"><img src='<%=writeUserPicAddress%>'></div>
                <button class="profile"><%= userId %></button>
+<<<<<<< HEAD
                <form action="FollowProcess.jsp?followingId=<%=userId%>&postIdx=<%=postIdx%>" method="get">
                	<button class="follow">팔로우</button>
                </form>
+=======
+               <button class="follow-status">팔로우</button>
+>>>>>>> 1a9de9d594233b152f1c0473084e80a336b54b5d
                <div class="setting"><i class="fas fa-ellipsis-h"></i>
                 <div class="setting-box">   
                         <div class="content">
-                            <button class="modify">
+                            <script type="text/javascript">
+                                document.write('<button class="modify" type="button" onclick="location.href=\'./modifyInFeedDetail.jsp?postIdx=<%=request.getParameter("postIdx")%>\'"/>');
+                            </script>
                                <i class="fas fa-pencil-alt"></i> 수정
                             </button>
                             <script type="text/javascript">
@@ -107,8 +141,18 @@
                             <div class="triangle_up2"><a href="#"></a></div>
                         </div>
                </div>
+
             </div>
+
             <div class="TextLayout">
+                        
+            	<div class="Content" style="padding-top:10px;">
+            	<div id="ProfilePhoto"><img src='<%=writeUserPicAddress%>'></div>
+            	<div class="TextBox">
+                        <button class="profile"><%= userId %></button>
+                        <div class="Text"><%= postComment %></div>
+                    </div>
+            </div>
             <% for(int i = 0; i<userIdList.size(); i++) { %>
                 <div class="Content">
                     <div id="ProfilePhoto"><img src='<%=commentUserAddress.get(i) %>'></div>
@@ -125,11 +169,14 @@
             </div>
             <div class="BottomLayout">
                 <div class="icon">
-
+					
                     <i class="far fa-heart" ></i>
+                    
                     <i class="far fa-comment-dots"></i>
                     <i class="far fa-share-square"></i>
-                    <i class="far fa-bookmark"></i> 
+                    
+                    <i class="far fa-bookmark"></i>
+                    
                 </div>
                 <div class="like">
                     <%=numberOfFavorite%>명이 좋아합니다
@@ -141,6 +188,11 @@
             	String realId = dbc.getUser().getId();
             	
             %>
+            <script type="text/javascript">
+                if('<%=userId%>' == '<%=realId%>' || '<%=realId%>' =='admin1234'){
+                    $('.setting').css("display","block");
+                }
+            </script>
             <form action="InputCommentProcess.jsp?postIdx=<%=postIdx%>&userID=<%=realId%>" method="post">
             	<div class="ReplyLayout">
                 	<div class="ReplyBox" >
@@ -154,9 +206,20 @@
     </div>
     <div style="padding-top:60px;"></div>
     <div style="text-align: center; font-size:1.6rem; font-weight: bold;">이런 스타일은 어떠세요?</div>
+    <div class="columns"></div>
+    
     <div class="SameLayout" style="margin-top: 25px; margin-left:35px; margin-right:35px;">
         <script type="text/javascript">
-            searchListPrint();
+        	searchListPrint();
+        	var imgs = "";
+    		for(var j = 0; j < 21; j++){
+    			imgs += `<a href="FeedDetail.jsp"><figure><img src="./sample/ootd/rename${j%21}.jpg"/></figure></a>`;
+    		}
+    	
+        //여기에 div태그 동적으로 생성해 imgs에 저장하면 됨
+
+	        $('.columns').append(imgs);
+            
         </script>
     
     

@@ -11,13 +11,13 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Insert title here</title>
+
 </head>
 <body>
 	
 	<%
 	request.setCharacterEncoding("utf-8");
-		UnLoginedDBController dbc=new UnLoginedDBController("bakhwaproject.tk", "backdev02", "bdev02", "backdev02");
+		UnLoginedDBController dbc=new UnLoginedDBController("websns-db-server.mysql.database.azure.com", "onion@websns-db-server", "dongjun9120!", "Onion");
 		dbc.openDataBase();	
 	//전해받은 유저 정보
 		String user_id = request.getParameter("id");
@@ -39,10 +39,10 @@
 		boolean user_manage=false;
 		boolean lock=false;
 		
-		user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\"+user_id+".gif";
+		user_pictureAddress="/home/DongjunLim/web/web/pictures/profilePictures/"+user_id+".gif";
 		Gender u_gender;
 		
-		String savePath="C:\\\\Users\\\\HM\\\\Documents\\\\GitHub\\\\webProgramming\\\\WebContent\\\\pictures\\\\profilePictures\\\\"+user_id+".gif";
+		String savePath="pictures/profilePictures/"+user_id+".gif";
 		
 		FileInputStream fis=null;
 		FileOutputStream fos=null;
@@ -51,19 +51,19 @@
 		
 		if(user_gender.equals("male")){
 			u_gender=Gender.Male;
-			fis=new FileInputStream("C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\defualt\\male.gif");
+			fis=new FileInputStream("/home/DongjunLim/web/web/pictures/male.gif");
 			fos=new FileOutputStream(user_pictureAddress);
 			//user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\male.gif";
 		}
 		else if(user_gender.equals("female")){
 			u_gender=Gender.Female;
-			fis=new FileInputStream("C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\defualt\\female.gif");
+			fis=new FileInputStream("/home/DongjunLim/web/web/pictures/female.gif");
 			fos=new FileOutputStream(user_pictureAddress);
 			//user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\female.gif";
 		}
 		else{
 			u_gender=Gender.Unknown;
-			fis=new FileInputStream("C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\defualt\\unknown.gif");
+			fis=new FileInputStream("/home/DongjunLim/web/onion/pictures/unknown.gif");
 			fos=new FileOutputStream(user_pictureAddress);
 			//user_pictureAddress="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\profilePictures\\unknown.gif";
 		}
@@ -82,12 +82,14 @@
 		//유저정보 db에 저장
 		check=dbc.signUp(user);
 		if(check==true){
-			next_page="sign_in.jsp";	
+			next_page="sign_in.jsp";
+			out.println("<script>alert('회원가입을 완료했습니다');</script>");
 		}
 		else{
 			next_page="sign_up.jsp";
 		}
 		dbc.closeDataBase();
+		
 		response.sendRedirect(next_page);
 	%>
 	

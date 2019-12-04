@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
+
 import java.util.Date;
 
 import java.sql.*;
@@ -35,11 +36,14 @@ public abstract class LoginedDBControllerLayer extends DBController {
 	//parameter -> �Խñ� �ε���
 	//���ƿ�
 	//@param -> int postIdx -> �Խñ� ��ȣ
+	
+
 	public boolean favorite(int postIdx) throws SQLException {
 		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.FAVORITE);
 		pstmt.setInt(1, postIdx);
 		pstmt.setString(2,  this.userInfo.getId());
 		pstmt.executeUpdate();
+
 		return true;
 	}
 	
@@ -523,6 +527,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		
 		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.GET_NEWSFEED);
 		pstmt.setString(1, userInfo.getId());
+		pstmt.setString(2, userInfo.getId());
 		
 		ResultSet rSet = pstmt.executeQuery();
 		
@@ -530,15 +535,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		
 		while(rSet.next())
 			postIdxList.add(rSet.getInt("postIdx"));
-		rSet.close();
-		pstmt.close();
-		
-		pstmt = this.conn.prepareStatement("select postIdx from PostPage where userId = ?");
-		pstmt.setString(1, userInfo.getId());
-		rSet = pstmt.executeQuery();
-		
-		while(rSet.next())
-			postIdxList.add(rSet.getInt("postIdx"));
+
 		rSet.close();
 		pstmt.close();
 		return postIdxList;
@@ -559,6 +556,92 @@ public abstract class LoginedDBControllerLayer extends DBController {
 		rSet.close();
 		pstmt.close();
 		
+		return postIdxList;
+	}
+	
+	//Only edit comment
+	public boolean editPostPageComment(String reComment, int postIdx) throws Exception {
+		
+		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.editPost.EDIT_POST_BASIC);
+		pstmt.setString(1, reComment);
+		pstmt.setInt(2, postIdx);
+		pstmt.executeUpdate();
+		
+		pstmt.close();
+		
+		return true;
+	}
+		
+	//update hash tag
+	public boolean updateHastTagInPostPage(ArrayList<String> tagList, int postIdx) throws Exception {
+		
+		
+		//set transaction
+		PreparedStatement pstmt = this.conn.prepareStatement("start transaction");
+		pstmt.executeUpdate();
+		
+		//delete data;
+		pstmt = this.conn.prepareStatement("delete from HashTag where postIdx = ?");
+		pstmt.setInt(1, postIdx);
+		pstmt.executeUpdate();
+		
+		pstmt.close();
+		
+		//insert Hash Tag
+		pstmt = this.conn.prepareStatement("insert into HashTag(tagName, postIdx) values(?, ?)");
+		for(int i = 0; i < tagList.size(); i++) {
+			pstmt.setString(1, tagList.get(i));
+			pstmt.setInt(2, postIdx);
+			
+			pstmt.executeUpdate();
+		}
+		pstmt.close();
+		
+		pstmt = this.conn.prepareStatement("commit");
+		pstmt.executeUpdate();
+		
+		return true;
+		
+		
+	}
+	
+	public int getPicIdxFromPostPage( int postIdx) throws Exception {
+		PreparedStatement pstmt = 
+				this.conn.prepareStatement(QueryList.SearchPostPageByIndex.SEARCH_PICTURE_IDX_FROM_POST);
+		
+		pstmt.setInt(1, postIdx);
+		ResultSet rSet = pstmt.executeQuery();
+		
+		//if false -> return -1;
+		if(rSet.next() == false)
+			return -1;
+		else
+			return rSet.getInt("pictureIdx");
+	}
+	
+	
+	//SearchHashTag without overlap
+	public ArrayList<String> searchHashTagWithoutOverlap() throws Exception {
+		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.SEARCH_HASHTAG_WITHOUT_OVERLAP);
+		ResultSet rSet = pstmt.executeQuery();
+		
+		ArrayList<String> resultTagList = new ArrayList<String>();
+		
+		while(rSet.next())
+			resultTagList.add(rSet.getString("tagName"));
+		
+		return resultTagList;
+	}
+	
+	public ArrayList<Integer> searchPostIdxByBookMark(String userId) throws Exception {
+		PreparedStatement pstmt = this.conn.prepareStatement(QueryList.SEARCH_POST_IDX_BY_BOOKMARK);
+		pstmt.setString(1, userId);
+		ResultSet rSet = pstmt.executeQuery();
+		
+		ArrayList<Integer> postIdxList = new ArrayList<>();
+		
+		while(rSet.next())
+			postIdxList.add(rSet.getInt("postIdx"));
 		return postIdxList;
 	}
 	

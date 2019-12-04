@@ -12,6 +12,7 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript" src="./writeBox.js"></script>
 	<script type="text/javascript" src="./setting.js"></script>
+	<title>onion</title>
     
 </head>
 
@@ -36,7 +37,7 @@
             
             <div class="icon_list">
                 <div style="padding-right:15px;"></div>
-                <a href="./search_result.jsp">               <!-- 나침반 아이콘, 클릭하면 둘러보기로 넘어감 -->
+                <a href="./randomSearchProcess.jsp">               <!-- 나침반 아이콘, 클릭하면 둘러보기로 넘어감 -->
                     <i class="far fa-compass" ></i>
                 </a>
 
@@ -119,7 +120,7 @@
 
                 
                 
-                document.write(fillTemplate('<%=session.getAttribute("userID")%>', './new.jpg'));
+                document.write(fillTemplate('<%=session.getAttribute("userID")%>', '<%=session.getAttribute("loginedUserProfilePath")%>'));
 
 
             </script>

@@ -17,12 +17,24 @@
 	dbc.openDataBase();
 
 	boolean check=false;
+	//int idx=(int)request.getAttribute("postIdx");
+	String idx=(String)request.getParameter("postIdx");
+	int postIdx=Integer.parseInt(idx);
 	
+<<<<<<< HEAD
 	String user_following = request.getParameter("followingID");
+=======
+	PostPage post=new PostPage();
+>>>>>>> 1a9de9d594233b152f1c0473084e80a336b54b5d
 	
-	check=dbc.follow(user_following);
+	post=dbc.searchPostPageByPostIdx(postIdx);
+	
+	String user_following = post.getUserId();
+	
+	dbc.follow(user_following);
 	
 	dbc.closeDataBase();
+	response.sendRedirect("FeedDetail.jsp?postIdx="+postIdx);
 	%>
 
 </body>

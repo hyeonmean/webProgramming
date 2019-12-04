@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>onion</title>
 		<!-- 프로그램 시작 페이지, 클라이언트 접속하면 뉴스피드 먼저 호출 -->
         <meta charset="utf-8"/>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>

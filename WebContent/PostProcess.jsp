@@ -6,7 +6,7 @@
 <%@ page import="java.sql.*" %>
 <%@page import="java.io.File"%>
 <%@page import="java.util.Enumeration"%>
-<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.*"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@page import="com.oreilly.servlet.MultipartRequest" %>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
@@ -29,11 +29,12 @@
 	boolean check=false;
 	
 	String tag="";
-	String savePath="C:\\Users\\HM\\Documents\\GitHub\\webProgramming\\WebContent\\pictures\\postPictures";
-	String savePath2="C:\\\\Users\\\\HM\\\\Documents\\\\GitHub\\\\webProgramming\\\\WebContent\\\\pictures\\\\postPictures";
+	String savePath="/home/DongjunLim/web/web/pictures/postPictures";
+	String savePath2="./pictures/postPictures";
 	
 	int maxSize=1024*1024*10;
-	MultipartRequest multi =new MultipartRequest(request,savePath,maxSize,"utf-8",new DefaultFileRenamePolicy());
+	String strRealPath = getServletContext().getRealPath("./pictures/postPictures");
+	MultipartRequest multi =new MultipartRequest(request,strRealPath,maxSize,"utf-8",new DefaultFileRenamePolicy());
 	
 	String comment=multi.getParameter("comment");
 	String file=request.getParameter("imgfile");
@@ -56,14 +57,32 @@
         
 	filename=multi.getFilesystemName("imgfile");
          
-	String fullPath=savePath2+"\\\\"+filename;
+	String fullPath=savePath2+"/"+filename;
 	pictureList.add(fullPath);
 	
 	check=dbc.writePostPage(comment, pictureList, tagList);
+
+	
+	//피드 디테일로 가기 위한 포스트 인덱스 얻는 코드
+	ArrayList<Integer> feedList=new ArrayList<Integer>();
+	String user_id=(String)session.getAttribute("userID");
+	//while(true){
+	feedList=dbc.getPostPageIdxByUserId(user_id);	//에러
+	//if(feedList.size()!=0)
+	//	break;
+	//}
+	
+	int idx=feedList.get(feedList.size()-1);
+	
+	//int postIdx=dbc.g
 	
 	dbc.closeDataBase();
 	
-	response.sendRedirect("NewsFeed.jsp");
+	//request.setAttribute("postIdx", idx);
+	
+	response.sendRedirect("FeedDetail.jsp?postIdx="+idx);
+	//response.sendRedirect("NewsFeed.jsp");
 	%>
+	<script type="text/javascript"> </script>
 </body>
 </html>
