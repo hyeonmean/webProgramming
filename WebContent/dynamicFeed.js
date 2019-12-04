@@ -1,12 +1,12 @@
-function newsfeedPrint(isEmpty, post_array, userId_array, comment_array, picture_array, favoriteNum_array){
+function newsfeedPrint(isEmpty, post_array, userId_array, comment_array, picture_array, favoriteNum_array, writerProfileLocation_array){
 	//출력해야하는 피드의 양은 백엔드에서?
 	//사용하는 변수 : writerName, locationOfPhoto, theNumberOfGood, contentVariable, replyVariable
 	//아래의 변수 초기화값은 나중에 삭제할 예정
-	fillTemplate = function(writerId, locationOfPhoto, theNumberOfGood, contentVariable, replyVariable){
+	fillTemplate = function(writerId, locationOfPhoto, theNumberOfGood, contentVariable, replyVariable, writerProfile){
 		var feedTemplate =`
 		<div class="frame_box">
 	    	<div class="user_name_box">
-	    		<img id="newsFeed_profile_photo" src="./sample/ootd/rename2.jpg">
+	    		<img id="newsFeed_profile_photo" src="${writerProfile}">
 	    		<div id="username">${writerId}</div>
 			</div>
 		<div class="photo_box">
@@ -20,6 +20,7 @@ function newsfeedPrint(isEmpty, post_array, userId_array, comment_array, picture
 	var theNumberOfFeed = userId_array.length;
 	var postIdx;
 	var writerId = 'dongjun', locationOfPhoto='./sample/4.JPG';
+	var writerProfile='null';
 	var theNumberOfGood = 10;
 	var contentVariable = `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, minima. 
 	Nulla voluptatem vel deleniti tempore. Praesentium, inventore? Aspernatur, eum? 
@@ -35,7 +36,8 @@ function newsfeedPrint(isEmpty, post_array, userId_array, comment_array, picture
 		locationOfPhoto = picture_array[i];
 		contentVariable = comment_array[i];
 		theNumberOfGood = favoriteNum_array[i];
-		document.write(fillTemplate(writerId, locationOfPhoto, theNumberOfGood, contentVariable, replyVariable));
+		writerProfile = writerProfileLocation_array[i];
+		document.write(fillTemplate(writerId, locationOfPhoto, theNumberOfGood, contentVariable, replyVariable, writerProfile));
 	}
 	
 	/* 

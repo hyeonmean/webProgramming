@@ -98,7 +98,7 @@ public abstract class LoginedDBControllerLayer extends DBController {
 	 * ������ ������
 	 * �ڱ� �ڽ��� userinfo�� �����͸� �״��
 	 * DB�� ������Ʈ �ϸ�
-	 * �̸� ���� �ϱ� ����
+	 * �̸� ���� �ϱ� ����	
 	 * set�޼ҵ�� �����͸� �����ؾ� �Ѵ�.
 	 */
 	public boolean editProfile() throws Exception {

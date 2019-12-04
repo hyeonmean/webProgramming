@@ -24,16 +24,26 @@
 	ArrayList<String> userId = new ArrayList<String>();
 	ArrayList<String> comment = new ArrayList<String>();
 	ArrayList<String> picture = new ArrayList<String>();
+	
 	ArrayList<Integer> link = new ArrayList<Integer>();
 	
 	ArrayList<String> favoriteList=new ArrayList<String>();
 	ArrayList<Integer> favoriteNum=new ArrayList<Integer>();
+	
+	ArrayList<String> userId_profileLocationList = new ArrayList<String>();
 	
 	Picture pic= new Picture();
 	//
 	for(Integer i: feedList){
 		post=dbc.searchPostPageByPostIdx(i);
 		//System.out.println(post.getComment());
+		String userID_temp = post.getUserId();
+		User writeUser = dbc.searchAboutUser(userID_temp);
+		String userProfileLocation_temp = writeUser.getProfilePictureAddress();		
+		
+		//System.out.println(post.getComment());
+		userId_profileLocationList.add(userProfileLocation_temp);
+		
 		
 		favoriteList=post.getFavoriteList();
 		favoriteNum.add(favoriteList.size());
@@ -55,6 +65,7 @@
 		request.setAttribute("comment",comment);
 		request.setAttribute("picture",picture);
 		request.setAttribute("favoriteNum", favoriteNum);
+		request.setAttribute("writerProfileLocation", userId_profileLocationList);
 	}else {
 		request.setAttribute("empty", false);
 	}

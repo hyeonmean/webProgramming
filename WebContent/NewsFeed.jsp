@@ -29,6 +29,7 @@
             ArrayList<String> userId_temp = new ArrayList<String>();
             ArrayList<String> comment_temp = new ArrayList<String>();
             ArrayList<String> picture_temp = new ArrayList<String>();
+            ArrayList<String> writerProfileLocation_temp = new ArrayList<String>();
             ArrayList<Integer> favoriteNum_temp = new ArrayList<Integer>();
             if(empty == true){
                 postIdx_temp = (ArrayList<Integer>)request.getAttribute("post");
@@ -36,6 +37,7 @@
                 comment_temp = (ArrayList<String>)request.getAttribute("comment");
                 picture_temp = (ArrayList<String>)request.getAttribute("picture");
                 favoriteNum_temp = (ArrayList<Integer>)request.getAttribute("favoriteNum");
+                writerProfileLocation_temp = (ArrayList<String>)request.getAttribute("writerProfileLocation");
             }
 
             //나중에 request로 empty 잘 받았는지 체크하기 자바스크립트에 alert 코드 있으
@@ -56,15 +58,18 @@
             var comment_array = new Array();
             var picture_array = new Array();
             var favoriteNum_array = new Array();
+            var writerProfileLocation_array = new Array();
+            
             <%for(int i=0; i<userId_temp.size(); i++){%>
                 post_array.push(<%=(Integer)postIdx_temp.get(i)%>);
                 userId_array.push('<%=(String)userId_temp.get(i)%>');
                 comment_array.push('<%=(String)comment_temp.get(i)%>');
                 picture_array.push('<%=(String)picture_temp.get(i)%>');
                 favoriteNum_array.push(<%=(Integer)favoriteNum_temp.get(i)%>);
+                writerProfileLocation_array.push('<%=(String)writerProfileLocation_temp.get(i)%>');
             <%}%>
             console.log(typeof empty);
-         newsfeedPrint(empty, post_array, userId_array, comment_array, picture_array, favoriteNum_array);
+         newsfeedPrint(empty, post_array, userId_array, comment_array, picture_array, favoriteNum_array,writerProfileLocation_array);
       </script>
         
 	

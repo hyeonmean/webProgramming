@@ -125,7 +125,7 @@ public class QueryList {
 	//�����ǵ� -> �Խñ� �ε�����
 	public static String GET_NEWSFEED = "select postIdx from PostPage where userId in "
 			+ "( select followingID from Follow where followerID = ? or userId = ?) "
-			+ "order by writeDate desc limit 10";
+			+ "order by writeDate desc limit 30";
 	
 	//���� ����
 	public static String DELETE_USER = "call delete_user(?, @result)";

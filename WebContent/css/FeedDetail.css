@@ -217,7 +217,7 @@ i{
 .BottomLayout i{
     font-size:1.35rem;
     padding-right:7px;
-    color:black;
+    color:black	;
     -webkit-text-stroke: 0.5px white;
     cursor:pointer; 
 }
