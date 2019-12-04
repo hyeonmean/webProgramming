@@ -54,7 +54,6 @@
         posts_temp = (ArrayList<Integer>)request.getAttribute("posts");
     %>
 
-
     <!-- 프로필 구성화면 -->
     <script type="text/javascript">
         var userid_var = '<%=(String)session.getAttribute("userID")%>';

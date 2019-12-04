@@ -21,7 +21,11 @@
 	String idx=(String)request.getParameter("postIdx");
 	int postIdx=Integer.parseInt(idx);
 	
+<<<<<<< HEAD
+	String user_following = request.getParameter("followingID");
+=======
 	PostPage post=new PostPage();
+>>>>>>> 1a9de9d594233b152f1c0473084e80a336b54b5d
 	
 	post=dbc.searchPostPageByPostIdx(postIdx);
 	
